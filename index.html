@@ -4,425 +4,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iglesia San Francisco - Comunidad de Fe</title>
-    <meta name="description" content="Iglesia San Francisco - Una comunidad de fe, esperanza y amor">
-    <meta name="author" content="Iglesia San Francisco">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome for icons -->
+    <title>Santuario Diocesano del Santísimo Sacramento y Perpetuo Socorro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Cinzel&family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <!-- Logo -->
-                <div class="logo">
-                    <i class="fas fa-cross"></i>
-                    <div class="logo-text">
-                        <h1>Iglesia San Francisco</h1>
-                        <p>Comunidad de Fe</p>
-                    </div>
-                </div>
-
-                <!-- Desktop Navigation -->
-                <nav class="nav-desktop">
-                    <a href="#inicio">Inicio</a>
-                    <a href="#nosotros">Nosotros</a>
-                    <a href="#servicios">Servicios</a>
-                    <a href="#noticias">Noticias</a>
-                    <a href="#contacto">Contacto</a>
-                </nav>
-
-                <!-- Mobile menu button -->
-                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                    <i class="fas fa-bars" id="menu-icon"></i>
-                </button>
-            </div>
-
-            <!-- Mobile Navigation -->
-            <div class="nav-mobile" id="mobile-nav">
-                <a href="#inicio" onclick="closeMobileMenu()">Inicio</a>
-                <a href="#nosotros" onclick="closeMobileMenu()">Nosotros</a>
-                <a href="#servicios" onclick="closeMobileMenu()">Servicios</a>
-                <a href="#noticias" onclick="closeMobileMenu()">Noticias</a>
-                <a href="#contacto" onclick="closeMobileMenu()">Contacto</a>
-            </div>
+<header class="header">
+    <div class="container">
+        <div class="logo">
+            <h1>Santuario Diocesano del Santísimo Sacramento y Perpetuo Socorro</h1>
         </div>
-    </header>
+        <nav class="nav-desktop">
+            <a href="#inicio">Inicio</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#noticias">Noticias</a>
+            <a href="#multimedia">Multimedia</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars" id="menu-icon"></i>
+        </button>
+    </div>
+    <div class="nav-mobile" id="mobile-nav">
+        <a href="#inicio" onclick="closeMobileMenu()">Inicio</a>
+        <a href="#nosotros" onclick="closeMobileMenu()">Nosotros</a>
+        <a href="#noticias" onclick="closeMobileMenu()">Noticias</a>
+        <a href="#multimedia" onclick="closeMobileMenu()">Multimedia</a>
+        <a href="#contacto" onclick="closeMobileMenu()">Contacto</a>
+    </div>
+</header>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="hero">
-        <div class="hero-background"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="hero-title">
-                Bienvenidos a Nuestra
-                <span class="hero-highlight">Comunidad de Fe</span>
-            </h1>
-            <p class="hero-subtitle">
-                "Porque donde están dos o tres congregados en mi nombre, allí estoy yo en medio de ellos"
-            </p>
-            <p class="hero-verse">- Mateo 18:20</p>
+<section id="inicio" class="hero fade-in">
+    <!-- Imagen de portada - Reemplazar 'portada.jpg' con tu imagen -->
+    <img src="portada.jpg" alt="Santuario" class="img-portada">
+    <div class="hero-content">
+        <h1>Bienvenidos al Santuario Diocesano</h1>
+        <p>"Donde dos o más se reúnen en Mi nombre, allí estoy Yo en medio de ellos."</p>
+        <a class="btn" href="#contacto">Contáctanos</a>
+    </div>
+</section>
 
-            <!-- Service Times Card -->
-            <div class="service-card">
-                <h3>Próximos Servicios</h3>
-                <div class="service-info">
-                    <div class="service-item">
-                        <i class="fas fa-calendar"></i>
-                        <span>Domingo</span>
-                    </div>
-                    <div class="service-item">
-                        <i class="fas fa-clock"></i>
-                        <span>9:00 AM & 11:00 AM</span>
-                    </div>
-                    <div class="service-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Av. Principal 123</span>
-                    </div>
-                </div>
-            </div>
+<section id="nosotros" class="section fade-in">
+    <h2>Nuestra Historia</h2>
+    <p>El Santuario Diocesano ha sido un faro de fe y esperanza desde su fundación, guiando a cientos de fieles en el camino espiritual.</p>
+</section>
+
+<section id="noticias" class="section fade-in">
+    <h2>Noticias y Anuncios</h2>
+    <div class="noticias-grid">
+        <!-- Noticia 1 -->
+        <div class="card">
+            <img src="noticia1.jpg" class="noticia-img">
+            <h3>Semana Santa</h3>
+            <p>Actividades especiales durante toda la Semana Santa.</p>
         </div>
-    </section>
-
-    <!-- Nosotros Section -->
-    <section id="nosotros" class="nosotros">
-        <div class="container">
-            <div class="nosotros-grid">
-                <!-- Content -->
-                <div class="nosotros-content">
-                    <h2>Nuestra <span class="highlight">Misión</span></h2>
-                    <p class="mission-text">
-                        Somos una comunidad de fe comprometida con el crecimiento espiritual, 
-                        la adoración genuina y el servicio a nuestro prójimo. Nuestro objetivo 
-                        es ser luz en el mundo y reflejar el amor de Cristo en todo lo que hacemos.
-                    </p>
-                    
-                    <div class="history-section">
-                        <h3>Nuestra Historia</h3>
-                        <p>
-                            Fundada en 1985, la Iglesia San Francisco ha sido un pilar en nuestra 
-                            comunidad durante más de 35 años. Comenzamos como un pequeño grupo de 
-                            creyentes y hemos crecido hasta convertirnos en una familia de fe diversa 
-                            y acogedora.
-                        </p>
-                    </div>
-
-                    <div class="vision-section">
-                        <h3>Nuestra Visión</h3>
-                        <p>
-                            Ser una iglesia que transforma vidas a través del poder del evangelio, 
-                            formando discípulos comprometidos que impacten positivamente en sus 
-                            familias, comunidades y el mundo.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Values -->
-                <div class="values-section">
-                    <h3>Nuestros Valores</h3>
-                    <div class="values-grid">
-                        <div class="value-card">
-                            <div class="value-icon">
-                                <i class="fas fa-heart"></i>
-                            </div>
-                            <h4>Amor</h4>
-                            <p>Amamos a Dios sobre todas las cosas y a nuestro prójimo como a nosotros mismos.</p>
-                        </div>
-                        <div class="value-card">
-                            <div class="value-icon">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <h4>Comunidad</h4>
-                            <p>Creemos en la importancia de vivir en comunidad y apoyarnos mutuamente.</p>
-                        </div>
-                        <div class="value-card">
-                            <div class="value-icon">
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <h4>Esperanza</h4>
-                            <p>Compartimos la esperanza del evangelio y la vida eterna en Cristo.</p>
-                        </div>
-                        <div class="value-card">
-                            <div class="value-icon">
-                                <i class="fas fa-church"></i>
-                            </div>
-                            <h4>Servicio</h4>
-                            <p>Servimos a Dios y a nuestra comunidad con humildad y dedicación.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- Noticia 2 -->
+        <div class="card">
+            <img src="noticia2.jpg" class="noticia-img">
+            <h3>Nuevo Grupo de Estudios</h3>
+            <p>Estudios bíblicos todos los miércoles por la tarde.</p>
         </div>
-    </section>
-
-    <!-- Servicios Section -->
-    <section id="servicios" class="servicios">
-        <div class="container">
-            <div class="section-header">
-                <h2>Nuestros Servicios</h2>
-                <p>Descubre las diferentes formas de participar en nuestra comunidad de fe</p>
-            </div>
-
-            <div class="servicios-grid">
-                <div class="servicio-card">
-                    <div class="servicio-header">
-                        <div class="servicio-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <h3>Servicios Dominicales</h3>
-                    </div>
-                    <p>Únete a nosotros cada domingo para adoración, enseñanza bíblica y comunión.</p>
-                    <div class="horarios">
-                        <h4>Horarios:</h4>
-                        <div class="horario-item">
-                            <div class="bullet"></div>
-                            <span>9:00 AM - Servicio Matutino</span>
-                        </div>
-                        <div class="horario-item">
-                            <div class="bullet"></div>
-                            <span>11:00 AM - Servicio Principal</span>
-                        </div>
-                        <div class="horario-item">
-                            <div class="bullet"></div>
-                            <span>6:00 PM - Servicio Vespertino</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="servicio-card">
-                    <div class="servicio-header">
-                        <div class="servicio-icon">
-                            <i class="fas fa-book-open"></i>
-                        </div>
-                        <h3>Estudio Bíblico</h3>
-                    </div>
-                    <p>Profundiza en las Escrituras con nuestros grupos de estudio semanales.</p>
-                    <div class="horarios">
-                        <h4>Horarios:</h4>
-                        <div class="horario-item">
-                            <div class="bullet"></div>
-                            <span>Miércoles 7:00 PM</span>
-                        </div>
-                        <div class="horario-item">
-                            <div class="bullet"></div>
-                            <span>Sábados 3:00 PM</span>
-                        </div>
-                        <div class="horario-item">
-                            <div class="bullet"></div>
-                            <span>Domingos 8:00 AM</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="servicio-card">
-                    <div class="servicio-header">
-                        <div class="servicio-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h3>Grupos de Comunión</h3>
-                    </div>
-                    <p>Conecta con otros creyentes en nuestros grupos pequeños por edades e intereses.</p>
-                    <div class="horarios">
-                        <h4>Horarios:</h4>
-                        <div class="horario-item">
-                            <div class="bullet"></div>
-                            <span>Jóvenes - Viernes 7:00 PM</span>
-                        </div>
-                        <div class="horario-item">
-                            <div class="bullet"></div>
-                            <span>Familias - Sábados 5:00 PM</span>
-                        </div>
-                        <div class="horario-item">
-                            <div class="bullet"></div>
-                            <span>Adultos - Martes 7:00 PM</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="servicio-card">
-                    <div class="servicio-header">
-                        <div class="servicio-icon">
-                            <i class="fas fa-praying-hands"></i>
-                        </div>
-                        <h3>Ministerio de Oración</h3>
-                    </div>
-                    <p>Un espacio dedicado para la oración personal y comunitaria.</p>
-                    <div class="horarios">
-                        <h4>Horarios:</h4>
-                        <div class="horario-item">
-                            <div class="bullet"></div>
-                            <span>Lunes a Viernes 6:00 AM</span>
-                        </div>
-                        <div class="horario-item">
-                            <div class="bullet"></div>
-                            <span>Vigilia - Primer viernes del mes</span>
-                        </div>
-                        <div class="horario-item">
-                            <div class="bullet"></div>
-                            <span>Cadena de oración 24/7</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- Noticia 3 -->
+        <div class="card">
+            <img src="noticia3.jpg" class="noticia-img">
+            <h3>Campaña Solidaria</h3>
+            <p>Ayuda a familias en situación vulnerable de nuestra comunidad.</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Noticias Section -->
-    <section id="noticias" class="noticias">
-        <div class="container">
-            <div class="section-header">
-                <h2>Noticias y Anuncios</h2>
-                <p>Mantente informado sobre los eventos y actividades de nuestra comunidad</p>
-            </div>
-
-            <div class="noticias-grid">
-                <div class="noticia-card">
-                    <img src="https://images.unsplash.com/photo-1551038247-3d9af20df552?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Semana Santa">
-                    <div class="noticia-content">
-                        <div class="noticia-fecha">
-                            <i class="fas fa-calendar"></i>
-                            <span>15 de Marzo, 2024</span>
-                        </div>
-                        <h3>Semana Santa 2024 - Programación Especial</h3>
-                        <p>Acompáñanos en los servicios especiales de Semana Santa. Reflexión, oración y comunión en estos días sagrados.</p>
-                        <button class="leer-mas">
-                            Leer más
-                            <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="noticia-card">
-                    <img src="https://images.unsplash.com/photo-1494891848038-7bd202a2afeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Estudio Bíblico">
-                    <div class="noticia-content">
-                        <div class="noticia-fecha">
-                            <i class="fas fa-calendar"></i>
-                            <span>10 de Marzo, 2024</span>
-                        </div>
-                        <h3>Nuevo Grupo de Estudio Bíblico</h3>
-                        <p>Se inicia un nuevo grupo de estudio bíblico los miércoles por la noche. Todos son bienvenidos a participar.</p>
-                        <button class="leer-mas">
-                            Leer más
-                            <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="noticia-card">
-                    <img src="https://images.unsplash.com/photo-1466442929976-97f336a657be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Campaña Solidaria">
-                    <div class="noticia-content">
-                        <div class="noticia-fecha">
-                            <i class="fas fa-calendar"></i>
-                            <span>5 de Marzo, 2024</span>
-                        </div>
-                        <h3>Campaña de Ayuda Solidaria</h3>
-                        <p>Únete a nuestra campaña de ayuda para las familias necesitadas de nuestra comunidad. Tu generosidad marca la diferencia.</p>
-                        <button class="leer-mas">
-                            Leer más
-                            <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
+<section id="multimedia" class="section fade-in">
+    <h2>Videos</h2>
+    <div class="video-grid">
+        <!-- Video 1 -->
+        <div class="video-card">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID1" frameborder="0" allowfullscreen></iframe>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contacto" class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <!-- Logo and Description -->
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <i class="fas fa-cross"></i>
-                        <div>
-                            <h3>Iglesia San Francisco</h3>
-                            <p>Comunidad de Fe</p>
-                        </div>
-                    </div>
-                    <p class="footer-description">
-                        Una iglesia comprometida con el crecimiento espiritual y el servicio a la comunidad.
-                    </p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-
-                <!-- Contact Info -->
-                <div class="footer-section">
-                    <h4>Contacto</h4>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <p>Av. Principal 123</p>
-                                <p>Ciudad, Estado 12345</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <p>+1 (555) 123-4567</p>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <p>info@iglesiasanfrancisco.org</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service Times -->
-                <div class="footer-section">
-                    <h4>Horarios</h4>
-                    <div class="schedule-info">
-                        <div class="schedule-item">
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <p class="day">Domingo</p>
-                                <p class="time">9:00 AM & 11:00 AM</p>
-                                <p class="time">6:00 PM</p>
-                            </div>
-                        </div>
-                        <div class="schedule-item">
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <p class="day">Miércoles</p>
-                                <p class="time">7:00 PM - Estudio Bíblico</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Quick Links -->
-                <div class="footer-section">
-                    <h4>Enlaces</h4>
-                    <div class="footer-links">
-                        <a href="#inicio">Inicio</a>
-                        <a href="#nosotros">Nosotros</a>
-                        <a href="#servicios">Servicios</a>
-                        <a href="#noticias">Noticias</a>
-                        <a href="#contacto">Contacto</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2024 Iglesia San Francisco. Todos los derechos reservados.</p>
-            </div>
+        <!-- Video 2 -->
+        <div class="video-card">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID2" frameborder="0" allowfullscreen></iframe>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <script src="./script.js"></script>
+<section id="contacto" class="section fade-in">
+    <h2>Contacto</h2>
+    <div class="contacto-grid">
+        <!-- Botón WhatsApp -->
+        <a class="btn-whatsapp" href="https://wa.me/595982983283" target="_blank">
+            <i class="fab fa-whatsapp"></i> Escribinos por WhatsApp
+        </a>
+        <!-- Mapa de ubicación -->
+        <div class="map-responsive">
+            <iframe src="https://www.google.com/maps/embed?pb=..." width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <p>© 2024 Santuario Diocesano del Santísimo Sacramento y Perpetuo Socorro</p>
+    <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
