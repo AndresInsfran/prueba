@@ -1,3 +1,6 @@
+/* ===========================
+   VARIABLES
+   =========================== */
 :root {
   --color-primary: #C4A76D;
   --color-secondary: #AA8B56;
@@ -10,7 +13,9 @@
   --font-title: 'Cinzel Decorative', cursive;
 }
 
-/* BASE & TYPOGRAPHY */
+/* ===========================
+   BASE & TYPOGRAPHY
+   =========================== */
 body {
   margin: 0;
   font-family: var(--font-main);
@@ -24,7 +29,9 @@ h1, h2, h3 {
   color: var(--color-primary);
 }
 
-/* HEADER & NAVIGATION */
+/* ===========================
+   HEADER & NAVIGATION
+   =========================== */
 .header {
   background: rgba(253,251,245,0.95);
   backdrop-filter: blur(10px);
@@ -43,7 +50,7 @@ h1, h2, h3 {
   padding: 1rem 0;
 }
 
-/* Desktop Navigation */
+/* --- Desktop Navigation --- */
 nav a {
   margin: 0 1rem;
   text-decoration: none;
@@ -58,7 +65,7 @@ nav a:hover, .nav-mobile a:hover {
   transition: background 0.2s, color 0.2s;
 }
 
-/* Mobile Navigation */
+/* --- Mobile Navigation --- */
 .mobile-menu-btn {
   display: none;
   background: none;
@@ -81,12 +88,10 @@ nav a:hover, .nav-mobile a:hover {
   pointer-events: none;
   transition: opacity 0.4s ease, transform 0.4s ease;
   z-index: 1001;
-  /* SIEMPRE display: flex */
   display: flex;
   height: 0;
   overflow: hidden;
 }
-
 .nav-mobile.active {
   opacity: 1;
   transform: translateY(0);
@@ -100,7 +105,9 @@ nav a:hover, .nav-mobile a:hover {
   color: var(--color-secondary);
 }
 
-/* HERO SECTION */
+/* ===========================
+   HERO SECTION
+   =========================== */
 .hero {
   position: relative;
   height: 85vh;
@@ -136,7 +143,9 @@ nav a:hover, .nav-mobile a:hover {
   color: #fff;
 }
 
-/* BUTTONS */
+/* ===========================
+   BUTTONS
+   =========================== */
 .btn {
   background: var(--color-primary);
   color: #fff;
@@ -156,7 +165,7 @@ nav a:hover, .nav-mobile a:hover {
   transform: translateY(-3px);
 }
 
-/* WhatsApp Button */
+/* --- WhatsApp Button --- */
 .btn-whatsapp {
   background: #25D366;
   color: #fff;
@@ -174,7 +183,9 @@ nav a:hover, .nav-mobile a:hover {
   transform: scale(1.05);
 }
 
-/* SECTIONS & CARDS */
+/* ===========================
+   SECTIONS & CARDS
+   =========================== */
 .section {
   padding: 4rem 2rem 3rem;
 }
@@ -194,7 +205,9 @@ nav a:hover, .nav-mobile a:hover {
   box-shadow: 0 16px 32px rgba(0,0,0,0.25);
 }
 
-/* GRIDS */
+/* ===========================
+   GRIDS
+   =========================== */
 .noticias-grid, .video-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
@@ -208,7 +221,9 @@ nav a:hover, .nav-mobile a:hover {
   margin-bottom: 1rem;
 }
 
-/* CARRUSEL / GALERÍA */
+/* ===========================
+   CARRUSEL / GALERÍA
+   =========================== */
 .galeria-carrusel {
   position: relative;
   max-width: 900px;
@@ -259,16 +274,15 @@ nav a:hover, .nav-mobile a:hover {
   opacity: 1;
   filter: brightness(0.8);
 }
-@media (max-width: 768px) {
-  .carrusel img { height: 250px; }
-}
 .galeria-carrusel img, .noticia-img, .video-thumb {
   cursor: pointer;
   object-fit: cover;
   object-position: center;
 }
 
-/* CONTACTO & MAPA */
+/* ===========================
+   CONTACTO & MAPA
+   =========================== */
 .contacto-grid {
   display: flex;
   flex-direction: column;
@@ -293,7 +307,9 @@ nav a:hover, .nav-mobile a:hover {
   width: 100%; height: 100%;
 }
 
-/* FOOTER & SOCIAL */
+/* ===========================
+   FOOTER & SOCIAL
+   =========================== */
 .footer {
   background: var(--color-footer);
   padding: 3rem 2rem;
@@ -310,7 +326,9 @@ nav a:hover, .nav-mobile a:hover {
   color: var(--color-secondary);
 }
 
-/* ANIMACIONES */
+/* ===========================
+   ANIMACIONES GENERALES
+   =========================== */
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
@@ -321,7 +339,9 @@ nav a:hover, .nav-mobile a:hover {
   transform: translateY(0);
 }
 
-/* Menú icono animado */
+/* ===========================
+   MENÚ ICONO ANIMADO
+   =========================== */
 #menu-icon {
   transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), color 0.3s;
 }
@@ -330,7 +350,62 @@ nav a:hover, .nav-mobile a:hover {
   color: var(--color-accent);
 }
 
-/* RESPONSIVE */
+/* ===========================
+   LIGHTBOX IMAGEN
+   =========================== */
+/* Lightbox imagen animaciones y zoom */
+#lightbox-img {
+  background: transparent;
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.4s cubic-bezier(0.4,0,0.2,1);
+  opacity: 1;
+  cursor: zoom-in;
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.7);
+  display: block;
+  margin: auto;
+}
+
+#lightbox-img.zoomed {
+  cursor: zoom-out;
+  transform: scale(2);
+  z-index: 10001;
+}
+
+#lightbox-img.animating {
+  opacity: 0;
+  transform: scale(0.96);
+}
+
+#lightbox-img.slide-left {
+  animation: slideLeft 0.4s;
+}
+
+#lightbox-img.slide-right {
+  animation: slideRight 0.4s;
+}
+
+@keyframes slideLeft {
+  from { opacity: 0; transform: translateX(60px);}
+  to { opacity: 1; transform: translateX(0);}
+}
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(-60px);}
+  to { opacity: 1; transform: translateX(0);}
+}
+
+/* ===========================
+   ACCESIBILIDAD
+   =========================== */
+a:focus, button:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
 @media (max-width: 768px) {
   .nav-desktop { display: none; }
   .mobile-menu-btn { display: block; }
@@ -338,9 +413,4 @@ nav a:hover, .nav-mobile a:hover {
   .hero-content p { font-size: 1rem; }
   .carrusel img { height: 300px; }
   .video-thumb { height: 180px; }
-}
-
-a:focus, button:focus {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
 }
