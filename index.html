@@ -1,116 +1,136 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Santuario Diocesano del Santísimo Sacramento y Perpetuo Socorro</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Cinzel&family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Santuario Diocesano del Santísimo Sacramento y Perpetuo Socorro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Cinzel&family=Montserrat&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
+
 <header class="header">
-    <div class="container">
-        <div class="logo">
-            <h1>Santuario Diocesano del Santísimo Sacramento y Perpetuo Socorro</h1>
-        </div>
-        <nav class="nav-desktop">
-            <a href="#inicio">Inicio</a>
-            <a href="#nosotros">Nosotros</a>
-            <a href="#noticias">Noticias</a>
-            <a href="#multimedia">Multimedia</a>
-            <a href="#contacto">Contacto</a>
-        </nav>
-        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-            <i class="fas fa-bars" id="menu-icon"></i>
-        </button>
+  <div class="container">
+    <div class="logo">
+      <h1>Santuario Diocesano</h1>
     </div>
-    <div class="nav-mobile" id="mobile-nav">
-        <a href="#inicio" onclick="closeMobileMenu()">Inicio</a>
-        <a href="#nosotros" onclick="closeMobileMenu()">Nosotros</a>
-        <a href="#noticias" onclick="closeMobileMenu()">Noticias</a>
-        <a href="#multimedia" onclick="closeMobileMenu()">Multimedia</a>
-        <a href="#contacto" onclick="closeMobileMenu()">Contacto</a>
-    </div>
+    <nav class="nav-desktop">
+      <a href="#inicio">Inicio</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#galeria">Galería</a>
+      <a href="#noticias">Noticias</a>
+      <a href="#multimedia">Videos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+      <i class="fas fa-bars" id="menu-icon"></i>
+    </button>
+  </div>
+  <div class="nav-mobile" id="mobile-nav">
+    <a href="#inicio" onclick="closeMobileMenu()">Inicio</a>
+    <a href="#nosotros" onclick="closeMobileMenu()">Nosotros</a>
+    <a href="#galeria" onclick="closeMobileMenu()">Galería</a>
+    <a href="#noticias" onclick="closeMobileMenu()">Noticias</a>
+    <a href="#multimedia" onclick="closeMobileMenu()">Videos</a>
+    <a href="#contacto" onclick="closeMobileMenu()">Contacto</a>
+  </div>
 </header>
 
 <section id="inicio" class="hero fade-in">
-    <!-- Imagen de portada - Reemplazar 'portada.jpg' con tu imagen -->
-    <img src="portada.jpg" alt="Santuario" class="img-portada">
-    <div class="hero-content">
-        <h1>Bienvenidos al Santuario Diocesano</h1>
-        <p>"Donde dos o más se reúnen en Mi nombre, allí estoy Yo en medio de ellos."</p>
-        <a class="btn" href="#contacto">Contáctanos</a>
-    </div>
+  <!-- Imagen de portada (reemplazar portada.jpg) -->
+  <img src="portada.jpg" alt="Santuario" class="img-portada"/>
+  <div class="hero-content">
+    <h1>Bienvenidos</h1>
+    <p>"Donde dos o más se reúnen en Mi nombre, allí estoy Yo en medio de ellos."</p>
+    <a class="btn" href="#contacto">Contáctanos</a>
+  </div>
 </section>
 
 <section id="nosotros" class="section fade-in">
-    <h2>Nuestra Historia</h2>
-    <p>El Santuario Diocesano ha sido un faro de fe y esperanza desde su fundación, guiando a cientos de fieles en el camino espiritual.</p>
+  <h2>Nuestra Historia</h2>
+  <p>Desde su fundación, el Santuario Diocesano acompaña a la comunidad en oración, servicio y fe continua.</p>
+</section>
+
+<section id="galeria" class="section fade-in">
+  <h2>Galería</h2>
+  <div class="galeria-carrusel">
+    <div class="carrusel" id="carousel-inner">
+      <div class="slide"><img src="galeria1.jpg" alt="Galería 1" class="lightbox-trigger"/></div>
+      <div class="slide"><img src="galeria2.jpg" alt="Galería 2" class="lightbox-trigger"/></div>
+      <div class="slide"><img src="galeria3.jpg" alt="Galería 3" class="lightbox-trigger"/></div>
+      <div class="slide"><img src="galeria4.jpg" alt="Galería 4" class="lightbox-trigger"/></div>
+      <div class="slide"><img src="galeria5.jpg" alt="Galería 5" class="lightbox-trigger"/></div>
+      <div class="slide"><img src="galeria6.jpg" alt="Galería 6" class="lightbox-trigger"/></div>
+    </div>
+    <div class="carrusel-controles">
+      <button onclick="moveSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+      <button onclick="moveSlide(1)"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
 </section>
 
 <section id="noticias" class="section fade-in">
-    <h2>Noticias y Anuncios</h2>
-    <div class="noticias-grid">
-        <!-- Noticia 1 -->
-        <div class="card">
-            <img src="noticia1.jpg" class="noticia-img">
-            <h3>Semana Santa</h3>
-            <p>Actividades especiales durante toda la Semana Santa.</p>
-        </div>
-        <!-- Noticia 2 -->
-        <div class="card">
-            <img src="noticia2.jpg" class="noticia-img">
-            <h3>Nuevo Grupo de Estudios</h3>
-            <p>Estudios bíblicos todos los miércoles por la tarde.</p>
-        </div>
-        <!-- Noticia 3 -->
-        <div class="card">
-            <img src="noticia3.jpg" class="noticia-img">
-            <h3>Campaña Solidaria</h3>
-            <p>Ayuda a familias en situación vulnerable de nuestra comunidad.</p>
-        </div>
-    </div>
+  <h2>Noticias</h2>
+  <div class="noticias-grid">
+    <div class="card"><img src="noticia1.jpg" class="noticia-img"/><h3>Semana Santa</h3><p>Programación especial.</p></div>
+    <div class="card"><img src="noticia2.jpg" class="noticia-img"/><h3>Estudios Bíblicos</h3><p>Miércoles a las 19:00 hs.</p></div>
+    <div class="card"><img src="noticia3.jpg" class="noticia-img"/><h3>Solidaridad</h3><p>Campañas de ayuda comunitaria.</p></div>
+    <div class="card"><img src="noticia4.jpg" class="noticia-img"/><h3>Solidaridad</h3><p>Dias de misas.</p></div>
+  </div>
 </section>
 
 <section id="multimedia" class="section fade-in">
-    <h2>Videos</h2>
-    <div class="video-grid">
-        <!-- Video 1 -->
-        <div class="video-card">
-            <iframe src="https://www.youtube.com/embed/VIDEO_ID1" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <!-- Video 2 -->
-        <div class="video-card">
-            <iframe src="https://www.youtube.com/embed/VIDEO_ID2" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </div>
+  <h2>Videos</h2>
+  <div class="video-grid">
+    <div class="card"><iframe src="https://www.youtube.com/embed/VIDEO_ID1" allowfullscreen class="video-thumb"></iframe></div>
+    <div class="card"><iframe src="https://www.youtube.com/embed/VIDEO_ID2" allowfullscreen class="video-thumb"></iframe></div>
+    <div class="card"><iframe src="https://www.youtube.com/embed/VIDEO_ID3" allowfullscreen class="video-thumb"></iframe></div>
+  </div>
 </section>
 
 <section id="contacto" class="section fade-in">
-    <h2>Contacto</h2>
-    <div class="contacto-grid">
-        <!-- Botón WhatsApp -->
-        <a class="btn-whatsapp" href="https://wa.me/595982983283" target="_blank">
-            <i class="fab fa-whatsapp"></i> Escribinos por WhatsApp
-        </a>
-        <!-- Mapa de ubicación -->
-        <div class="map-responsive">
-            <iframe src="https://www.google.com/maps/embed?pb=..." width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-    </div>
+  <h2>Contacto</h2>
+  <div class="contacto-grid">
+    <a class="btn-whatsapp" href="https://wa.me/595982983283" target="_blank">
+      <i class="fab fa-whatsapp"></i> Escribinos por WhatsApp
+    </a>
+  </div>
+</section>
+
+<section id="Encuentranos" class="section fade-in">
+  <h2>Encuéntranos</h2>
+  <div class="map-responsive">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3600.0000000000005!2d-57.6366608!3d-25.2848209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945da7f141d84725%3A0xfa92e76313fce7c6!2sCapilla%20del%20Sant%C3%ADsimo%20Sacramento%20y%20del%20Perpetuo%20Socorro!5e0!3m2!1ses!2spy!4v1718900000000!5m2!1ses!2spy"
+      width="600"
+      height="450"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+  <p><strong>Dirección:</strong> Capilla del Santísimo Sacramento y del Perpetuo Socorro</p>
 </section>
 
 <footer class="footer">
-    <p>© 2024 Santuario Diocesano del Santísimo Sacramento y Perpetuo Socorro</p>
-    <div class="social-icons">
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
-    </div>
+  <p>© 2024 Santuario Diocesano del Santísimo Sacramento y Perpetuo Socorro</p>
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
+  </div>
 </footer>
 
 <script src="script.js"></script>
+
+<!-- Lightbox modal -->
+<div id="lightbox" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);justify-content:center;align-items:center;z-index:9999;cursor:pointer;">
+  <button id="lightbox-prev" style="position:absolute;left:3%;top:50%;transform:translateY(-50%);font-size:3rem;background:none;border:none;color:white;cursor:pointer;">‹</button>
+  <img id="lightbox-img" src="" style="max-width:90%;max-height:90%;border-radius:10px;">
+  <button id="lightbox-next" style="position:absolute;right:3%;top:50%;transform:translateY(-50%);font-size:3rem;background:none;border:none;color:white;cursor:pointer;">›</button>
+</div>
+
 </body>
 </html>
