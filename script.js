@@ -9,18 +9,20 @@ function toggleMobileMenu() {
   }
 }
 
-function closeMobileMenu(){document.getElementById("mobile-nav").classList.remove("active"),document.getElementById("menu-icon").className="fas fa-bars";}
+function closeMobileMenu() {
+  document.getElementById("mobile-nav").classList.remove("active");
+  document.getElementById("menu-icon").className = "fas fa-bars";
+}
 
-document.addEventListener("DOMContentLoaded",()=>{
-
+document.addEventListener("DOMContentLoaded", () => {
   // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(link=>{
-    link.addEventListener("click",e=>{
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener("click", e => {
       e.preventDefault();
-      const target=document.querySelector(link.getAttribute("href"));
-      if(target){
-        const offset=document.querySelector(".header").offsetHeight;
-        window.scrollTo({top:target.offsetTop-offset,behavior:"smooth"});
+      const target = document.querySelector(link.getAttribute("href"));
+      if (target) {
+        const offset = document.querySelector(".header").offsetHeight;
+        window.scrollTo({ top: target.offsetTop - offset, behavior: "smooth" });
       }
     });
   });
@@ -30,12 +32,13 @@ document.addEventListener("DOMContentLoaded",()=>{
   // Carrusel
   const slides = document.querySelectorAll('.carrusel .slide');
   const carouselInner = document.getElementById('carousel-inner');
+  let slideIndex = 0;
   function showSlide(index) {
     const total = slides.length;
     slideIndex = (index + total) % total;
     carouselInner.style.transform = 'translateX(' + (-slideIndex * 100) + '%)';
   }
-  window.moveSlide = function(step) {
+  window.moveSlide = function (step) {
     showSlide(slideIndex + step);
   };
   showSlide(0);
@@ -129,17 +132,111 @@ document.addEventListener("DOMContentLoaded",()=>{
     });
 
     // Zoom al hacer click en la imagen
-    lightboxImg.addEventListener('click', function(e) {
+    lightboxImg.addEventListener('click', function (e) {
       e.stopPropagation();
       this.classList.toggle('zoomed');
     });
   }
+
+  // --- Calendario dinámico e interactivo ---
+  const eventosLiturgicos = [
+    { fecha: '2025-06-29', titulo: 'Solemnidad de San Pedro y San Pablo', descripcion: 'Misa especial a las 19:00 hs.' },
+    { fecha: '2025-07-16', titulo: 'Fiesta de la Virgen del Carmen', descripcion: 'Procesión y misa a las 18:00 hs.' },
+    { fecha: '2025-08-15', titulo: 'Asunción de la Virgen María', descripcion: 'Misa solemne a las 10:00 hs.' },
+    // Eventos de prueba
+    { fecha: '2025-06-25', titulo: 'Ensayo del coro', descripcion: 'Ensayo general del coro parroquial a las 17:00 hs.' },
+    { fecha: '2025-06-27', titulo: 'Reunión de catequesis', descripcion: 'Reunión informativa para padres y catequistas a las 18:30 hs.' },
+    { fecha: '2025-07-01', titulo: 'Adoración Eucarística', descripcion: 'Hora Santa y adoración a las 20:00 hs.' },
+    { fecha: '2025-07-05', titulo: 'Jornada de limpieza', descripcion: 'Voluntariado para limpieza del templo a las 08:00 hs.' },
+    { fecha: '2025-07-10', titulo: 'Taller de Biblia', descripcion: 'Taller introductorio a la Biblia a las 19:00 hs.' },
+  ];
+
+  function renderCalendar(year, month) {
+    const container = document.getElementById('calendar-container');
+    if (!container) return;
+    container.innerHTML = '';
+    const date = new Date(year, month, 1);
+    const monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+    const days = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+    let html = `<div class="calendar-header">
+      <button id="prev-month">&lt;</button>
+      <span>${monthNames[month]} ${year}</span>
+      <button id="next-month">&gt;</button>
+    </div>
+    <table class="calendar-table"><thead><tr>`;
+    days.forEach(d => html += `<th>${d}</th>`);
+    html += '</tr></thead><tbody><tr>';
+    let firstDay = date.getDay();
+    for (let i = 0; i < firstDay; i++) html += '<td></td>';
+    let day = 1;
+    const lastDay = new Date(year, month + 1, 0).getDate();
+    for (let i = firstDay; day <= lastDay; i++) {
+      const fechaStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+      const evento = eventosLiturgicos.find(e => e.fecha === fechaStr);
+      html += `<td class="calendar-day${evento ? ' has-event' : ''}" data-fecha="${fechaStr}">${day}${evento ? ' <span class="event-dot"></span>' : ''}</td>`;
+      if ((i + 1) % 7 === 0 && day !== lastDay) html += '</tr><tr>';
+      day++;
+    }
+    html += '</tr></tbody></table>';
+    container.innerHTML = html;
+
+    document.getElementById('prev-month').onclick = () => renderCalendar(month === 0 ? year - 1 : year, month === 0 ? 11 : month - 1);
+    document.getElementById('next-month').onclick = () => renderCalendar(month === 11 ? year + 1 : year, month === 11 ? 0 : month + 1);
+
+    document.querySelectorAll('.calendar-day.has-event').forEach(td => {
+      td.onclick = () => {
+        const fecha = td.getAttribute('data-fecha');
+        const evento = eventosLiturgicos.find(e => e.fecha === fecha);
+        if (evento) showEventModal(evento);
+      };
+    });
+  }
+
+  function showEventModal(evento) {
+    const modal = document.getElementById('event-modal');
+    const content = document.getElementById('event-content');
+    if (modal && content) {
+      content.innerHTML = `<h3>${evento.titulo}</h3><p>${evento.descripcion}</p><p><strong>Fecha:</strong> ${evento.fecha}</p>`;
+      modal.style.display = 'flex';
+    }
+  }
+  window.closeEventModal = function () {
+    const modal = document.getElementById('event-modal');
+    if (modal) modal.style.display = 'none';
+  };
+
+  // Inicializa el calendario al cargar la página
+  const hoy = new Date();
+  renderCalendar(hoy.getFullYear(), hoy.getMonth());
+
+  // Evangelio del día (usando API de evangelizo.org)
+  function cargarEvangelio() {
+    const cont = document.getElementById('evangelio-dia');
+    if (!cont) return;
+    fetch('https://api.labibliadigital.com/api/verses/day?language=SPA')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.text) {
+          cont.innerHTML = `
+            <div class="evangelio-cita">${data.reference || ''}</div>
+            <div class="evangelio-texto">${data.text}</div>
+          `;
+        } else {
+          cont.innerHTML = '<div class="evangelio-error">No disponible por el momento.</div>';
+        }
+      })
+      .catch(() => {
+        cont.innerHTML = '<div class="evangelio-error">No disponible por el momento.</div>';
+      });
+  }
+  document.addEventListener('DOMContentLoaded', cargarEvangelio);
 });
 
-function animateOnScroll(){
-  document.querySelectorAll(".fade-in").forEach(el=>{
-    if(el.getBoundingClientRect().top<window.innerHeight-150)
+function animateOnScroll() {
+  document.querySelectorAll(".fade-in, .animated-fadein").forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
       el.classList.add("visible");
+    }
   });
 }
 window.addEventListener("scroll", animateOnScroll);

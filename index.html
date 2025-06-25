@@ -4,133 +4,211 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Santuario Diocesano del Santísimo Sacramento y Perpetuo Socorro</title>
+  <!-- Fuentes y estilos externos -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Cinzel&family=Montserrat&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
 
-<header class="header">
-  <div class="container">
-    <div class="logo">
-      <h1>Santuario Diocesano</h1>
+  <!-- ===========================
+       HEADER Y NAVEGACIÓN
+       =========================== -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <h1>Santuario Diocesano</h1>
+      </div>
+      <nav class="nav-desktop">
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#galeria">Galería</a>
+        <a href="#noticias">Noticias</a>
+        <a href="#multimedia">Videos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars" id="menu-icon"></i>
+      </button>
     </div>
-    <nav class="nav-desktop">
-      <a href="#inicio">Inicio</a>
-      <a href="#nosotros">Nosotros</a>
-      <a href="#galeria">Galería</a>
-      <a href="#noticias">Noticias</a>
-      <a href="#multimedia">Videos</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
-    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-      <i class="fas fa-bars" id="menu-icon"></i>
-    </button>
-  </div>
-  <div class="nav-mobile" id="mobile-nav">
-    <a href="#inicio" onclick="closeMobileMenu()">Inicio</a>
-    <a href="#nosotros" onclick="closeMobileMenu()">Nosotros</a>
-    <a href="#galeria" onclick="closeMobileMenu()">Galería</a>
-    <a href="#noticias" onclick="closeMobileMenu()">Noticias</a>
-    <a href="#multimedia" onclick="closeMobileMenu()">Videos</a>
-    <a href="#contacto" onclick="closeMobileMenu()">Contacto</a>
-  </div>
-</header>
-
-<section id="inicio" class="hero fade-in">
-  <!-- Imagen de portada (reemplazar portada.jpg) -->
-  <img src="portada.jpg" alt="Santuario" class="img-portada"/>
-  <div class="hero-content">
-    <h1>Bienvenidos</h1>
-    <p>"Donde dos o más se reúnen en Mi nombre, allí estoy Yo en medio de ellos."</p>
-    <a class="btn" href="#contacto">Contáctanos</a>
-  </div>
-</section>
-
-<section id="nosotros" class="section fade-in">
-  <h2>Nuestra Historia</h2>
-  <p>Desde su fundación, el Santuario Diocesano acompaña a la comunidad en oración, servicio y fe continua.</p>
-</section>
-
-<section id="galeria" class="section fade-in">
-  <h2>Galería</h2>
-  <div class="galeria-carrusel">
-    <div class="carrusel" id="carousel-inner">
-      <div class="slide"><img src="galeria1.jpg" alt="Galería 1" class="lightbox-trigger"/></div>
-      <div class="slide"><img src="galeria2.jpg" alt="Galería 2" class="lightbox-trigger"/></div>
-      <div class="slide"><img src="galeria3.jpg" alt="Galería 3" class="lightbox-trigger"/></div>
-      <div class="slide"><img src="galeria4.jpg" alt="Galería 4" class="lightbox-trigger"/></div>
-      <div class="slide"><img src="galeria5.jpg" alt="Galería 5" class="lightbox-trigger"/></div>
-      <div class="slide"><img src="galeria6.jpg" alt="Galería 6" class="lightbox-trigger"/></div>
+    <div class="nav-mobile" id="mobile-nav">
+      <a href="#inicio" onclick="closeMobileMenu()">Inicio</a>
+      <a href="#nosotros" onclick="closeMobileMenu()">Nosotros</a>
+      <a href="#galeria" onclick="closeMobileMenu()">Galería</a>
+      <a href="#noticias" onclick="closeMobileMenu()">Noticias</a>
+      <a href="#multimedia" onclick="closeMobileMenu()">Videos</a>
+      <a href="#contacto" onclick="closeMobileMenu()">Contacto</a>
     </div>
-    <div class="carrusel-controles">
-      <button onclick="moveSlide(-1)"><i class="fas fa-chevron-left"></i></button>
-      <button onclick="moveSlide(1)"><i class="fas fa-chevron-right"></i></button>
+  </header>
+
+  <!-- ===========================
+       HERO / PORTADA
+       =========================== -->
+  <section id="inicio" class="hero fade-in">
+    <img src="portada.jpg" alt="Santuario" class="img-portada"/>
+    <div class="hero-content">
+      <h1>Bienvenidos</h1>
+      <p>"Donde dos o más se reúnen en Mi nombre, allí estoy Yo en medio de ellos."</p>
+      <a class="btn" href="#contacto">Contáctanos</a>
     </div>
+  </section>
+
+  <!-- ===========================
+       NOSOTROS
+       =========================== -->
+  <section id="nosotros" class="section fade-in">
+    <h2>Nuestra Historia</h2>
+    <p>Desde su fundación, el Santuario Diocesano acompaña a la comunidad en oración, servicio y fe continua.</p>
+  </section>
+
+  <!-- ===========================
+       EVANGELIO DEL DÍA
+       =========================== -->
+  <section id="evangelio" class="section fade-in animated-fadein">
+    <h2>Evangelio del Día</h2>
+    <div id="evangelio-dia" class="evangelio-card">
+      <div class="evangelio-cargando">Cargando evangelio...</div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       HORARIOS DE MISA Y CONFESIONES
+       =========================== -->
+  <section id="horarios" class="section fade-in animated-fadein">
+    <h2>Horarios de Misa y Confesiones</h2>
+    <div class="horarios-grid">
+      <div class="horario-card animated-fadein">
+        <h3><i class="fas fa-church"></i> Misas</h3>
+        <ul>
+          <li><strong>Lunes a Viernes:</strong> 19:00 hs</li>
+          <li><strong>Sábados:</strong> 18:00 hs</li>
+          <li><strong>Domingos:</strong> 10:00 hs y 19:00 hs</li>
+        </ul>
+      </div>
+      <div class="horario-card animated-fadein">
+        <h3><i class="fas fa-user-shield"></i> Confesiones</h3>
+        <ul>
+          <li><strong>Miércoles y Viernes:</strong> 18:00 a 18:45 hs</li>
+          <li><strong>Sábados:</strong> 17:00 a 17:45 hs</li>
+          <li><strong>Domingos:</strong> 09:00 a 09:45 hs</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       GALERÍA
+       =========================== -->
+  <section id="galeria" class="section fade-in">
+    <h2>Galería</h2>
+    <div class="galeria-carrusel">
+      <div class="carrusel" id="carousel-inner">
+        <div class="slide"><img src="galeria1.jpg" alt="Galería 1" class="lightbox-trigger"/></div>
+        <div class="slide"><img src="galeria2.jpg" alt="Galería 2" class="lightbox-trigger"/></div>
+        <div class="slide"><img src="galeria3.jpg" alt="Galería 3" class="lightbox-trigger"/></div>
+        <div class="slide"><img src="galeria4.jpg" alt="Galería 4" class="lightbox-trigger"/></div>
+        <div class="slide"><img src="galeria5.jpg" alt="Galería 5" class="lightbox-trigger"/></div>
+        <div class="slide"><img src="galeria6.jpg" alt="Galería 6" class="lightbox-trigger"/></div>
+      </div>
+      <div class="carrusel-controles">
+        <button onclick="moveSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+        <button onclick="moveSlide(1)"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       NOTICIAS
+       =========================== -->
+  <section id="noticias" class="section fade-in">
+    <h2>Noticias</h2>
+    <div class="noticias-grid">
+      <div class="card"><img src="noticia1.jpg" class="noticia-img" alt="Semana Santa"/><h3>Semana Santa</h3><p>Programación especial.</p></div>
+      <div class="card"><img src="noticia2.jpg" class="noticia-img" alt="Estudios Bíblicos"/><h3>Estudios Bíblicos</h3><p>Miércoles a las 19:00 hs.</p></div>
+      <div class="card"><img src="noticia3.jpg" class="noticia-img" alt="Solidaridad"/><h3>Solidaridad</h3><p>Campañas de ayuda comunitaria.</p></div>
+      <div class="card"><img src="noticia4.jpg" class="noticia-img" alt="Días de misas"/><h3>Solidaridad</h3><p>Dias de misas.</p></div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       MULTIMEDIA / VIDEOS
+       =========================== -->
+  <section id="multimedia" class="section fade-in">
+    <h2>Videos</h2>
+    <div class="video-grid">
+      <div class="card"><iframe src="https://www.youtube.com/embed/VIDEO_ID1" allowfullscreen class="video-thumb" title="Video 1"></iframe></div>
+      <div class="card"><iframe src="https://www.youtube.com/embed/VIDEO_ID2" allowfullscreen class="video-thumb" title="Video 2"></iframe></div>
+      <div class="card"><iframe src="https://www.youtube.com/embed/VIDEO_ID3" allowfullscreen class="video-thumb" title="Video 3"></iframe></div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       CALENDARIO DINÁMICO
+       =========================== -->
+  <section id="Calendario" class="section fade-in">
+    <h2>Calendario</h2>
+    <div id="calendar-container"></div>
+    <div id="event-modal" style="display:none;">
+      <div id="event-content"></div>
+      <button onclick="closeEventModal()">Cerrar</button>
+    </div>
+  </section>
+
+  <!-- ===========================
+       CONTACTO
+       =========================== -->
+  <section id="contacto" class="section fade-in">
+    <h2>Contacto</h2>
+    <div class="contacto-grid">
+      <a class="btn-whatsapp" href="https://wa.me/595982983283" target="_blank">
+        <i class="fab fa-whatsapp"></i> Escribinos por WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- ===========================
+       ENCUÉNTRANOS / MAPA
+       =========================== -->
+  <section id="Encuentranos" class="section fade-in">
+    <h2>Encuéntranos</h2>
+    <div class="map-responsive">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3600.0000000000005!2d-57.6366608!3d-25.2848209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945da7f141d84725%3A0xfa92e76313fce7c6!2sCapilla%20del%20Sant%C3%ADsimo%20Sacramento%20y%20del%20Perpetuo%20Socorro!5e0!3m2!1ses!2spy!4v1718900000000!5m2!1ses!2spy"
+        width="600"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Mapa Santuario">
+      </iframe>
+    </div>
+    <p><strong>Dirección:</strong> Capilla del Santísimo Sacramento y del Perpetuo Socorro</p>
+  </section>
+
+  <!-- ===========================
+       FOOTER
+       =========================== -->
+  <footer class="footer">
+    <p>© 2024 Santuario Diocesano del Santísimo Sacramento y Perpetuo Socorro</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+  </footer>
+
+  <!-- ===========================
+       SCRIPTS Y LIGHTBOX
+       =========================== -->
+  <script src="script.js"></script>
+
+  <!-- Lightbox modal para galería -->
+  <div id="lightbox" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);justify-content:center;align-items:center;z-index:9999;cursor:pointer;">
+    <button id="lightbox-prev" style="position:absolute;left:3%;top:50%;transform:translateY(-50%);font-size:3rem;background:none;border:none;color:white;cursor:pointer;">‹</button>
+    <img id="lightbox-img" src="" alt="Imagen ampliada" />
+    <button id="lightbox-next" style="position:absolute;right:3%;top:50%;transform:translateY(-50%);font-size:3rem;background:none;border:none;color:white;cursor:pointer;">›</button>
   </div>
-</section>
-
-<section id="noticias" class="section fade-in">
-  <h2>Noticias</h2>
-  <div class="noticias-grid">
-    <div class="card"><img src="noticia1.jpg" class="noticia-img"/><h3>Semana Santa</h3><p>Programación especial.</p></div>
-    <div class="card"><img src="noticia2.jpg" class="noticia-img"/><h3>Estudios Bíblicos</h3><p>Miércoles a las 19:00 hs.</p></div>
-    <div class="card"><img src="noticia3.jpg" class="noticia-img"/><h3>Solidaridad</h3><p>Campañas de ayuda comunitaria.</p></div>
-    <div class="card"><img src="noticia4.jpg" class="noticia-img"/><h3>Solidaridad</h3><p>Dias de misas.</p></div>
-  </div>
-</section>
-
-<section id="multimedia" class="section fade-in">
-  <h2>Videos</h2>
-  <div class="video-grid">
-    <div class="card"><iframe src="https://www.youtube.com/embed/VIDEO_ID1" allowfullscreen class="video-thumb"></iframe></div>
-    <div class="card"><iframe src="https://www.youtube.com/embed/VIDEO_ID2" allowfullscreen class="video-thumb"></iframe></div>
-    <div class="card"><iframe src="https://www.youtube.com/embed/VIDEO_ID3" allowfullscreen class="video-thumb"></iframe></div>
-  </div>
-</section>
-
-<section id="contacto" class="section fade-in">
-  <h2>Contacto</h2>
-  <div class="contacto-grid">
-    <a class="btn-whatsapp" href="https://wa.me/595982983283" target="_blank">
-      <i class="fab fa-whatsapp"></i> Escribinos por WhatsApp
-    </a>
-  </div>
-</section>
-
-<section id="Encuentranos" class="section fade-in">
-  <h2>Encuéntranos</h2>
-  <div class="map-responsive">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3600.0000000000005!2d-57.6366608!3d-25.2848209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945da7f141d84725%3A0xfa92e76313fce7c6!2sCapilla%20del%20Sant%C3%ADsimo%20Sacramento%20y%20del%20Perpetuo%20Socorro!5e0!3m2!1ses!2spy!4v1718900000000!5m2!1ses!2spy"
-      width="600"
-      height="450"
-      style="border:0;"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </div>
-  <p><strong>Dirección:</strong> Capilla del Santísimo Sacramento y del Perpetuo Socorro</p>
-</section>
-
-<footer class="footer">
-  <p>© 2024 Santuario Diocesano del Santísimo Sacramento y Perpetuo Socorro</p>
-  <div class="social-icons">
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-youtube"></i></a>
-  </div>
-</footer>
-
-<script src="script.js"></script>
-
-<!-- Lightbox modal -->
-<div id="lightbox" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);justify-content:center;align-items:center;z-index:9999;cursor:pointer;">
-  <button id="lightbox-prev" style="position:absolute;left:3%;top:50%;transform:translateY(-50%);font-size:3rem;background:none;border:none;color:white;cursor:pointer;">‹</button>
-  <img id="lightbox-img" src="" alt="Imagen ampliada" />
-  <button id="lightbox-next" style="position:absolute;right:3%;top:50%;transform:translateY(-50%);font-size:3rem;background:none;border:none;color:white;cursor:pointer;">›</button>
-</div>
 
 </body>
 </html>

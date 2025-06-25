@@ -23,7 +23,6 @@ body {
   color: var(--color-text);
   line-height: 1.6;
 }
-
 h1, h2, h3 {
   font-family: var(--font-title);
   color: var(--color-primary);
@@ -40,7 +39,6 @@ h1, h2, h3 {
   z-index: 1000;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
-
 .container {
   width: 90%;
   margin: auto;
@@ -49,8 +47,7 @@ h1, h2, h3 {
   align-items: center;
   padding: 1rem 0;
 }
-
-/* --- Desktop Navigation --- */
+/* Desktop Navigation */
 nav a {
   margin: 0 1rem;
   text-decoration: none;
@@ -64,8 +61,7 @@ nav a:hover, .nav-mobile a:hover {
   border-radius: 8px;
   transition: background 0.2s, color 0.2s;
 }
-
-/* --- Mobile Navigation --- */
+/* Mobile Navigation */
 .mobile-menu-btn {
   display: none;
   background: none;
@@ -74,7 +70,6 @@ nav a:hover, .nav-mobile a:hover {
   color: var(--color-secondary);
   cursor: pointer;
 }
-
 .nav-mobile {
   flex-direction: column;
   background: var(--color-bg);
@@ -164,8 +159,7 @@ nav a:hover, .nav-mobile a:hover {
   border: 1px solid var(--color-primary);
   transform: translateY(-3px);
 }
-
-/* --- WhatsApp Button --- */
+/* WhatsApp Button */
 .btn-whatsapp {
   background: #25D366;
   color: #fff;
@@ -189,7 +183,6 @@ nav a:hover, .nav-mobile a:hover {
 .section {
   padding: 4rem 2rem 3rem;
 }
-
 .card {
   background: var(--color-card);
   border-radius: 18px;
@@ -206,7 +199,7 @@ nav a:hover, .nav-mobile a:hover {
 }
 
 /* ===========================
-   GRIDS
+   GRIDS (Noticias, Videos, Horarios)
    =========================== */
 .noticias-grid, .video-grid {
   display: grid;
@@ -220,9 +213,55 @@ nav a:hover, .nav-mobile a:hover {
   border-radius: 14px;
   margin-bottom: 1rem;
 }
+/* Horarios de Misa y Confesiones */
+.horarios-grid {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.horario-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(191,164,109,0.10);
+  padding: 1.2rem 1.5rem;
+  min-width: 250px;
+  max-width: 350px;
+  flex: 1 1 250px;
+  text-align: left;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.horario-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 6px 16px rgba(191,164,109,0.16);
+}
+.horario-card h3 {
+  color: #bfa46d;
+  margin-bottom: .7rem;
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+}
+.horario-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.horario-card li {
+  margin-bottom: .5rem;
+  font-size: 1.05rem;
+}
+.horario-card i {
+  margin-right: .5rem;
+  transition: transform 0.3s cubic-bezier(.4,0,.2,1), color 0.3s;
+}
+.horario-card:hover i {
+  transform: scale(1.2) rotate(-8deg);
+  color: #e0c98d;
+}
 
 /* ===========================
-   CARRUSEL / GALERÍA
+   GALERÍA Y CARRUSEL
    =========================== */
 .galeria-carrusel {
   position: relative;
@@ -270,7 +309,7 @@ nav a:hover, .nav-mobile a:hover {
   pointer-events: all;
 }
 .carrusel-controles button:hover {
-  background: #8c713a; /* Un tono más oscuro que var(--color-primary) */
+  background: #8c713a;
   opacity: 1;
   filter: brightness(0.8);
 }
@@ -338,6 +377,16 @@ nav a:hover, .nav-mobile a:hover {
   opacity: 1;
   transform: translateY(0);
 }
+/* Fade-in y slide-up para tarjetas y secciones */
+.animated-fadein {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+}
+.animated-fadein.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* ===========================
    MENÚ ICONO ANIMADO
@@ -346,14 +395,13 @@ nav a:hover, .nav-mobile a:hover {
   transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), color 0.3s;
 }
 #menu-icon.animated {
-  transform: rotate(90deg) scale(1.2);
+  transform: rotate(90deg) scale(1.9);
   color: var(--color-accent);
 }
 
 /* ===========================
    LIGHTBOX IMAGEN
    =========================== */
-/* Lightbox imagen animaciones y zoom */
 #lightbox-img {
   background: transparent;
   transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.4s cubic-bezier(0.4,0,0.2,1);
@@ -366,26 +414,21 @@ nav a:hover, .nav-mobile a:hover {
   display: block;
   margin: auto;
 }
-
 #lightbox-img.zoomed {
   cursor: zoom-out;
   transform: scale(2);
   z-index: 10001;
 }
-
 #lightbox-img.animating {
   opacity: 0;
   transform: scale(0.96);
 }
-
 #lightbox-img.slide-left {
   animation: slideLeft 0.4s;
 }
-
 #lightbox-img.slide-right {
   animation: slideRight 0.4s;
 }
-
 @keyframes slideLeft {
   from { opacity: 0; transform: translateX(60px);}
   to { opacity: 1; transform: translateX(0);}
@@ -413,4 +456,150 @@ a:focus, button:focus {
   .hero-content p { font-size: 1rem; }
   .carrusel img { height: 300px; }
   .video-thumb { height: 180px; }
+}
+@media (max-width: 700px) {
+  .horarios-grid {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .horario-card {
+    max-width: 100%;
+    min-width: 0;
+  }
+}
+
+/* ===========================
+   CALENDARIO DINÁMICO
+   =========================== */
+#calendar-container {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto 2rem auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 1rem;
+  overflow-x: auto;
+}
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: .5rem;
+}
+.calendar-header button {
+  background: #bfa46d;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.calendar-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+.calendar-table th, .calendar-table td {
+  padding: .5rem;
+  width: 14.2%;
+  min-width: 36px;
+  box-sizing: border-box;
+}
+.calendar-day {
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+.calendar-day:hover {
+  background: #f5e9c6;
+}
+.has-event {
+  background: #f7f3e7;
+  position: relative;
+}
+.event-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: #bfa46d;
+  border-radius: 50%;
+  margin-left: 3px;
+  vertical-align: middle;
+}
+/* Modal de eventos */
+#event-modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.7);
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 10vh;
+  z-index: 99999;
+}
+#event-content {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  min-width: 250px;
+  max-width: 95vw;
+  text-align: center;
+  font-size: 1rem;
+}
+#event-modal button {
+  margin-top: 1rem;
+  background: #bfa46d;
+  color: #fff;
+  border: none;
+  padding: .5rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/* Responsive para móvil */
+@media (max-width: 500px) {
+  #calendar-container {
+    padding: .5rem;
+    font-size: 0.95rem;
+  }
+  .calendar-header span {
+    font-size: 1rem;
+  }
+  .calendar-table th, .calendar-table td {
+    padding: .3rem;
+    min-width: 28px;
+    font-size: 0.85rem;
+  }
+  #event-content {
+    padding: .5rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* ===========================
+   TARJETAS DE EVANGELIO DEL DÍA
+   =========================== */
+.evangelio-card {
+  background: #fffbe9;
+  border-left: 5px solid #bfa46d;
+  border-radius: 8px;
+  padding: 1.2rem 1rem;
+  margin: 1rem 0;
+  box-shadow: 0 2px 8px rgba(191,164,109,0.08);
+  font-family: 'Montserrat', serif;
+}
+.evangelio-cita {
+  font-weight: bold;
+  color: #bfa46d;
+  margin-bottom: .5rem;
+}
+.evangelio-texto {
+  font-size: 1.1rem;
+  color: #333;
+}
+.evangelio-cargando, .evangelio-error {
+  color: #bfa46d;
+  font-style: italic;
 }
