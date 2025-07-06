@@ -140,15 +140,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- Calendario dinámico e interactivo ---
   const eventosLiturgicos = [
-    { fecha: '2025-06-29', titulo: 'Solemnidad de San Pedro y San Pablo', descripcion: 'Misa especial a las 19:00 hs.' },
-    { fecha: '2025-07-16', titulo: 'Fiesta de la Virgen del Carmen', descripcion: 'Procesión y misa a las 18:00 hs.' },
-    { fecha: '2025-08-15', titulo: 'Asunción de la Virgen María', descripcion: 'Misa solemne a las 10:00 hs.' },
-    // Eventos de prueba
-    { fecha: '2025-06-25', titulo: 'Ensayo del coro', descripcion: 'Ensayo general del coro parroquial a las 17:00 hs.' },
-    { fecha: '2025-06-27', titulo: 'Reunión de catequesis', descripcion: 'Reunión informativa para padres y catequistas a las 18:30 hs.' },
-    { fecha: '2025-07-01', titulo: 'Adoración Eucarística', descripcion: 'Hora Santa y adoración a las 20:00 hs.' },
-    { fecha: '2025-07-05', titulo: 'Jornada de limpieza', descripcion: 'Voluntariado para limpieza del templo a las 08:00 hs.' },
-    { fecha: '2025-07-10', titulo: 'Taller de Biblia', descripcion: 'Taller introductorio a la Biblia a las 19:00 hs.' },
+    // Santoral de julio (Paraguay)
+    { fecha: '2025-07-01', titulo: 'Preciosísima Sangre de Nuestro Señor Jesucristo', descripcion: 'Devoción extendida en algunas parroquias.' },
+    { fecha: '2025-07-03', titulo: 'Santo Tomás Apóstol', descripcion: 'Se recuerda al apóstol que dudó de la resurrección, conocido como "Tomás el incrédulo".' },
+    { fecha: '2025-07-06', titulo: 'Santa María Goretti', descripcion: 'Muy venerada por su pureza y perdón. Ejemplo de castidad para jóvenes.' },
+    { fecha: '2025-07-11', titulo: 'San Benito Abad', descripcion: 'Patrono de Europa y protector contra los males. Muy recordado en parroquias benedictinas o con devoción especial.' },
+    { fecha: '2025-07-16', titulo: 'Nuestra Señora del Carmen', descripcion: 'Fiesta muy importante en Paraguay. Muchas parroquias llevan su nombre. Se realizan procesiones y novenas.' },
+    { fecha: '2025-07-22', titulo: 'Santa María Magdalena', descripcion: 'Considerada la "apóstol de los apóstoles", muy recordada en las celebraciones litúrgicas.' },
+    { fecha: '2025-07-25', titulo: 'Santiago Apóstol', descripcion: 'Patrono de varias comunidades rurales y ciudades. Festejos con misas y procesiones.' },
+    { fecha: '2025-07-26', titulo: 'San Joaquín y Santa Ana', descripcion: 'Padres de la Virgen María. Muy venerados en Paraguay, especialmente por asociaciones de abuelas y abuelos.' },
+    { fecha: '2025-07-29', titulo: 'Santa Marta', descripcion: 'Hermana de María y Lázaro. Patrona de amas de casa y hospitalidad.' },
+
+    // ...otros eventos que ya tengas...
   ];
 
   function renderCalendar(year, month) {
