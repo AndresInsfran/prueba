@@ -241,3 +241,29 @@ function animateOnScroll() {
 }
 window.addEventListener("scroll", animateOnScroll);
 window.addEventListener("load", animateOnScroll);
+
+function abrirModalHistoria() {
+  const modal = document.getElementById('modal-historia');
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  // Reinicia animación
+  const content = modal.querySelector('.modal-historia-content');
+  content.classList.remove('animated-modal');
+  void content.offsetWidth; // Trigger reflow
+  content.classList.add('animated-modal');
+}
+function cerrarModalHistoria() {
+  const modal = document.getElementById('modal-historia');
+  modal.style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+// Cerrar con tecla ESC
+document.addEventListener('keydown', function(e) {
+  if (e.key === "Escape") cerrarModalHistoria();
+});
+
+// Cerrar al hacer click fuera del contenido
+document.getElementById('modal-historia').addEventListener('click', function(e) {
+  if (e.target === this) cerrarModalHistoria();
+});

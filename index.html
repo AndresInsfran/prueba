@@ -23,7 +23,6 @@
         <a href="#inicio">Inicio</a>
         <a href="#nosotros">Nosotros</a>
         <a href="#galeria">Galería</a>
-        <a href="#noticias">Noticias</a>
         <a href="#multimedia">Videos</a>
         <a href="#contacto">Contacto</a>
       </nav>
@@ -35,7 +34,6 @@
       <a href="#inicio" onclick="closeMobileMenu()">Inicio</a>
       <a href="#nosotros" onclick="closeMobileMenu()">Nosotros</a>
       <a href="#galeria" onclick="closeMobileMenu()">Galería</a>
-      <a href="#noticias" onclick="closeMobileMenu()">Noticias</a>
       <a href="#multimedia" onclick="closeMobileMenu()">Videos</a>
       <a href="#contacto" onclick="closeMobileMenu()">Contacto</a>
     </div>
@@ -59,7 +57,20 @@
   <section id="nosotros" class="section fade-in">
     <h2>Nuestra Historia</h2>
     <p>Desde su fundación, el Santuario Diocesano acompaña a la comunidad en oración, servicio y fe continua.</p>
+    <button class="btn" onclick="abrirModalHistoria()">Más sobre nuestra historia</button>
   </section>
+
+  <!-- Modal Historia Mejorado -->
+  <div id="modal-historia" class="modal-historia" style="display:none;" tabindex="-1" aria-modal="true" role="dialog">
+    <div class="modal-historia-content animated-modal">
+      <button class="cerrar-modal" onclick="cerrarModalHistoria()" aria-label="Cerrar">&times;</button>
+      <h3>Nuestra Historia Completa</h3>
+      <img src="historia1.jpg" alt="Historia 1" style="width:100%;max-width:400px;margin-bottom:1rem;">
+      <p>Descripción de la historia, eventos importantes, fechas y anécdotas del Santuario...</p>
+      <img src="historia2.jpg" alt="Historia 2" style="width:100%;max-width:400px;margin-bottom:1rem;">
+      <p>Más detalles, fotos antiguas, y cualquier información relevante que quieras mostrar.</p>
+    </div>
+  </div>
 
   <!-- ===========================
        EVANGELIO DEL DÍA
@@ -67,7 +78,14 @@
   <section id="evangelio" class="section fade-in animated-fadein">
     <h2>Evangelio del Día</h2>
     <div id="evangelio-dia" class="evangelio-card">
-      <div class="evangelio-cargando">Cargando evangelio...</div>
+      <div class="evangelio-cita">Lucas 10, 1-12. 17-20</div>
+      <div class="evangelio-texto">
+        <em>“Descansará sobre ellos vuestra paz”</em>
+        <br><br>
+        La mies es abundante y los obreros pocos; rogad, pues, al dueño de la mies que envíe obreros a su mies.
+        <br><br>
+        ¡Poneos en camino! Mirad que os envío como corderos en medio de lobos. No llevéis bolsa, ni alforja, ni sandalias; y no saludéis a nadie por el camino.
+      </div>
     </div>
   </section>
 
@@ -80,17 +98,15 @@
       <div class="horario-card animated-fadein">
         <h3><i class="fas fa-church"></i> Misas</h3>
         <ul>
-          <li><strong>Lunes a Viernes:</strong> 19:00 hs</li>
-          <li><strong>Sábados:</strong> 18:00 hs</li>
-          <li><strong>Domingos:</strong> 10:00 hs y 19:00 hs</li>
+          <li><strong>Lunes a Viernes:</strong> 06:15 y 18:00 hs</li>
+          <li><strong>Sábados:</strong> 17:00 y 18:00 hs</li>
+          <li><strong>Domingos:</strong> 08:30, 17:00 y 18:00 hs</li>
         </ul>
       </div>
       <div class="horario-card animated-fadein">
         <h3><i class="fas fa-user-shield"></i> Confesiones</h3>
         <ul>
-          <li><strong>Miércoles y Viernes:</strong> 18:00 a 18:45 hs</li>
-          <li><strong>Sábados:</strong> 17:00 a 17:45 hs</li>
-          <li><strong>Domingos:</strong> 09:00 a 09:45 hs</li>
+          <li><strong>Lunes a Viernes:</strong> 07:00 a 11:00 hs</li>
         </ul>
       </div>
     </div>
@@ -117,18 +133,6 @@
     </div>
   </section>
 
-  <!-- ===========================
-       NOTICIAS
-       =========================== -->
-  <section id="noticias" class="section fade-in">
-    <h2>Noticias</h2>
-    <div class="noticias-grid">
-      <div class="card"><img src="noticia1.jpg" class="noticia-img" alt="Semana Santa"/><h3>Semana Santa</h3><p>Programación especial.</p></div>
-      <div class="card"><img src="noticia2.jpg" class="noticia-img" alt="Estudios Bíblicos"/><h3>Estudios Bíblicos</h3><p>Miércoles a las 19:00 hs.</p></div>
-      <div class="card"><img src="noticia3.jpg" class="noticia-img" alt="Solidaridad"/><h3>Solidaridad</h3><p>Campañas de ayuda comunitaria.</p></div>
-      <div class="card"><img src="noticia4.jpg" class="noticia-img" alt="Días de misas"/><h3>Solidaridad</h3><p>Dias de misas.</p></div>
-    </div>
-  </section>
 
   <!-- ===========================
        MULTIMEDIA / VIDEOS
@@ -190,11 +194,17 @@
        FOOTER
        =========================== -->
   <footer class="footer">
-    <p>© 2024 Santuario Diocesano del Santísimo Sacramento y Perpetuo Socorro</p>
+    <p>© 2025 Santuario Diocesano del Santísimo Sacramento y Perpetuo Socorro</p>
     <div class="social-icons">
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.facebook.com/share/16YXw5izH7/" target="_blank" rel="noopener" aria-label="Facebook">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="https://youtube.com/@santuariodiocesanodelstmosacra?si=yxyo3ETUteVHbNsR" target="_blank" rel="noopener" aria-label="YouTube">
+        <i class="fab fa-youtube"></i>
+      </a>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
     </div>
   </footer>
 
