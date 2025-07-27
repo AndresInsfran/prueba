@@ -1,0 +1,361 @@
+/* ===========================
+   EVANGELIO DEL DÍA - ESTILOS
+   =========================== */
+
+/* Asegurar centrado de la sección */
+#evangelio {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-xl, 4rem) var(--spacing-md, 2rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#evangelio h2 {
+  text-align: center;
+  margin-bottom: var(--spacing-lg, 3rem);
+  width: 100%;
+  font-family: var(--font-heading, 'Cinzel', serif);
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 600;
+  color: var(--primary-color, #8B4513);
+  position: relative;
+}
+
+#evangelio h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    var(--primary-color, #8B4513) 0%, 
+    var(--secondary-color, #DAA520) 50%, 
+    var(--primary-color, #8B4513) 100%);
+  border-radius: 2px;
+}
+
+.evangelio-card {
+  background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%);
+  border: 2px solid var(--primary-color, #8B4513);
+  border-radius: 15px;
+  padding: 30px;
+  margin: 20px auto;
+  max-width: 800px;
+  width: 100%;
+  box-shadow: 
+    0 10px 30px rgba(139, 69, 19, 0.1),
+    0 5px 15px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.evangelio-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 15px 40px rgba(139, 69, 19, 0.15),
+    0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.evangelio-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    var(--primary-color, #8B4513) 0%, 
+    var(--secondary-color, #DAA520) 50%, 
+    var(--primary-color, #8B4513) 100%);
+}
+
+/* Header del evangelio */
+.evangelio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.evangelio-fecha {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary-color, #8B4513);
+}
+
+.evangelio-fecha i {
+  font-size: 1.2rem;
+  color: var(--secondary-color, #DAA520);
+}
+
+.evangelio-fuente {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  opacity: 0.7;
+  font-size: 0.85rem;
+}
+
+/* Contenido principal */
+.evangelio-contenido {
+  position: relative;
+}
+
+.evangelio-cita {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary-color, #8B4513);
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: rgba(139, 69, 19, 0.05);
+  border-radius: 10px;
+  border-left: 4px solid var(--secondary-color, #DAA520);
+}
+
+.evangelio-cita i {
+  color: var(--secondary-color, #DAA520);
+  font-size: 1.4rem;
+}
+
+.evangelio-titulo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-color, #333);
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.evangelio-titulo i {
+  color: var(--secondary-color, #DAA520);
+  font-size: 1.1rem;
+}
+
+/* Texto del evangelio */
+.evangelio-texto {
+  position: relative;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-color, #444);
+  text-align: justify;
+  margin: 25px 0;
+  padding: 20px;
+  background: rgba(248, 249, 250, 0.8);
+  border-radius: 12px;
+  border: 1px solid rgba(139, 69, 19, 0.1);
+}
+
+.comillas-apertura,
+.comillas-cierre {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--secondary-color, #DAA520);
+  opacity: 0.6;
+  position: absolute;
+  z-index: 1;
+}
+
+.comillas-apertura {
+  top: -10px;
+  left: 10px;
+}
+
+.comillas-cierre {
+  bottom: -30px;
+  right: 15px;
+}
+
+/* Reflexión final */
+.evangelio-reflexion {
+  text-align: center;
+  margin-top: 25px;
+  padding: 20px;
+  background: linear-gradient(145deg, 
+    rgba(139, 69, 19, 0.05) 0%, 
+    rgba(218, 165, 32, 0.05) 100%);
+  border-radius: 10px;
+  border: 1px dashed var(--secondary-color, #DAA520);
+}
+
+.evangelio-reflexion i {
+  color: var(--secondary-color, #DAA520);
+  margin-right: 8px;
+  font-size: 1.1rem;
+}
+
+.evangelio-reflexion em {
+  font-size: 1rem;
+  color: var(--primary-color, #8B4513);
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Acciones del evangelio */
+.evangelio-acciones {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+.btn-evangelio-compartir,
+.btn-evangelio-refresh {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: 2px solid var(--primary-color, #8B4513);
+  background: transparent;
+  color: var(--primary-color, #8B4513);
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-evangelio-compartir:hover,
+.btn-evangelio-refresh:hover {
+  background: var(--primary-color, #8B4513);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+}
+
+.btn-evangelio-compartir i,
+.btn-evangelio-refresh i {
+  font-size: 0.9rem;
+}
+
+/* Estado de carga */
+.evangelio-loading {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--primary-color, #8B4513);
+}
+
+.evangelio-loading i {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: var(--secondary-color, #DAA520);
+  animation: spin 1s linear infinite;
+}
+
+.evangelio-loading p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  #evangelio {
+    padding: var(--spacing-lg, 3rem) var(--spacing-sm, 1rem);
+  }
+  
+  .evangelio-card {
+    padding: 20px;
+    margin: 15px auto;
+    max-width: 100%;
+  }
+  
+  .evangelio-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .evangelio-cita {
+    font-size: 1.1rem;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .evangelio-texto {
+    font-size: 1rem;
+    padding: 15px;
+    text-align: left;
+  }
+  
+  .comillas-apertura,
+  .comillas-cierre {
+    font-size: 2rem;
+  }
+  
+  .comillas-apertura {
+    top: -5px;
+    left: 5px;
+  }
+  
+  .comillas-cierre {
+    bottom: -20px;
+    right: 10px;
+  }
+  
+  .evangelio-acciones {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .btn-evangelio-compartir,
+  .btn-evangelio-refresh {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  #evangelio {
+    padding: var(--spacing-md, 2rem) var(--spacing-xs, 0.5rem);
+  }
+  
+  .evangelio-card {
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px auto;
+  }
+  
+  .evangelio-fecha {
+    font-size: 1rem;
+  }
+  
+  .evangelio-cita {
+    font-size: 1rem;
+    padding: 12px;
+  }
+  
+  .evangelio-texto {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  .evangelio-reflexion {
+    padding: 15px;
+  }
+}
