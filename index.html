@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Santuario Diocesano del Santísimo Sacramento y Perpetuo Socorro - Asunción, Paraguay</title>
+  
+  <!-- Meta tags para SEO -->
+  <meta name="description" content="Santuario Diocesano del Santísimo Sacramento y Perpetuo Socorro en Asunción, Paraguay. Horarios de misa, historia, galería y contacto. Un lugar de fe y devoción."/>
+  <meta name="keywords" content="santuario, paraguay, asunción, misa, católico, perpetuo socorro, santísimo sacramento, iglesia, fe, devoción"/>
+  <meta name="author" content="Santuario Diocesano"/>
+  <meta name="robots" content="index, follow"/>
+  
+  <!-- Open Graph para redes sociales -->
+  <meta property="og:title" content="Santuario Diocesano del Santísimo Sacramento y Perpetuo Socorro"/>
+  <meta property="og:description" content="Un lugar de fe y devoción en Asunción, Paraguay. Conoce nuestros horarios, historia y únete a nuestra comunidad."/>
+  <meta property="og:image" content="assets/images/portada.jpg"/>
+  <meta property="og:url" content="https://santuariodiocesano.com"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:locale" content="es_ES"/>
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Santuario Diocesano del Santísimo Sacramento y Perpetuo Socorro"/>
+  <meta name="twitter:description" content="Un lugar de fe y devoción en Asunción, Paraguay"/>
+  <meta name="twitter:image" content="assets/images/portada.jpg"/>
+  
+  <!-- Favicon -->
+  <!-- <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/> -->
+  
+  <!-- Fuentes y estilos externos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="assets/css/main.css"/>
+  <!-- Estilos específicos para botones de galería -->
+  <link rel="stylesheet" href="assets/css/gallery-buttons.css"/>
+  <!-- Estilos específicos para evangelio del día -->
+  <link rel="stylesheet" href="assets/css/evangelio.css"/>
+  <!-- Estilos específicos para calendario -->
+  <link rel="stylesheet" href="assets/css/calendario.css"/>
+  <!-- Estilos específicos para Google Calendar API -->
+  <link rel="stylesheet" href="assets/css/google-calendar-api.css"/>
+  
+  <!-- Structured Data para Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Church",
+    "name": "Santuario Diocesano del Santísimo Sacramento y Perpetuo Socorro",
+    "description": "Santuario católico en Asunción, Paraguay, dedicado al Santísimo Sacramento y la Virgen del Perpetuo Socorro",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Asunción",
+      "addressCountry": "Paraguay"
+    },
+    "telephone": "+595982044910",
+    "url": "https://santuariodiocesano.com",
+    "sameAs": [
+      "https://www.facebook.com/share/16YXw5izH7/",
+      "https://youtube.com/@santuariodiocesanodelstmosacra"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ===========================
+       HEADER Y NAVEGACIÓN
+       =========================== -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <img src="assets/images/logo.png" alt="Logo del Santuario" class="logo-img">
+        <h1>Santuario Diocesano</h1>
+      </div>
+      <nav class="nav-desktop">
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#momentos-especiales">Momentos</a>
+        <a href="#galeria">Galería</a>
+        <a href="#calendario">Calendario</a>
+        <a href="#horarios">Horarios</a>
+        <a href="#multimedia">Videos</a>
+        <a href="#encuentranos">Ubicación</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars" id="menu-icon"></i>
+      </button>
+    </div>
+    <div class="nav-mobile" id="mobile-nav">
+      <a href="#inicio" onclick="closeMobileMenu()">Inicio</a>
+      <a href="#nosotros" onclick="closeMobileMenu()">Nosotros</a>
+      <a href="#momentos-especiales" onclick="closeMobileMenu()">Momentos</a>
+      <a href="#galeria" onclick="closeMobileMenu()">Galería</a>
+      <a href="#calendario" onclick="closeMobileMenu()">Calendario</a>
+      <a href="#horarios" onclick="closeMobileMenu()">Horarios</a>
+      <a href="#multimedia" onclick="closeMobileMenu()">Videos</a>
+      <a href="#encuentranos" onclick="closeMobileMenu()">Ubicación</a>
+      <a href="#contacto" onclick="closeMobileMenu()">Contacto</a>
+    </div>
+  </header>
+
+  <!-- ===========================
+       HERO / PORTADA
+       =========================== -->
+  <section id="inicio" class="hero fade-in">
+    <img src="assets/images/portada.jpg" alt="Santuario" class="img-portada"/>
+    <div class="hero-content">
+      <h1>Bienvenidos </h1>
+      <p>Un lugar sagrado de fe y esperanza</p>
+      <a class="btn" href="#contacto">Contáctanos</a>
+    </div>
+  </section>
+
+  <!-- ===========================
+       EVANGELIO DEL DÍA
+       =========================== -->
+  <section id="evangelio" class="section fade-in animated-fadein">
+    <h2>Evangelio del Día</h2>
+    <div id="evangelio-dia" class="evangelio-card">
+      <div class="evangelio-cita">Lucas 10, 1-12. 17-20</div>
+      <div class="evangelio-texto">
+        <em>"Descansará sobre ellos vuestra paz"</em>
+        <br><br>
+        La mies es abundante y los obreros pocos; rogad, pues, al dueño de la mies que envíe obreros a su mies.
+        <br><br>
+        ¡Poneos en camino! Mirad que os envío como corderos en medio de lobos. No llevéis bolsa, ni alforja, ni sandalias; y no saludéis a nadie por el camino.
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       HORARIOS DE MISA Y CONFESIONES
+       =========================== -->
+  <section id="horarios" class="section fade-in animated-fadein">
+    <h2>Horarios de Misa y Confesiones</h2>
+    <div class="horarios-grid">
+      <div class="horario-card animated-fadein">
+        <h3><i class="fas fa-church"></i> Misas</h3>
+        <ul>
+          <li><strong>Lunes a Viernes:</strong> 06:15 y 18:00 hs</li>
+          <li><strong>Sábados:</strong> 17:00 y 18:00 hs</li>
+          <li><strong>Domingos:</strong> 08:30, 17:00 y 18:00 hs</li>
+        </ul>
+      </div>
+      <div class="horario-card animated-fadein">
+        <h3><i class="fas fa-user-shield"></i> Confesiones</h3>
+        <ul>
+          <li><strong>Lunes a Viernes:</strong> 07:30 a 11:30 hs</li>
+          <li><strong>Lunes a Viernes:</strong> 15:30 a 17:30 hs</li>
+        </ul>
+        <div class="agendar-confesion">
+          <a href="https://wa.me/595982044910?text=Hola,%20me%20gustaría%20agendar%20una%20confesión" 
+             target="_blank" 
+             rel="noopener" 
+             class="btn-agendar">
+            <i class="fab fa-whatsapp"></i>
+            Agendar vía WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       NOSOTROS
+       =========================== -->
+  <section id="nosotros" class="section fade-in">
+    <h2>Nuestra Historia</h2>
+    <p>El Santuario del Santísimo Sacramento y del Perpetuo Socorro, ubicado en Asunción, Paraguay, fue impulsado a inicios del siglo XX por el padre Domingo Pezzini, un sacerdote italiano profundamente devoto de la Virgen del Perpetuo Socorro. Gracias al apoyo de la familia Ferraro y de la comunidad, en 1917 se colocó la primera piedra en el terreno donado, y en 1918 se oficializó la fundación con el respaldo del Papa Benedicto XV.
+
+Desde entonces, el santuario se convirtió en un importante centro de peregrinación, especialmente durante las festividades de junio, reuniendo a miles de fieles. Además de su labor religiosa, el padre Pezzini promovió obras de caridad y apoyo social. A lo largo de los años, el santuario ha recibido valiosas ofrendas en agradecimiento a los favores recibidos, consolidándose como un símbolo de fe y solidaridad en Paraguay.</p>
+    
+    <div class="historia-actions">
+      <button class="btn btn-historia" onclick="abrirModalSimple()">
+        <i class="fas fa-book-open"></i>
+        Más sobre nuestra historia
+      </button>
+    </div>
+    
+    <script>
+    function abrirModalSimple() {
+      console.log('🔄 Función simple ejecutada');
+      const modal = document.getElementById('modal-historia');
+      if (modal) {
+        modal.style.display = 'flex';
+        modal.style.position = 'fixed';
+        modal.style.top = '0';
+        modal.style.left = '0';
+        modal.style.width = '100%';
+        modal.style.height = '100%';
+        modal.style.zIndex = '99999';
+        modal.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+        document.body.style.overflow = 'hidden';
+        console.log('✅ Modal abierto con función simple');
+      } else {
+        console.error('❌ Modal no encontrado');
+        alert('Modal no encontrado');
+      }
+    }
+    
+    function cerrarModalSimple() {
+      const modal = document.getElementById('modal-historia');
+      if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    }
+    
+    function abrirImagenSimple(img) {
+      const modalImg = document.getElementById('modal-imagen-completa');
+      const imagenCompleta = document.getElementById('imagen-completa');
+      const caption = document.querySelector('.modal-imagen-caption');
+      
+      if (modalImg && imagenCompleta) {
+        imagenCompleta.src = img.src;
+        imagenCompleta.alt = img.alt;
+        if (caption) caption.textContent = img.alt;
+        
+        modalImg.style.display = 'flex';
+        modalImg.style.position = 'fixed';
+        modalImg.style.top = '0';
+        modalImg.style.left = '0';
+        modalImg.style.width = '100%';
+        modalImg.style.height = '100%';
+        modalImg.style.zIndex = '99999';
+        modalImg.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+      }
+    }
+    
+    function cerrarImagenSimple() {
+      const modalImg = document.getElementById('modal-imagen-completa');
+      if (modalImg) {
+        modalImg.style.display = 'none';
+      }
+    }
+    </script>
+  </section>
+
+  <!-- ===========================
+       MOMENTOS ESPECIALES (CARRUSEL)
+       =========================== -->
+  <section id="momentos-especiales" class="carousel-section fade-in">
+    <div class="carousel-container">
+      <h2 class="carousel-title">Momentos Especiales</h2>
+      <p class="carousel-description">Celebraciones únicas y memorables de nuestra comunidad</p>
+      <div class="carousel-wrapper">
+        <div class="carousel-track">
+          <div class="carousel-slide active">
+            <img src="assets/images/galeria/galeria1.jpg" alt="Ceremonias especiales">
+            <div class="carousel-caption">Ceremonias especiales</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="assets/images/galeria/galeria4.jpg" alt="Comunidad reunida">
+            <div class="carousel-caption">Comunidad reunida</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="assets/images/historia/Historia1.jpg" alt="Historia del santuario">
+            <div class="carousel-caption">Nuestras raíces</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="assets/images/historia/Historia2.jpg" alt="Tradición y fe">
+            <div class="carousel-caption">Tradición y fe</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="assets/images/galeria/galeria2.jpg" alt="Momentos de oración">
+            <div class="carousel-caption">Momentos de oración</div>
+          </div>
+        </div>
+        <button class="carousel-controls carousel-prev">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-controls carousel-next">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="carousel-indicators"></div>
+      </div>
+      
+      <!-- Botón para ver todas las imágenes de momentos especiales -->
+      <div class="carousel-actions">
+        <button class="btn-secondary" onclick="openGalleryModal('carousel')">
+          <i class="fas fa-star"></i>
+          Ver todos los momentos especiales
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       GALERÍA DE FOTOS
+       =========================== -->
+  <section id="galeria" class="gallery-section fade-in">
+    <div class="gallery-container">
+      <h2 class="gallery-title">Nuestra Galería</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <div class="gallery-item-inner">
+            <img src="assets/images/galeria/galeria1.jpg" alt="Interior del santuario">
+            <div class="gallery-overlay">
+              <div class="gallery-caption">Interior del santuario</div>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-item-inner">
+            <img src="assets/images/galeria/galeria2.jpg" alt="Altar principal">
+            <div class="gallery-overlay">
+              <div class="gallery-caption">Altar principal</div>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-item-inner">
+            <img src="assets/images/galeria/galeria3.jpg" alt="Ceremonias especiales">
+            <div class="gallery-overlay">
+              <div class="gallery-caption">Ceremonias especiales</div>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-item-inner">
+            <img src="assets/images/galeria/galeria4.jpg" alt="Comunidad reunida">
+            <div class="gallery-overlay">
+              <div class="gallery-caption">Comunidad reunida</div>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-item-inner">
+            <img src="assets/images/galeria/galeria5.jpg" alt="Momentos de oración">
+            <div class="gallery-overlay">
+              <div class="gallery-caption">Momentos de oración</div>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-item-inner">
+            <img src="assets/images/galeria/galeria6.jpg" alt="Festividades">
+            <div class="gallery-overlay">
+              <div class="gallery-caption">Festividades</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Botón para ver todas las imágenes -->
+      <div class="gallery-actions">
+        <button class="btn-primary" onclick="openGalleryModal('principal')">
+          <i class="fas fa-images"></i>
+          Ver todas las imágenes
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       CALENDARIO DE EVENTOS
+       =========================== -->
+  <section id="calendario" class="section fade-in">
+    <h2>Calendario de Eventos</h2>
+    <div class="calendario-container">
+      <div class="calendario-descripcion">
+        <p>Consulta nuestros eventos, misas especiales y celebraciones litúrgicas</p>
+      </div>
+      
+      <!-- Calendario embebido de Google -->
+      <div class="calendario-wrapper">
+        <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FAsuncion&src=es.py%23holiday%40group.v.calendar.google.com&color=%23F09300&showTitle=0&showNav=1&showDate=1&showCalendars=1&showTz=0&showPrint=0&showTabs=1&mode=MONTH" 
+                style="border-width:0" 
+                width="800" 
+                height="600" 
+                frameborder="0" 
+                scrolling="no"
+                title="Calendario del Santuario">
+        </iframe>
+      </div>
+      
+      <!-- Controles del calendario -->
+      <div class="calendario-controles">
+        <div class="calendario-info">
+          <div class="info-card">
+            <i class="fas fa-calendar-plus"></i>
+            <h4>Solicitar Evento</h4>
+            <p>¿Necesitas agendar una misa especial, bautismo o matrimonio?</p>
+            <a href="https://wa.me/595982044910?text=Hola,%20me%20gustaría%20agendar%20un%20evento%20en%20el%20santuario" 
+               class="btn-calendario" target="_blank" rel="noopener">
+              <i class="fab fa-whatsapp"></i>
+              Contactar
+            </a>
+          </div>
+          
+          <div class="info-card">
+            <i class="fas fa-bell"></i>
+            <h4>Notificaciones</h4>
+            <p>Recibe recordatorios de eventos importantes</p>
+            <button class="btn-calendario" onclick="CalendarioSantuario.configurarNotificaciones()">
+              <i class="fas fa-bell-slash" id="bell-icon"></i>
+              <span id="notif-text">Activar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+
+
+  <!-- ===========================
+       MULTIMEDIA / VIDEOS
+       =========================== -->
+  <section id="horarios" class="section fade-in animated-fadein">
+    <h2>Horarios de Misa y Confesiones</h2>
+    <div class="horarios-grid">
+      <div class="horario-card animated-fadein">
+        <h3><i class="fas fa-church"></i> Misas</h3>
+        <ul>
+          <li><strong>Lunes a Viernes:</strong> 06:15 y 18:00 hs</li>
+          <li><strong>Sábados:</strong> 17:00 y 18:00 hs</li>
+          <li><strong>Domingos:</strong> 08:30, 17:00 y 18:00 hs</li>
+        </ul>
+      </div>
+      <div class="horario-card animated-fadein">
+        <h3><i class="fas fa-user-shield"></i> Confesiones</h3>
+        <ul>
+          <li><strong>Lunes a Viernes:</strong> 07:30 a 11:30 hs</li>
+          <li><strong>Lunes a Viernes:</strong> 15:30 a 17:30 hs</li>
+        </ul>
+        <div class="agendar-confesion">
+          <a href="https://wa.me/595982044910?text=Hola,%20me%20gustaría%20agendar%20una%20confesión" 
+             target="_blank" 
+             rel="noopener" 
+             class="btn-agendar">
+            <i class="fab fa-whatsapp"></i>
+            Agendar vía WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===========================
+       MULTIMEDIA / VIDEOS
+       =========================== -->
+  <section id="multimedia" class="section fade-in">
+    <h2>Videos</h2>
+    <div class="video-grid">
+      <div class="card"><iframe src="https://www.youtube.com/embed/VIDEO_ID1" allowfullscreen class="video-thumb" title="Video 1"></iframe></div>
+      <div class="card"><iframe src="https://www.youtube.com/embed/VIDEO_ID2" allowfullscreen class="video-thumb" title="Video 2"></iframe></div>
+      <div class="card"><iframe src="https://www.youtube.com/embed/VIDEO_ID3" allowfullscreen class="video-thumb" title="Video 3"></iframe></div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       CONTACTO MEJORADO
+       =========================== -->
+  <section id="contacto" class="section fade-in">
+    <h2>Contacto</h2>
+    <div class="contacto-grid">
+      <a class="btn-whatsapp glow-effect" href="https://wa.me/595982044910" target="_blank" rel="noopener">
+        <i class="fab fa-whatsapp"></i> Escribinos por WhatsApp
+      </a>
+      
+      <div class="contacto-info">
+        <div class="card glass-morphism">
+          <h3><i class="fas fa-phone icon-hover"></i> Teléfono</h3>
+          <p>+595 98 204 4910</p>
+        </div>
+        
+        <div class="card glass-morphism">
+          <h3><i class="fas fa-clock icon-hover"></i> Horarios de Atención</h3>
+          <p>Lunes a Viernes: 07:00 - 18:00 hs<br>
+             Sábados: 08:00 - 18:00 hs<br>
+             Domingos: 08:00 - 18:00 hs</p>
+        </div>
+        
+        <div class="card glass-morphism">
+          <h3><i class="fas fa-envelope icon-hover"></i> Información</h3>
+          <p>Para misas especiales, bautismos, matrimonios y otros sacramentos, comunícate con nosotros.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       ENCUÉNTRANOS / MAPA
+       =========================== -->
+  <section id="encuentranos" class="section fade-in">
+    <h2>Encuéntranos</h2>
+    <div class="map-responsive">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3600.0000000000005!2d-57.6366608!3d-25.2848209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945da7f141d84725%3A0xfa92e76313fce7c6!2sCapilla%20del%20Sant%C3%ADsimo%20Sacramento%20y%20del%20Perpetuo%20Socorro!5e0!3m2!1ses!2spy!4v1718900000000!5m2!1ses!2spy"
+        width="600"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Mapa Santuario">
+      </iframe>
+    </div>
+    <p><strong>Dirección:</strong> Capilla del Santísimo Sacramento y del Perpetuo Socorro</p>
+  </section>
+
+  <!-- ===========================
+       FOOTER
+       =========================== -->
+  <footer class="footer">
+    <p>© 2025 Santuario Diocesano del Santísimo Sacramento y Perpetuo Socorro</p>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/share/16YXw5izH7/" target="_blank" rel="noopener" aria-label="Facebook">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="https://youtube.com/@santuariodiocesanodelstmosacra?si=yxyo3ETUteVHbNsR" target="_blank" rel="noopener" aria-label="YouTube">
+        <i class="fab fa-youtube"></i>
+      </a>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+  </footer>
+
+  <!-- ===========================
+       MODAL DE HISTORIA
+       =========================== -->
+  <div id="modal-historia" class="modal-historia" style="display: none;">
+    <div class="modal-historia-overlay" onclick="cerrarModalSimple()"></div>
+    <div class="modal-historia-content">
+      <div class="modal-historia-header">
+        <h2 class="modal-historia-titulo">
+          <i class="fas fa-church"></i>
+          Historia del Santuario
+        </h2>
+        <button class="modal-historia-close" onclick="cerrarModalSimple()" aria-label="Cerrar modal">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="modal-historia-body">
+        <!-- Timeline de la historia -->
+        <div class="historia-timeline">
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">1917-1918</div>
+              <h3>Los Fundadores</h3>
+              <div class="timeline-text-image">
+                <div class="timeline-text">
+                  <p>El padre <strong>Domingo Pezzini</strong>, sacerdote italiano profundamente devoto de la Virgen del Perpetuo Socorro, impulsó la creación del santuario con el apoyo de la familia Ferraro y la comunidad. En 1917 se colocó la primera piedra y en 1918 se oficializó la fundación con el respaldo del Papa Benedicto XV.</p>
+                </div>
+                <div class="timeline-image">
+                  <img src="assets/images/historia/Historia1.jpg" alt="Inicios del santuario" onclick="abrirImagenSimple(this)">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">1920-1950</div>
+              <h3>Construcción y Crecimiento</h3>
+              <div class="timeline-text-image">
+                <div class="timeline-text">
+                  <p>Durante estas décadas, el santuario experimentó un crecimiento significativo. La construcción del templo principal se completó gradualmente, convirtiéndose en un <strong>importante centro de peregrinación</strong>, especialmente durante las festividades de junio que reunían a miles de fieles de todo el país.</p>
+                </div>
+                <div class="timeline-image">
+                  <img src="assets/images/historia/Historia2.jpg" alt="Construcción del templo" onclick="abrirImagenSimple(this)">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">1950-1980</div>
+              <h3>Consolidación y Obras Sociales</h3>
+              <div class="timeline-text-image">
+                <div class="timeline-text">
+                  <p>El padre Pezzini no solo se dedicó a la labor religiosa, sino que también promovió <strong>obras de caridad y apoyo social</strong>. El santuario se convirtió en un punto de referencia para la comunidad, recibiendo valiosas ofrendas en agradecimiento a los favores recibidos.</p>
+                </div>
+                <div class="timeline-image">
+                  <img src="assets/images/historia/Historia3.jpg" alt="Obras sociales" onclick="abrirImagenSimple(this)">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">1980-Presente</div>
+              <h3>Comunidad Viva</h3>
+              <div class="timeline-text-image">
+                <div class="timeline-text">
+                  <p>Hoy el santuario continúa siendo una <strong>comunidad vibrante y comprometida</strong> con la evangelización, la adoración eucarística y la devoción a la Virgen del Perpetuo Socorro. Se ha consolidado como un símbolo de fe y solidaridad en Paraguay, manteniendo viva la tradición y el legado de sus fundadores.</p>
+                </div>
+                <div class="timeline-image">
+                  <img src="assets/images/galeria/galeria1.jpg" alt="Comunidad actual" onclick="abrirImagenSimple(this)">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Galería de imágenes adicionales -->
+        <div class="historia-galeria">
+          <h3 class="historia-galeria-titulo">
+            <i class="fas fa-images"></i>
+            Galería Histórica
+          </h3>
+          <div class="historia-galeria-grid">
+            <div class="historia-imagen-item" onclick="abrirImagenSimple(this.querySelector('img'))">
+              <img src="assets/images/galeria/galeria2.jpg" alt="Interior del santuario">
+              <div class="historia-imagen-caption">Interior del santuario</div>
+            </div>
+            <div class="historia-imagen-item" onclick="abrirImagenSimple(this.querySelector('img'))">
+              <img src="assets/images/galeria/galeria3.jpg" alt="Altar principal">
+              <div class="historia-imagen-caption">Altar principal</div>
+            </div>
+            <div class="historia-imagen-item" onclick="abrirImagenSimple(this.querySelector('img'))">
+              <img src="assets/images/galeria/galeria4.jpg" alt="Celebraciones">
+              <div class="historia-imagen-caption">Celebraciones especiales</div>
+            </div>
+            <div class="historia-imagen-item" onclick="abrirImagenSimple(this.querySelector('img'))">
+              <img src="assets/images/galeria/galeria5.jpg" alt="Comunidad">
+              <div class="historia-imagen-caption">Nuestra comunidad</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Información adicional -->
+        <div class="historia-info-adicional">
+          <div class="historia-card">
+            <h4><i class="fas fa-heart"></i> Devoción</h4>
+            <p>Nuestro santuario está especialmente dedicado al <strong>Santísimo Sacramento</strong> y a la <strong>Virgen del Perpetuo Socorro</strong>, siendo un lugar de profunda espiritualidad y encuentro con lo sagrado.</p>
+          </div>
+          <div class="historia-card">
+            <h4><i class="fas fa-hands-helping"></i> Compromiso Social</h4>
+            <p>Desde sus inicios, hemos mantenido un fuerte compromiso con la <strong>acción social</strong>, apoyando a las familias necesitadas y promoviendo obras de caridad en nuestra comunidad.</p>
+          </div>
+          <div class="historia-card">
+            <h4><i class="fas fa-users"></i> Comunidad</h4>
+            <p>Miles de fieles han encontrado en nuestro santuario un <strong>hogar espiritual</strong>, especialmente durante nuestras celebraciones tradicionales que reúnen a personas de todo Paraguay.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para ver imágenes en tamaño completo -->
+  <div id="modal-imagen-completa" class="modal-imagen-completa">
+    <div class="modal-imagen-overlay" onclick="cerrarImagenSimple()"></div>
+    <div class="modal-imagen-content">
+      <button class="modal-imagen-close" onclick="cerrarImagenSimple()">
+        <i class="fas fa-times"></i>
+      </button>
+      <img id="imagen-completa" src="" alt="">
+      <div class="modal-imagen-caption"></div>
+    </div>
+  </div>
+
+  <!-- Los modales de galería se crean dinámicamente desde JavaScript -->
+
+  <!-- ===========================
+       SCRIPTS
+       =========================== -->
+  <!-- <script src="assets/js/navigation.js"></script> -->
+  <!-- <script src="assets/js/animations.js"></script> -->
+  <!-- <script src="assets/js/modals.js"></script> -->
+  <script src="assets/js/gallery.js"></script>
+  <!-- <script src="assets/js/utils.js"></script> -->
+  <!-- <script src="assets/js/gallery-simplified.js"></script> -->
+  <script src="assets/js/advanced-gallery.js"></script>
+  <script src="assets/js/evangelio.js"></script>
+  <script src="assets/js/calendario.js"></script>
+  <script src="assets/js/google-calendar-api.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>
