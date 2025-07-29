@@ -1,5 +1,20 @@
 # 🚀 CONFIGURACIÓN GOOGLE CALENDAR API - GUÍA COMPLETA
 
+## 🚨 ¿Ves el error "Error al conectar con Google Calendar"?
+
+### ✅ **SOLUCIÓN RÁPIDA:**
+1. **Ve a la sección "Calendario de Eventos"** en tu sitio web
+2. **Busca el panel "Diagnóstico de Google Calendar API"**
+3. **Haz clic en "Ejecutar Diagnóstico"**
+4. **Revisa los resultados** y ve a `SOLUCION-ERROR-GOOGLE-CALENDAR.md`
+
+### 🔄 **MODO DEGRADADO AUTOMÁTICO:**
+- Si no puedes configurar la API ahora, el sistema funciona en **modo simplificado**
+- Tienes el **calendario embebido** que funciona sin configuración adicional
+- Para funciones avanzadas, continúa con esta guía
+
+---
+
 ## ✅ ¿Qué acabamos de implementar?
 
 ### 🎯 **SISTEMA COMPLETO DE GESTIÓN DE CALENDARIO:**
@@ -12,6 +27,8 @@
 - ✅ **Interfaz intuitiva** para gestión
 - ✅ **Colores por tipo** de evento
 - ✅ **Diseño responsive** completo
+- ✅ **Panel de diagnóstico** integrado
+- ✅ **Modo degradado** automático
 
 ---
 

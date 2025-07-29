@@ -379,63 +379,55 @@ Desde entonces, el santuario se convirtió en un importante centro de peregrinac
         </iframe>
       </div>
       
-      <!-- Controles del calendario -->
+      <!-- Sistema de calendario avanzado con Google Calendar API -->
       <div class="calendario-controles">
-        <div class="calendario-info">
-          <div class="info-card">
+        <div class="calendario-opciones">
+          <button id="btn-calendario-simple" class="btn-calendario active">
+            <i class="fas fa-calendar-alt"></i>
+            Calendario Simple
+          </button>
+          <button id="btn-calendario-avanzado" class="btn-calendario">
             <i class="fas fa-calendar-plus"></i>
-            <h4>Solicitar Evento</h4>
-            <p>¿Necesitas agendar una misa especial, bautismo o matrimonio?</p>
-            <a href="https://wa.me/595982044910?text=Hola,%20me%20gustaría%20agendar%20un%20evento%20en%20el%20santuario" 
-               class="btn-calendario" target="_blank" rel="noopener">
-              <i class="fab fa-whatsapp"></i>
-              Contactar
-            </a>
-          </div>
-          
-          <div class="info-card">
-            <i class="fas fa-bell"></i>
-            <h4>Notificaciones</h4>
-            <p>Recibe recordatorios de eventos importantes</p>
-            <button class="btn-calendario" onclick="CalendarioSantuario.configurarNotificaciones()">
-              <i class="fas fa-bell-slash" id="bell-icon"></i>
-              <span id="notif-text">Activar</span>
+            Gestión Avanzada
+          </button>
+        </div>
+        
+        <!-- Panel de autenticación de Google -->
+        <div id="auth-panel" class="auth-panel" style="display: none;">
+          <div class="auth-content">
+            <h3><i class="fas fa-sign-in-alt"></i> Conectar con Google Calendar</h3>
+            <p>Para acceder a la gestión avanzada del calendario, necesitas autenticarte con tu cuenta de Google.</p>
+            <button id="authorize-btn" class="btn-auth">
+              <i class="fab fa-google"></i>
+              Conectar con Google
+            </button>
+            <button id="signout-btn" class="btn-auth-secondary" style="display: none;">
+              <i class="fas fa-sign-out-alt"></i>
+              Desconectar
             </button>
           </div>
         </div>
-      </div>
-    </div>
-    </section>
-
-
-  <!-- ===========================
-       MULTIMEDIA / VIDEOS
-       =========================== -->
-  <section id="horarios" class="section fade-in animated-fadein">
-    <h2>Horarios de Misa y Confesiones</h2>
-    <div class="horarios-grid">
-      <div class="horario-card animated-fadein">
-        <h3><i class="fas fa-church"></i> Misas</h3>
-        <ul>
-          <li><strong>Lunes a Viernes:</strong> 06:15 y 18:00 hs</li>
-          <li><strong>Sábados:</strong> 17:00 y 18:00 hs</li>
-          <li><strong>Domingos:</strong> 08:30, 17:00 y 18:00 hs</li>
-        </ul>
-      </div>
-      <div class="horario-card animated-fadein">
-        <h3><i class="fas fa-user-shield"></i> Confesiones</h3>
-        <ul>
-          <li><strong>Lunes a Viernes:</strong> 07:30 a 11:30 hs</li>
-          <li><strong>Lunes a Viernes:</strong> 15:30 a 17:30 hs</li>
-        </ul>
-        <div class="agendar-confesion">
-          <a href="https://wa.me/595982044910?text=Hola,%20me%20gustaría%20agendar%20una%20confesión" 
-             target="_blank" 
-             rel="noopener" 
-             class="btn-agendar">
-            <i class="fab fa-whatsapp"></i>
-            Agendar vía WhatsApp
-          </a>
+        
+        <!-- Panel de gestión avanzada -->
+        <div id="advanced-panel" class="advanced-panel" style="display: none;">
+          <div class="calendar-actions">
+            <button id="create-event-btn" class="btn-action">
+              <i class="fas fa-plus"></i>
+              Crear Evento
+            </button>
+            <button id="refresh-calendar-btn" class="btn-action">
+              <i class="fas fa-sync-alt"></i>
+              Actualizar
+            </button>
+          </div>
+          
+          <!-- Lista de eventos próximos -->
+          <div id="upcoming-events" class="upcoming-events">
+            <h4><i class="fas fa-clock"></i> Próximos Eventos</h4>
+            <div id="events-list" class="events-list">
+              <p class="loading-events">Cargando eventos...</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
