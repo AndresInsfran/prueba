@@ -5,8 +5,8 @@
 class GoogleCalendarAPI {
   constructor() {
     // CONFIGURACIÓN - Debes reemplazar estos valores
-    this.API_KEY = 'TU_API_KEY_AQUI'; // Reemplazar con tu API Key
-    this.CLIENT_ID = 'TU_CLIENT_ID_AQUI'; // Reemplazar con tu Client ID
+    this.API_KEY = 'AIzaSyBNUwRynz7Hc8MGnHVYsa68VIaBFSPtb0Q'; // Reemplazar con tu API Key
+    this.CLIENT_ID = 'T382456115228-863441gkbllch0d6h9b3rmeumopfi7e2.apps.googleusercontent.com'; // Reemplazar con tu Client ID
     this.CALENDAR_ID = 'primary'; // O tu Calendar ID específico
     
     this.DISCOVERY_DOC = 'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest';
@@ -15,55 +15,168 @@ class GoogleCalendarAPI {
     this.gapi = null;
     this.tokenClient = null;
     this.isSignedIn = false;
+    this.initAttempts = 0;
+    this.maxInitAttempts = 3;
+    
+    // Verificar si estamos en un entorno compatible
+    if (typeof window === 'undefined') {
+      console.warn('Google Calendar API requiere entorno del navegador');
+      return;
+    }
     
     this.init();
   }
 
   async init() {
     try {
+      console.log('🔄 Iniciando Google Calendar API...');
+      this.initAttempts++;
+      
+      // Verificar credenciales
+      if (!this.API_KEY || this.API_KEY === 'TU_API_KEY_AQUI' || 
+          !this.CLIENT_ID || this.CLIENT_ID === 'TU_CLIENT_ID_AQUI') {
+        throw new Error('Credenciales de Google Calendar no configuradas correctamente');
+      }
+      
       await this.loadGoogleAPI();
       await this.initializeGapi();
       this.setupUI();
+      
+      console.log('✅ Google Calendar API inicializado correctamente');
+      this.mostrarMensaje('Google Calendar API configurado correctamente', 'success');
+      
     } catch (error) {
-      console.error('Error inicializando Google Calendar API:', error);
-      this.mostrarError('Error al conectar con Google Calendar. Verificar configuración.');
+      console.error('❌ Error inicializando Google Calendar API:', error);
+      
+      if (this.initAttempts < this.maxInitAttempts) {
+        console.log(`🔄 Reintentando inicialización (${this.initAttempts}/${this.maxInitAttempts})...`);
+        setTimeout(() => this.init(), 2000);
+        return;
+      }
+      
+      // Mostrar error específico según el tipo
+      if (error.message.includes('Credenciales')) {
+        this.mostrarError('❌ Credenciales de Google Calendar no configuradas. Consulta la documentación en CONFIGURACION-GOOGLE-API.md');
+      } else if (error.message.includes('network') || error.message.includes('fetch')) {
+        this.mostrarError('❌ Error de conexión. Verifica tu conexión a internet.');
+      } else {
+        this.mostrarError('❌ Error al conectar con Google Calendar. Verifica la configuración.');
+      }
+      
+      // Configurar modo degradado (solo calendario embebido)
+      this.setupDegradedMode();
     }
+  }
+
+  // Configurar modo degradado sin API
+  setupDegradedMode() {
+    console.log('🔄 Configurando modo degradado (solo calendario embebido)');
+    
+    // Ocultar controles avanzados
+    const advancedPanel = document.getElementById('advanced-panel');
+    const authPanel = document.getElementById('auth-panel');
+    const btnAvanzado = document.getElementById('btn-calendario-avanzado');
+    
+    if (advancedPanel) advancedPanel.style.display = 'none';
+    if (authPanel) authPanel.style.display = 'none';
+    if (btnAvanzado) {
+      btnAvanzado.style.display = 'none';
+      btnAvanzado.disabled = true;
+    }
+    
+    // Mostrar solo el calendario embebido
+    const btnSimple = document.getElementById('btn-calendario-simple');
+    if (btnSimple) {
+      btnSimple.classList.add('active');
+      btnSimple.textContent = 'Calendario (Modo Simplificado)';
+    }
+    
+    this.mostrarMensaje('Funcionando en modo simplificado. Para funciones avanzadas, configura las credenciales de Google Calendar API.', 'info');
   }
 
   // Cargar Google API
   loadGoogleAPI() {
     return new Promise((resolve, reject) => {
-      if (window.gapi) {
+      console.log('🔄 Cargando Google API...');
+      
+      if (window.gapi && window.google) {
+        console.log('✅ Google API ya está cargada');
         resolve();
         return;
       }
 
       const script = document.createElement('script');
       script.src = 'https://apis.google.com/js/api.js';
+      script.async = true;
+      script.defer = true;
+      
       script.onload = () => {
+        console.log('✅ GAPI cargada, cargando GSI...');
         const gsiScript = document.createElement('script');
         gsiScript.src = 'https://accounts.google.com/gsi/client';
-        gsiScript.onload = resolve;
-        gsiScript.onerror = reject;
+        gsiScript.async = true;
+        gsiScript.defer = true;
+        
+        gsiScript.onload = () => {
+          console.log('✅ GSI cargada');
+          resolve();
+        };
+        gsiScript.onerror = (error) => {
+          console.error('❌ Error cargando GSI:', error);
+          reject(new Error('Error cargando Google Sign-In'));
+        };
         document.head.appendChild(gsiScript);
       };
-      script.onerror = reject;
+      
+      script.onerror = (error) => {
+        console.error('❌ Error cargando GAPI:', error);
+        reject(new Error('Error cargando Google API'));
+      };
+      
       document.head.appendChild(script);
     });
   }
 
   // Inicializar GAPI
   async initializeGapi() {
-    await new Promise((resolve) => gapi.load('client', resolve));
+    console.log('🔄 Inicializando GAPI...');
     
+    if (!window.gapi) {
+      throw new Error('Google API no está disponible');
+    }
+    
+    await new Promise((resolve, reject) => {
+      const timeout = setTimeout(() => {
+        reject(new Error('Timeout inicializando Google API'));
+      }, 10000);
+      
+      gapi.load('client', {
+        callback: () => {
+          clearTimeout(timeout);
+          resolve();
+        },
+        onerror: () => {
+          clearTimeout(timeout);
+          reject(new Error('Error cargando cliente de Google API'));
+        }
+      });
+    });
+    
+    console.log('🔄 Inicializando cliente GAPI...');
     await gapi.client.init({
       apiKey: this.API_KEY,
       discoveryDocs: [this.DISCOVERY_DOC],
     });
 
     this.gapi = gapi;
+    console.log('✅ Cliente GAPI inicializado');
     
     // Configurar OAuth2
+    if (!window.google || !window.google.accounts) {
+      throw new Error('Google Sign-In no está disponible');
+    }
+    
+    console.log('🔄 Configurando OAuth2...');
     this.tokenClient = google.accounts.oauth2.initTokenClient({
       client_id: this.CLIENT_ID,
       scope: this.SCOPES,
@@ -71,12 +184,122 @@ class GoogleCalendarAPI {
         this.handleAuthCallback(tokenResponse);
       },
     });
+    console.log('✅ OAuth2 configurado');
   }
 
   // Configurar interfaz de usuario
   setupUI() {
     this.crearInterfazGestion();
     this.actualizarEstadoAuth();
+    this.crearPanelDiagnostico();
+  }
+
+  // Crear panel de diagnóstico
+  crearPanelDiagnostico() {
+    const calendarioContainer = document.querySelector('.calendario-container');
+    if (!calendarioContainer) return;
+
+    // Crear panel de diagnóstico
+    const diagnosticPanel = document.createElement('div');
+    diagnosticPanel.className = 'diagnostic-panel';
+    diagnosticPanel.innerHTML = `
+      <div class="diagnostic-header">
+        <h4><i class="fas fa-stethoscope"></i> Diagnóstico de Google Calendar API</h4>
+        <button id="run-diagnostic" class="btn-diagnostic">
+          <i class="fas fa-play"></i> Ejecutar Diagnóstico
+        </button>
+      </div>
+      <div id="diagnostic-results" class="diagnostic-results" style="display: none;">
+        <div class="diagnostic-item">
+          <span class="diagnostic-label">API Key:</span>
+          <span id="api-key-status" class="diagnostic-status">Verificando...</span>
+        </div>
+        <div class="diagnostic-item">
+          <span class="diagnostic-label">Client ID:</span>
+          <span id="client-id-status" class="diagnostic-status">Verificando...</span>
+        </div>
+        <div class="diagnostic-item">
+          <span class="diagnostic-label">Google API Scripts:</span>
+          <span id="scripts-status" class="diagnostic-status">Verificando...</span>
+        </div>
+        <div class="diagnostic-item">
+          <span class="diagnostic-label">Conexión a Internet:</span>
+          <span id="network-status" class="diagnostic-status">Verificando...</span>
+        </div>
+        <div class="diagnostic-item">
+          <span class="diagnostic-label">Estado de Autenticación:</span>
+          <span id="auth-status" class="diagnostic-status">Verificando...</span>
+        </div>
+      </div>
+    `;
+
+    // Insertar después de la descripción del calendario
+    const descripcion = calendarioContainer.querySelector('.calendario-descripcion');
+    if (descripcion) {
+      descripcion.after(diagnosticPanel);
+    }
+
+    // Configurar el botón de diagnóstico
+    const runDiagnosticBtn = document.getElementById('run-diagnostic');
+    if (runDiagnosticBtn) {
+      runDiagnosticBtn.addEventListener('click', () => this.ejecutarDiagnostico());
+    }
+  }
+
+  // Ejecutar diagnóstico completo
+  async ejecutarDiagnostico() {
+    console.log('🔍 Ejecutando diagnóstico de Google Calendar API...');
+    
+    const resultsDiv = document.getElementById('diagnostic-results');
+    if (resultsDiv) resultsDiv.style.display = 'block';
+
+    // Verificar API Key
+    this.updateDiagnosticStatus('api-key-status', 
+      this.API_KEY && this.API_KEY !== 'TU_API_KEY_AQUI' ? 'success' : 'error',
+      this.API_KEY && this.API_KEY !== 'TU_API_KEY_AQUI' ? 'Configurada' : 'No configurada'
+    );
+
+    // Verificar Client ID
+    this.updateDiagnosticStatus('client-id-status',
+      this.CLIENT_ID && this.CLIENT_ID !== 'TU_CLIENT_ID_AQUI' ? 'success' : 'error',
+      this.CLIENT_ID && this.CLIENT_ID !== 'TU_CLIENT_ID_AQUI' ? 'Configurado' : 'No configurado'
+    );
+
+    // Verificar scripts de Google
+    const scriptsLoaded = window.gapi && window.google && window.google.accounts;
+    this.updateDiagnosticStatus('scripts-status',
+      scriptsLoaded ? 'success' : 'error',
+      scriptsLoaded ? 'Cargados correctamente' : 'Error en la carga'
+    );
+
+    // Verificar conexión de red
+    try {
+      const response = await fetch('https://www.googleapis.com/calendar/v3/$discovery/rest?version=v3', {
+        method: 'HEAD',
+        mode: 'no-cors'
+      });
+      this.updateDiagnosticStatus('network-status', 'success', 'Conectado');
+    } catch (error) {
+      this.updateDiagnosticStatus('network-status', 'error', 'Sin conexión');
+    }
+
+    // Verificar estado de autenticación
+    this.updateDiagnosticStatus('auth-status',
+      this.isSignedIn ? 'success' : 'warning',
+      this.isSignedIn ? 'Autenticado' : 'No autenticado'
+    );
+  }
+
+  // Actualizar estado del diagnóstico
+  updateDiagnosticStatus(elementId, status, text) {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+
+    element.className = `diagnostic-status ${status}`;
+    element.innerHTML = `
+      <i class="fas fa-${status === 'success' ? 'check-circle' : status === 'error' ? 'times-circle' : 'exclamation-triangle'}"></i>
+      ${text}
+    `;
   }
 
   // Manejar autenticación
