@@ -1,0 +1,366 @@
+/* ===========================
+   OPTIMIZACIÓN MÓVIL PARA CALENDARIO
+   =========================== */
+
+/* Tabletas */
+@media (max-width: 1024px) {
+  .calendar-section {
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .calendar-container {
+    margin: 0 auto;
+    max-width: 90%;
+  }
+  
+  .google-calendar-status {
+    margin: 1.5rem 0;
+  }
+  
+  .calendar-diagnostic {
+    margin: 1.5rem 0;
+    padding: 1.2rem;
+  }
+}
+
+/* Móviles grandes (768px y menor) */
+@media (max-width: 768px) {
+  .calendar-section {
+    padding: 2rem 1rem;
+  }
+  
+  .calendar-container {
+    max-width: 95%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .calendar-title {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .google-calendar-status {
+    margin: 1.2rem 0;
+    padding: 1rem;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .calendar-diagnostic {
+    margin: 1.2rem 0;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+  }
+  
+  .calendar-diagnostic h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .diagnostic-item {
+    margin: 0.6rem 0;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+  }
+  
+  /* Botones del calendario */
+  .calendar-btn {
+    padding: 10px 16px;
+    margin: 0.3rem;
+    font-size: 0.9rem;
+    min-height: 44px;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .calendar-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1rem 0;
+  }
+}
+
+/* Móviles medianos (600px y menor) */
+@media (max-width: 600px) {
+  .calendar-section {
+    padding: 1.8rem 0.8rem;
+  }
+  
+  .calendar-container {
+    max-width: 98%;
+  }
+  
+  .calendar-title {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+    margin-bottom: 1.2rem;
+  }
+  
+  .google-calendar-status {
+    margin: 1rem 0;
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .calendar-diagnostic {
+    margin: 1rem 0;
+    padding: 0.8rem;
+    font-size: 0.85rem;
+  }
+  
+  .calendar-diagnostic h3 {
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .diagnostic-item {
+    margin: 0.4rem 0;
+    padding: 0.4rem;
+    font-size: 0.8rem;
+  }
+  
+  .calendar-btn {
+    padding: 8px 14px;
+    margin: 0.2rem;
+    font-size: 0.85rem;
+    max-width: 180px;
+  }
+}
+
+/* Móviles pequeños (480px y menor) */
+@media (max-width: 480px) {
+  .calendar-section {
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .calendar-container {
+    max-width: 100%;
+    padding: 0 0.2rem;
+  }
+  
+  .calendar-title {
+    font-size: clamp(1.4rem, 7vw, 2rem);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  
+  .google-calendar-status {
+    margin: 0.8rem 0;
+    padding: 0.6rem;
+    font-size: 0.85rem;
+    border-radius: 6px;
+  }
+  
+  .calendar-diagnostic {
+    margin: 0.8rem 0;
+    padding: 0.6rem;
+    font-size: 0.8rem;
+    border-radius: 6px;
+  }
+  
+  .calendar-diagnostic h3 {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .diagnostic-item {
+    margin: 0.3rem 0;
+    padding: 0.3rem;
+    font-size: 0.75rem;
+  }
+  
+  .calendar-btn {
+    padding: 8px 12px;
+    margin: 0.2rem 0;
+    font-size: 0.8rem;
+    max-width: 160px;
+    width: 100%;
+  }
+  
+  .calendar-controls {
+    gap: 0.3rem;
+  }
+}
+
+/* Móviles muy pequeños (360px y menor) */
+@media (max-width: 360px) {
+  .calendar-section {
+    padding: 1.2rem 0.3rem;
+  }
+  
+  .calendar-title {
+    font-size: clamp(1.3rem, 8vw, 1.8rem);
+    margin-bottom: 0.8rem;
+  }
+  
+  .google-calendar-status {
+    margin: 0.6rem 0;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+  
+  .calendar-diagnostic {
+    margin: 0.6rem 0;
+    padding: 0.5rem;
+    font-size: 0.75rem;
+  }
+  
+  .calendar-diagnostic h3 {
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .diagnostic-item {
+    margin: 0.2rem 0;
+    padding: 0.2rem;
+    font-size: 0.7rem;
+  }
+  
+  .calendar-btn {
+    padding: 6px 10px;
+    font-size: 0.75rem;
+    max-width: 140px;
+  }
+}
+
+/* ===========================
+   NOTIFICACIONES MÓVILES
+   =========================== */
+
+@media (max-width: 768px) {
+  .notification {
+    position: fixed;
+    top: 80px; /* Ajustado para header móvil */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 350px;
+    padding: 1rem;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    z-index: 10000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  
+  .notification.success {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+  }
+  
+  .notification.error {
+    background: linear-gradient(135deg, #f44336, #da190b);
+    color: white;
+  }
+  
+  .notification.info {
+    background: linear-gradient(135deg, #2196F3, #0b7dda);
+    color: white;
+  }
+}
+
+@media (max-width: 480px) {
+  .notification {
+    top: 70px;
+    width: 95%;
+    max-width: 320px;
+    padding: 0.8rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .notification {
+    top: 65px;
+    width: 98%;
+    max-width: 300px;
+    padding: 0.6rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* ===========================
+   IFRAME DEL CALENDARIO GOOGLE
+   =========================== */
+
+@media (max-width: 768px) {
+  iframe[src*="calendar.google.com"] {
+    width: 100% !important;
+    height: 400px !important;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+  }
+}
+
+@media (max-width: 600px) {
+  iframe[src*="calendar.google.com"] {
+    height: 350px !important;
+    border-radius: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  iframe[src*="calendar.google.com"] {
+    height: 300px !important;
+    border-radius: 4px;
+  }
+}
+
+@media (max-width: 360px) {
+  iframe[src*="calendar.google.com"] {
+    height: 280px !important;
+  }
+}
+
+/* ===========================
+   OPTIMIZACIONES DE TOUCH
+   =========================== */
+
+@media (max-width: 768px) {
+  .calendar-section * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .calendar-btn:active {
+    transform: scale(0.98);
+  }
+  
+  .diagnostic-item:active {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+}
+
+/* ===========================
+   ORIENTATION LANDSCAPE
+   =========================== */
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .calendar-section {
+    padding: 1rem 0.8rem;
+  }
+  
+  .calendar-title {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    margin-bottom: 0.8rem;
+  }
+  
+  iframe[src*="calendar.google.com"] {
+    height: 250px !important;
+  }
+  
+  .calendar-diagnostic {
+    padding: 0.6rem;
+    margin: 0.8rem 0;
+  }
+  
+  .google-calendar-status {
+    padding: 0.6rem;
+    margin: 0.8rem 0;
+  }
+}
