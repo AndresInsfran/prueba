@@ -337,117 +337,102 @@ class GoogleCalendarAPI {
 
   // Crear interfaz de gestión
   crearInterfazGestion() {
-    const calendarioContainer = document.querySelector('.calendario-container');
+    console.log('🔄 Configurando interfaz de gestión...');
     
-    if (!calendarioContainer) return;
+    // Configurar event listeners para los botones existentes
+    this.configurarEventListeners();
+    
+    // Los elementos de la interfaz ya existen en el HTML
+    // Solo necesitamos configurar sus comportamientos
+    console.log('✅ Interfaz de gestión configurada');
+  }
 
-    const interfazHTML = `
-      <!-- Panel de autenticación -->
-      <div id="auth-panel" class="auth-panel">
-        <div class="auth-status">
-          <div id="signed-out" class="auth-section">
-            <h3><i class="fas fa-sign-in-alt"></i> Conectar con Google Calendar</h3>
-            <p>Inicia sesión para gestionar eventos del santuario</p>
-            <button id="authorize-btn" class="btn-auth">
-              <i class="fab fa-google"></i>
-              Conectar con Google
-            </button>
-          </div>
-          
-          <div id="signed-in" class="auth-section" style="display: none;">
-            <h3><i class="fas fa-check-circle"></i> Conectado a Google Calendar</h3>
-            <div class="auth-actions">
-              <button id="signout-btn" class="btn-auth secondary">
-                <i class="fas fa-sign-out-alt"></i>
-                Cerrar Sesión
-              </button>
-              <button id="create-event-btn" class="btn-auth primary">
-                <i class="fas fa-plus"></i>
-                Crear Evento
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+  // Configurar event listeners
+  configurarEventListeners() {
+    // Botón de calendario simple/avanzado
+    const btnSimple = document.getElementById('btn-calendario-simple');
+    const btnAvanzado = document.getElementById('btn-calendario-avanzado');
+    
+    if (btnSimple) {
+      btnSimple.addEventListener('click', () => {
+        this.mostrarCalendarioSimple();
+      });
+    }
+    
+    if (btnAvanzado) {
+      btnAvanzado.addEventListener('click', () => {
+        this.mostrarCalendarioAvanzado();
+      });
+    }
 
-      <!-- Modal para crear/editar eventos -->
-      <div id="event-modal" class="event-modal" style="display: none;">
-        <div class="event-modal-overlay" onclick="this.parentElement.style.display='none'"></div>
-        <div class="event-modal-content">
-          <div class="event-modal-header">
-            <h3 id="modal-title">
-              <i class="fas fa-calendar-plus"></i>
-              Crear Nuevo Evento
-            </h3>
-            <button class="event-modal-close" onclick="this.closest('.event-modal').style.display='none'">
-              <i class="fas fa-times"></i>
-            </button>
-          </div>
-          
-          <form id="event-form" class="event-form">
-            <div class="form-group">
-              <label for="event-title">
-                <i class="fas fa-heading"></i>
-                Título del Evento *
-              </label>
-              <input type="text" id="event-title" required placeholder="Ej: Misa Especial de Navidad">
-            </div>
-            
-            <div class="form-row">
-              <div class="form-group">
-                <label for="event-start">
-                  <i class="fas fa-clock"></i>
-                  Fecha y Hora de Inicio *
-                </label>
-                <input type="datetime-local" id="event-start" required>
-              </div>
-              
-              <div class="form-group">
-                <label for="event-end">
-                  <i class="fas fa-clock"></i>
-                  Fecha y Hora de Fin *
-                </label>
-                <input type="datetime-local" id="event-end" required>
-              </div>
-            </div>
-            
-            <div class="form-group">
-              <label for="event-description">
-                <i class="fas fa-align-left"></i>
-                Descripción
-              </label>
-              <textarea id="event-description" rows="4" placeholder="Describe el evento, requisitos especiales, etc."></textarea>
-            </div>
-            
-            <div class="form-group">
-              <label for="event-location">
-                <i class="fas fa-map-marker-alt"></i>
-                Ubicación
-              </label>
-              <input type="text" id="event-location" placeholder="Santuario Diocesano del Santísimo Sacramento">
-            </div>
-            
-            <div class="form-group">
-              <label for="event-type">
-                <i class="fas fa-tags"></i>
-                Tipo de Evento
-              </label>
-              <select id="event-type">
-                <option value="misa">Misa</option>
-                <option value="bautismo">Bautismo</option>
-                <option value="matrimonio">Matrimonio</option>
-                <option value="confesion">Confesión</option>
-                <option value="adoracion">Adoración</option>
-                <option value="novena">Novena</option>
-                <option value="retiro">Retiro</option>
-                <option value="charla">Charla</option>
-                <option value="evento-especial">Evento Especial</option>
-                <option value="otro">Otro</option>
-              </select>
-            </div>
-            
-            <div class="form-group">
-              <label>
+    // Botón de autorización
+    const authorizeBtn = document.getElementById('authorize-btn');
+    if (authorizeBtn) {
+      authorizeBtn.addEventListener('click', () => {
+        console.log('🔄 Iniciando proceso de autenticación...');
+        this.signIn();
+      });
+    }
+
+    // Botón de cerrar sesión
+    const signoutBtn = document.getElementById('signout-btn');
+    if (signoutBtn) {
+      signoutBtn.addEventListener('click', () => {
+        console.log('🔄 Cerrando sesión...');
+        this.signOut();
+      });
+    }
+
+    // Botón de crear evento
+    const createEventBtn = document.getElementById('create-event-btn');
+    if (createEventBtn) {
+      createEventBtn.addEventListener('click', () => {
+        console.log('🔄 Abriendo formulario de evento...');
+        this.mostrarModalEvento();
+      });
+    }
+
+    // Botón de actualizar
+    const refreshBtn = document.getElementById('refresh-calendar-btn');
+    if (refreshBtn) {
+      refreshBtn.addEventListener('click', () => {
+        console.log('🔄 Actualizando calendario...');
+        this.cargarEventos();
+      });
+    }
+  }
+
+  // Mostrar calendario simple
+  mostrarCalendarioSimple() {
+    const btnSimple = document.getElementById('btn-calendario-simple');
+    const btnAvanzado = document.getElementById('btn-calendario-avanzado');
+    const authPanel = document.getElementById('auth-panel');
+    const advancedPanel = document.getElementById('advanced-panel');
+
+    if (btnSimple) btnSimple.classList.add('active');
+    if (btnAvanzado) btnAvanzado.classList.remove('active');
+    if (authPanel) authPanel.style.display = 'none';
+    if (advancedPanel) advancedPanel.style.display = 'none';
+  }
+
+  // Mostrar calendario avanzado
+  mostrarCalendarioAvanzado() {
+    const btnSimple = document.getElementById('btn-calendario-simple');
+    const btnAvanzado = document.getElementById('btn-calendario-avanzado');
+    const authPanel = document.getElementById('auth-panel');
+    const advancedPanel = document.getElementById('advanced-panel');
+
+    if (btnSimple) btnSimple.classList.remove('active');
+    if (btnAvanzado) btnAvanzado.classList.add('active');
+    
+    if (this.isSignedIn) {
+      if (authPanel) authPanel.style.display = 'none';
+      if (advancedPanel) advancedPanel.style.display = 'block';
+    } else {
+      if (authPanel) authPanel.style.display = 'block';
+      if (advancedPanel) advancedPanel.style.display = 'none';
+    }
+  }
                 <input type="checkbox" id="event-notification">
                 <i class="fas fa-bell"></i>
                 Enviar notificaciones a los feligreses
@@ -504,46 +489,71 @@ class GoogleCalendarAPI {
 
   // Actualizar estado de autenticación
   actualizarEstadoAuth() {
-    const signedOut = document.getElementById('signed-out');
-    const signedIn = document.getElementById('signed-in');
-    const eventsManager = document.getElementById('events-manager');
+    try {
+      const authPanel = document.getElementById('auth-panel');
+      const advancedPanel = document.getElementById('advanced-panel');
+      const authorizeBtn = document.getElementById('authorize-btn');
+      const signoutBtn = document.getElementById('signout-btn');
 
-    if (this.isSignedIn) {
-      signedOut.style.display = 'none';
-      signedIn.style.display = 'block';
-      eventsManager.style.display = 'block';
-    } else {
-      signedOut.style.display = 'block';
-      signedIn.style.display = 'none';
-      eventsManager.style.display = 'none';
+      if (this.isSignedIn) {
+        // Usuario autenticado
+        if (authPanel) authPanel.style.display = 'none';
+        if (advancedPanel) advancedPanel.style.display = 'block';
+        if (authorizeBtn) authorizeBtn.style.display = 'none';
+        if (signoutBtn) signoutBtn.style.display = 'inline-flex';
+        
+        console.log('✅ Estado de autenticación actualizado: Usuario conectado');
+      } else {
+        // Usuario no autenticado
+        if (authPanel) authPanel.style.display = 'block';
+        if (advancedPanel) advancedPanel.style.display = 'none';
+        if (authorizeBtn) authorizeBtn.style.display = 'inline-flex';
+        if (signoutBtn) signoutBtn.style.display = 'none';
+        
+        console.log('ℹ️ Estado de autenticación actualizado: Usuario no conectado');
+      }
+    } catch (error) {
+      console.error('❌ Error actualizando estado de autenticación:', error);
+      // No mostrar alerta, solo registrar el error
     }
   }
 
-  // Mostrar modal para crear evento
+  // Mostrar modal para crear evento (simplificado)
   mostrarModalEvento(evento = null) {
-    const modal = document.getElementById('event-modal');
-    const form = document.getElementById('event-form');
-    const modalTitle = document.getElementById('modal-title');
-    const submitText = document.getElementById('submit-text');
-
-    if (evento) {
-      // Modo edición
-      modalTitle.innerHTML = '<i class="fas fa-edit"></i> Editar Evento';
-      submitText.textContent = 'Actualizar Evento';
-      this.llenarFormulario(evento);
-      form.dataset.eventId = evento.id;
+    console.log('📝 Mostrando formulario de evento...');
+    
+    // Por ahora, mostrar un prompt simple hasta implementar el modal completo
+    const titulo = prompt('Título del evento:', evento ? evento.summary : '');
+    if (!titulo) return;
+    
+    const fechaInicio = prompt('Fecha y hora de inicio (YYYY-MM-DD HH:MM):', 
+      evento ? new Date(evento.start.dateTime).toISOString().slice(0, 16).replace('T', ' ') : 
+      new Date().toISOString().slice(0, 16).replace('T', ' ')
+    );
+    if (!fechaInicio) return;
+    
+    const descripcion = prompt('Descripción (opcional):', evento ? evento.description || '' : '');
+    
+    // Crear evento simple
+    const eventoData = {
+      summary: titulo,
+      description: descripcion || 'Evento del Santuario',
+      location: 'Santuario Diocesano del Santísimo Sacramento, Asunción, Paraguay',
+      start: {
+        dateTime: new Date(fechaInicio.replace(' ', 'T')).toISOString(),
+        timeZone: 'America/Asuncion'
+      },
+      end: {
+        dateTime: new Date(new Date(fechaInicio.replace(' ', 'T')).getTime() + 60*60*1000).toISOString(), // +1 hora
+        timeZone: 'America/Asuncion'
+      }
+    };
+    
+    if (evento && evento.id) {
+      this.actualizarEvento(evento.id, eventoData);
     } else {
-      // Modo creación
-      modalTitle.innerHTML = '<i class="fas fa-calendar-plus"></i> Crear Nuevo Evento';
-      submitText.textContent = 'Crear Evento';
-      form.reset();
-      delete form.dataset.eventId;
-      
-      // Valores por defecto
-      document.getElementById('event-location').value = 'Santuario Diocesano del Santísimo Sacramento, Asunción, Paraguay';
+      this.crearEvento(eventoData);
     }
-
-    modal.style.display = 'flex';
   }
 
   // Continúa en el próximo bloque...
@@ -681,33 +691,37 @@ class GoogleCalendarAPI {
     }
   }
 
-  // Mostrar eventos en la lista de gestión
+  // Mostrar eventos en la lista de gestión (simplificado)
   mostrarEventosEnLista(eventos) {
     const lista = document.getElementById('events-list');
     if (!lista) return;
 
     if (eventos.length === 0) {
-      lista.innerHTML = `
-        <div class="no-events">
-          <i class="fas fa-calendar-times"></i>
-          <p>No hay eventos próximos</p>
-        </div>
-      `;
+      lista.innerHTML = '<p class="loading-events">No hay eventos próximos</p>';
       return;
     }
 
-    lista.innerHTML = eventos.map(evento => {
+    // Mostrar solo los primeros 5 eventos de manera simple
+    const eventosHtml = eventos.slice(0, 5).map(evento => {
       const fecha = new Date(evento.start.dateTime || evento.start.date);
       const fechaFormateada = fecha.toLocaleDateString('es-ES', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
+        weekday: 'short',
+        month: 'short',
         day: 'numeric',
         hour: evento.start.dateTime ? '2-digit' : undefined,
         minute: evento.start.dateTime ? '2-digit' : undefined
       });
 
       return `
+        <div class="event-simple">
+          <strong>${evento.summary || 'Sin título'}</strong><br>
+          <small>${fechaFormateada}</small>
+        </div>
+      `;
+    }).join('');
+
+    lista.innerHTML = eventosHtml;
+  }
         <div class="event-item">
           <div class="event-info">
             <div class="event-title">
