@@ -2,7 +2,10 @@
    OPTIMIZACIONES MÓVILES GENERALES
    =========================== */
 
-/* Menú hamburguesa mejorado con animaciones */
+/* NOTA: Los estilos del menú móvil han sido movidos a mobile-menu-simple.css 
+   para una implementación más simple y sin conflictos */
+
+/* MENÚ HAMBURGUESA - DESHABILITADO (usando mobile-menu-simple.css)
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -70,7 +73,8 @@
   transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* Navegación móvil mejorada */
+/* NAVEGACIÓN MÓVIL DESHABILITADA - SE USA mobile-menu-simple.css */
+/*
 .nav-mobile {
   position: fixed;
   top: 0;
@@ -89,7 +93,9 @@
   border-left: 2px solid rgba(196, 167, 109, 0.3);
   overflow: hidden;
 }
+*/
 
+/*
 .nav-mobile::before {
   content: '';
   position: absolute;
@@ -113,7 +119,6 @@
   z-index: 2;
 }
 
-/* Header del menú móvil */
 .nav-mobile-header {
   text-align: center;
   margin-bottom: 30px;
@@ -136,7 +141,6 @@
   font-style: italic;
 }
 
-/* Enlaces del menú móvil mejorados */
 .nav-mobile-link {
   display: flex;
   align-items: center;
@@ -206,7 +210,6 @@
   font-weight: 500;
 }
 
-/* Overlay mejorado para cerrar menú */
 .nav-mobile-overlay {
   position: fixed;
   top: 0;
@@ -227,19 +230,16 @@
   visibility: visible;
 }
 
-/* Prevenir scroll cuando menú está abierto */
 body.menu-open {
   overflow: hidden;
   position: fixed;
   width: 100%;
 }
 
-/* Estilos adicionales para mejor UX */
 .header.menu-open {
   z-index: 1002;
 }
 
-/* Animaciones mejoradas para enlaces móviles */
 .nav-mobile-link {
   opacity: 0;
   transform: translateX(30px);
@@ -272,7 +272,6 @@ body.menu-open {
   }
 }
 
-/* Animación de salida */
 .nav-mobile.closing .nav-mobile-link {
   animation: slideOutMobile 0.3s ease forwards;
 }
@@ -284,7 +283,6 @@ body.menu-open {
   }
 }
 
-/* Estados de focus mejorados para accesibilidad */
 .nav-mobile-link:focus {
   outline: 3px solid var(--color-primary);
   outline-offset: 3px;
@@ -298,7 +296,6 @@ body.menu-open {
   border-radius: 12px;
 }
 
-/* Indicador de página activa */
 .nav-mobile-link.active {
   background: linear-gradient(135deg, 
     rgba(196, 167, 109, 0.2), 
@@ -312,6 +309,9 @@ body.menu-open {
   color: var(--color-primary-dark);
   transform: scale(1.1);
 }
+*/
+
+/* FIN DEL COMENTARIO MENÚ HAMBURGUESA DESHABILITADO */
 
 /* ===========================
    BREAKPOINTS RESPONSIVE
@@ -320,15 +320,15 @@ body.menu-open {
 /* Tablets y móviles grandes (768px y menor) */
 @media (max-width: 768px) {
   
-  /* Mostrar botón hamburguesa */
+  /* MENÚ MÓVIL DESHABILITADO - usar mobile-menu-simple.css
   .menu-toggle {
     display: flex;
   }
   
-  /* Ocultar navegación desktop */
   .nav-desktop {
     display: none;
   }
+  FIN MENÚ MÓVIL DESHABILITADO */
   
   /* Header */
   .header {
