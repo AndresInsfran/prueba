@@ -1,0 +1,358 @@
+/* ===========================
+   CARDS & COMPONENTS
+   =========================== */
+.card {
+  background: var(--color-card-glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--border-radius-lg);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-card);
+  transition: all var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+  transition: transform 0.6s ease;
+  transform: rotate(-45deg) translate(-100%, -100%);
+}
+
+.card:hover::before {
+  transform: rotate(-45deg) translate(100%, 100%);
+}
+
+.card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(196, 167, 109, 0.3);
+}
+
+.card:hover h3 {
+  transform: scale(1.05);
+}
+
+/* Glass Morphism Card */
+.glass-morphism {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Evangelio Card */
+.evangelio-card {
+  background: rgba(255, 251, 233, 0.9);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(191, 164, 109, 0.2);
+  border-left: 5px solid var(--color-primary);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-md);
+  margin: var(--spacing-md) auto;
+  max-width: 800px;
+  box-shadow: var(--shadow-card);
+  font-family: var(--font-elegant);
+  position: relative;
+  overflow: hidden;
+}
+
+.evangelio-card::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  font-size: 6rem;
+  color: var(--color-primary);
+  opacity: 0.3;
+  font-family: serif;
+}
+
+.evangelio-cita {
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.evangelio-texto {
+  font-size: 1.2rem;
+  color: var(--color-text);
+  line-height: 1.8;
+  font-style: italic;
+  text-align: center;
+}
+
+/* Horarios Cards */
+.horarios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.horario-card {
+  background: var(--color-white);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 2.5rem;
+  text-align: center;
+  transition: all var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(196, 167, 109, 0.1);
+}
+
+.horario-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--gradient-primary);
+}
+
+.horario-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(196, 167, 109, 0.3);
+}
+
+.horario-card h3 {
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+  font-family: var(--font-elegant);
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+}
+
+.horario-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.horario-card li {
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.1rem;
+  color: var(--color-text-light);
+  padding: 0.8rem;
+  background: rgba(196, 167, 109, 0.05);
+  border-radius: var(--border-radius-sm);
+  transition: all var(--transition-normal);
+}
+
+.horario-card li:hover {
+  background: rgba(196, 167, 109, 0.1);
+  transform: translateX(5px);
+}
+
+.horario-card i {
+  font-size: 2rem;
+  color: var(--color-gold);
+  transition: all var(--transition-smooth);
+}
+
+.horario-card:hover i {
+  transform: scale(1.2) rotate(10deg);
+  color: var(--color-primary);
+}
+
+/* Botón para agendar confesiones */
+.agendar-confesion {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(196, 167, 109, 0.2);
+}
+
+.btn-agendar {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.btn-agendar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  text-decoration: none;
+  color: white;
+}
+
+.btn-agendar i {
+  font-size: 1.1rem;
+}
+
+/* Indicador para confesiones */
+.indicador-confesion {
+  margin-top: 12px;
+  padding: 8px 12px;
+  background: rgba(var(--color-primary-rgb), 0.1);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.2);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  font-style: italic;
+  transition: all 0.3s ease;
+}
+
+.indicador-confesion:hover {
+  background: rgba(var(--color-primary-rgb), 0.15);
+  border-color: rgba(var(--color-primary-rgb), 0.3);
+  transform: translateY(-1px);
+}
+
+.indicador-confesion i {
+  color: var(--color-primary);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.indicador-confesion span {
+  line-height: 1.4;
+}
+
+/* ===========================
+   GRIDS & LAYOUTS
+   =========================== */
+.noticias-grid, 
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.noticia-img, 
+.video-thumb {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--spacing-sm);
+  cursor: pointer;
+  transition: transform var(--transition-normal);
+}
+
+.noticia-img:hover,
+.video-thumb:hover {
+  transform: scale(1.05);
+}
+
+/* Contacto Grid */
+.contacto-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.contacto-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-md);
+  width: 100%;
+  max-width: 1000px;
+  margin-top: var(--spacing-md);
+}
+
+.contacto-info .card {
+  text-align: center;
+  padding: var(--spacing-md);
+  transition: all var(--transition-smooth);
+}
+
+.contacto-info .card:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+.contacto-info .card h3 {
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+}
+
+.contacto-info .card p {
+  color: var(--color-text-light);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===========================
+   RESPONSIVE CARDS
+   =========================== */
+@media (max-width: 768px) {
+  .card {
+    padding: var(--spacing-md) 1.5rem;
+    border-radius: var(--border-radius-lg);
+  }
+  
+  .horario-card {
+    padding: var(--spacing-md) 1.5rem;
+  }
+  
+  .evangelio-card {
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  
+  .contacto-info {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .contacto-grid {
+    gap: var(--spacing-md);
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: var(--spacing-md) var(--spacing-sm);
+    border-radius: var(--border-radius-lg);
+  }
+  
+  .horario-card {
+    padding: var(--spacing-md) var(--spacing-sm);
+  }
+  
+  .evangelio-card {
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+}

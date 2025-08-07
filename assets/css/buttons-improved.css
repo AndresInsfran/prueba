@@ -1,0 +1,490 @@
+/* ===========================
+   BOTONES MEJORADOS - SANTUARIO DIOCESANO
+   Sin superposiciones y con espaciado apropiado
+   =========================== */
+
+/* Variables específicas para botones */
+:root {
+  --btn-spacing: 1rem;
+  --btn-min-width: 160px;
+  --btn-height: 48px;
+}
+
+/* ===========================
+   BOTÓN BASE MEJORADO
+   =========================== */
+.btn {
+  /* Dimensiones y espaciado */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--btn-min-width);
+  height: var(--btn-height);
+  padding: 0.75rem 1.5rem;
+  margin: 0.5rem;
+  
+  /* Tipografía */
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  
+  /* Apariencia */
+  background: linear-gradient(135deg, #C4A76D 0%, #8B4513 100%);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  
+  /* Interactividad */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(135deg, #D4B87D 0%, #9B5523 100%);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn:focus {
+  outline: 2px solid #C4A76D;
+  outline-offset: 2px;
+}
+
+/* ===========================
+   VARIANTES DE BOTONES
+   =========================== */
+
+/* Botón primario */
+.btn-primary {
+  background: linear-gradient(135deg, #2C5F8A 0%, #1a4a6b 100%);
+  color: #FFFFFF;
+  min-width: 180px;
+  margin: 0.75rem;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #3C6F9A 0%, #2a5a7b 100%);
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Botón secundario */
+.btn-secondary {
+  background: linear-gradient(135deg, #F5F3E7 0%, #E5E0D0 100%);
+  color: #8B4513;
+  border: 2px solid #C4A76D;
+  min-width: 160px;
+  margin: 0.5rem;
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(135deg, #C4A76D 0%, #8B4513 100%);
+  color: #FFFFFF;
+  border-color: #8B4513;
+}
+
+/* Botón de historia */
+.btn-historia {
+  background: linear-gradient(135deg, #8B4513 0%, #654321 100%);
+  color: #FFFFFF;
+  min-width: 200px;
+  margin: 1rem auto;
+  display: block;
+  text-align: center;
+}
+
+.btn-historia:hover {
+  background: linear-gradient(135deg, #9B5523 0%, #754331 100%);
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* Botón de WhatsApp mejorado */
+.btn-whatsapp {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #FFFFFF;
+  min-width: 200px;
+  height: 56px;
+  padding: 0.75rem 2rem;
+  margin: 1rem;
+  font-size: 1.1rem;
+  gap: 0.5rem;
+  border-radius: 28px;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+  background: linear-gradient(135deg, #35E376 0%, #228C8E 100%);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4);
+}
+
+.btn-whatsapp i {
+  font-size: 1.3rem;
+  animation: pulse 2s infinite;
+}
+
+/* Botón de agendar */
+.btn-agendar {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: #8B4513;
+  min-width: 180px;
+  margin: 0.75rem;
+  font-weight: 700;
+  box-shadow: 0 3px 12px rgba(255, 215, 0, 0.3);
+}
+
+.btn-agendar:hover {
+  background: linear-gradient(135deg, #FFED4A 0%, #FFB84D 100%);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+}
+
+/* ===========================
+   CONTENEDORES DE BOTONES
+   =========================== */
+
+/* Contenedor para evitar superposiciones */
+.btn-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  padding: 0 1rem;
+}
+
+.btn-container.vertical {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.btn-container.horizontal {
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/* Grupo de botones */
+.btn-group {
+  display: flex;
+  gap: 0.75rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-group .btn {
+  margin: 0.25rem;
+  flex: 0 0 auto;
+}
+
+/* ===========================
+   BOTONES ESPECIALES
+   =========================== */
+
+/* Botón del menú móvil */
+.mobile-menu-btn {
+  background: #FFFFFF;
+  color: #8B4513;
+  border: 2px solid #C4A76D;
+  border-radius: 8px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0;
+  padding: 0;
+}
+
+.mobile-menu-btn:hover {
+  background: #C4A76D;
+  color: #FFFFFF;
+  transform: scale(1.05);
+}
+
+/* Botones de navegación del calendario */
+.calendar-nav-btn {
+  background: #C4A76D;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 0.25rem;
+}
+
+.calendar-nav-btn:hover {
+  background: #8B4513;
+  transform: scale(1.1);
+}
+
+/* Botón de cerrar modal */
+.modal-close-btn {
+  background: transparent;
+  color: #8B4513;
+  border: 2px solid #C4A76D;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 10;
+}
+
+.modal-close-btn:hover {
+  background: #C4A76D;
+  color: #FFFFFF;
+  transform: scale(1.1) rotate(90deg);
+}
+
+/* ===========================
+   EFECTOS Y ANIMACIONES
+   =========================== */
+
+/* Efecto glow */
+.glow-effect {
+  position: relative;
+}
+
+.glow-effect::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, #C4A76D, #8B4513);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  filter: blur(8px);
+}
+
+.glow-effect:hover::before {
+  opacity: 0.6;
+}
+
+/* Animación de pulso para WhatsApp */
+@keyframes pulse {
+  0%, 100% { 
+    transform: scale(1); 
+  }
+  50% { 
+    transform: scale(1.1); 
+  }
+}
+
+/* Efecto ripple */
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.ripple-effect:active::after {
+  width: 200px;
+  height: 200px;
+}
+
+/* ===========================
+   RESPONSIVE DESIGN
+   =========================== */
+
+@media (max-width: 768px) {
+  .btn {
+    min-width: 140px;
+    height: 44px;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    margin: 0.4rem;
+  }
+  
+  .btn-primary,
+  .btn-historia {
+    min-width: 160px;
+    margin: 0.6rem auto;
+  }
+  
+  .btn-whatsapp {
+    min-width: 180px;
+    height: 52px;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .btn-container {
+    gap: 0.75rem;
+    padding: 0 0.5rem;
+  }
+  
+  .btn-group {
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  
+  .btn-group .btn {
+    margin: 0.2rem;
+    flex: 1 1 auto;
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    min-width: 120px;
+    height: 40px;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    margin: 0.3rem;
+  }
+  
+  .btn-whatsapp {
+    min-width: 160px;
+    height: 48px;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+  }
+  
+  .btn-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  
+  .btn-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .btn-group .btn {
+    margin: 0.15rem 0;
+    max-width: none;
+  }
+  
+  .mobile-menu-btn {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .calendar-nav-btn {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* ===========================
+   ESTADOS DE ACCESIBILIDAD
+   =========================== */
+
+/* Focus mejorado para accesibilidad */
+.btn:focus-visible {
+  outline: 3px solid #C4A76D;
+  outline-offset: 2px;
+}
+
+/* Estados disabled */
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.btn:disabled:hover {
+  transform: none;
+  background: linear-gradient(135deg, #C4A76D 0%, #8B4513 100%);
+}
+
+/* Reducir movimiento para usuarios que lo prefieren */
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .btn::before,
+  .btn::after {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .btn:hover {
+    transform: none;
+  }
+  
+  .pulse,
+  .ripple-effect::after {
+    animation: none !important;
+  }
+}
+
+/* ===========================
+   UTILIDADES ADICIONALES
+   =========================== */
+
+/* Botón de ancho completo */
+.btn-full-width {
+  width: 100%;
+  min-width: auto;
+  margin: 0.5rem 0;
+}
+
+/* Botón pequeño */
+.btn-small {
+  min-width: 100px;
+  height: 36px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+}
+
+/* Botón grande */
+.btn-large {
+  min-width: 200px;
+  height: 56px;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+}
+
+/* Espaciado entre botones */
+.btn + .btn {
+  margin-left: 0.5rem;
+}
+
+.btn-container .btn + .btn {
+  margin-left: 0;
+}

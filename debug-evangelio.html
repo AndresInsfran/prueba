@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Evangelio</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .debug { background: #f0f0f0; padding: 15px; margin: 10px 0; }
+        pre { background: #e0e0e0; padding: 10px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>Debug Evangelio del Día</h1>
+    
+    <div class="debug">
+        <h2>Información del día:</h2>
+        <p id="fecha-info"></p>
+        <p id="dia-semana"></p>
+    </div>
+    
+    <div class="debug">
+        <h2>Datos generados:</h2>
+        <pre id="datos-output"></pre>
+    </div>
+    
+    <div class="debug">
+        <h2>Lecturas específicas:</h2>
+        <div id="lecturas-output"></div>
+    </div>
+
+    <script>
+        // Simulación simplificada de las funciones principales
+        const fecha = new Date();
+        const dia = fecha.getDay();
+        const mes = fecha.getMonth() + 1;
+        const fechaNum = fecha.getDate();
+        
+        document.getElementById('fecha-info').textContent = `Fecha: ${fecha.toLocaleDateString('es-ES')}`;
+        document.getElementById('dia-semana').textContent = `Día de la semana: ${dia} (0=domingo, 1=lunes, etc.)`;
+        
+        // Función simplificada para obtener lecturas
+        function obtenerLecturasPrueba(dia) {
+            const lecturasSemanales = {
+                0: { // Domingo
+                    primera: {
+                        tipo: 'primera',
+                        cita: 'Deuteronomio 30, 10-14',
+                        titulo: 'Primera Lectura',
+                        texto: 'Moisés habló al pueblo, diciendo: "Obedece la voz del Señor, tu Dios, guardando sus mandamientos y preceptos escritos en este libro de la Ley, y conviértete al Señor, tu Dios, con todo tu corazón y con toda tu alma."'
+                    },
+                    salmo: {
+                        tipo: 'salmo',
+                        cita: 'Salmo 68',
+                        titulo: 'Salmo Responsorial',
+                        texto: 'R. Busquen al Señor y vivirá su corazón. Los humildes lo han visto y se alegran, busquen a Dios y vivirá su corazón. R.'
+                    },
+                    segunda: {
+                        tipo: 'segunda',
+                        cita: 'Colosenses 1, 15-20',
+                        titulo: 'Segunda Lectura',
+                        texto: 'Hermanos: Cristo es imagen de Dios invisible, primogénito de toda la creación, porque en él fueron creadas todas las cosas.'
+                    },
+                    evangelio: {
+                        tipo: 'evangelio',
+                        cita: 'Lucas 10, 25-37',
+                        titulo: 'Evangelio',
+                        texto: 'En aquel tiempo, se acercó a Jesús un maestro de la Ley para ponerlo a prueba y le preguntó: "Maestro, ¿qué tengo que hacer para heredar la vida eterna?"'
+                    }
+                },
+                1: { // Lunes
+                    primera: {
+                        tipo: 'primera',
+                        cita: 'Éxodo 1, 8-14. 22',
+                        titulo: 'Primera Lectura',
+                        texto: 'En aquellos días, subió al trono de Egipto un nuevo rey, que no había conocido a José.'
+                    },
+                    evangelio: {
+                        tipo: 'evangelio',
+                        cita: 'Mateo 10, 34 - 11, 1',
+                        titulo: 'Evangelio',
+                        texto: 'En aquel tiempo, dijo Jesús a sus apóstoles: "No penséis que he venido a traer paz a la tierra. No he venido a traer paz, sino espada."'
+                    }
+                }
+            };
+            
+            const lecturasDelDia = lecturasSemanales[dia] || lecturasSemanales[0];
+            
+            // Convertir a array manteniendo el orden litúrgico
+            const resultado = [];
+            if (lecturasDelDia.primera) resultado.push(lecturasDelDia.primera);
+            if (lecturasDelDia.salmo) resultado.push(lecturasDelDia.salmo);
+            if (lecturasDelDia.segunda) resultado.push(lecturasDelDia.segunda);
+            if (lecturasDelDia.evangelio) resultado.push(lecturasDelDia.evangelio);
+            
+            return resultado;
+        }
+        
+        const lecturas = obtenerLecturasPrueba(dia);
+        
+        // Mostrar datos
+        const datos = {
+            lecturas: lecturas,
+            evangelio: lecturas.find(l => l.tipo === 'evangelio'),
+            santo: 'Santo del día',
+            colorLiturgico: 'Verde',
+            tiempoLiturgico: 'Tiempo Ordinario'
+        };
+        
+        document.getElementById('datos-output').textContent = JSON.stringify(datos, null, 2);
+        
+        // Mostrar lecturas individuales
+        let lecturasHTML = '';
+        lecturas.forEach(lectura => {
+            lecturasHTML += `
+                <div style="border: 1px solid #ccc; margin: 10px 0; padding: 10px;">
+                    <h3>${lectura.titulo} (${lectura.tipo})</h3>
+                    <p><strong>Cita:</strong> ${lectura.cita}</p>
+                    <p><strong>Texto:</strong> ${lectura.texto}</p>
+                </div>
+            `;
+        });
+        
+        document.getElementById('lecturas-output').innerHTML = lecturasHTML;
+    </script>
+</body>
+</html>
