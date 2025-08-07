@@ -54,6 +54,18 @@
   font-size: 1.8rem;
   font-weight: 700;
   margin: 0;
+  /* Adaptación del texto al contenedor sin romper diseño */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  /* Mejorar interacción */
+  cursor: default;
+  transition: all 0.3s ease;
+}
+
+.logo h1:hover {
+  transform: scale(1.02);
 }
 
 /* Logo con imagen PNG */

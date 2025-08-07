@@ -1,0 +1,1349 @@
+/* =================================
+   CALENDARIO SIMPLE - ESTILO ACORDE AL SANTUARIO
+   ================================= */
+
+/* Container principal - estilo santuario */
+.calendario-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  position: relative;
+  background: var(--color-bg-alt);
+  border-radius: 20px;
+  box-shadow: var(--shadow-strong);
+  border: 2px solid var(--color-primary-light);
+}
+
+/* Header del calendario - tipografía santuario */
+.calendario-header {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.calendario-header h2 {
+  color: var(--color-text);
+  font-family: var(--font-title);
+  font-size: 3rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(196, 167, 109, 0.3);
+  background: var(--gradient-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.calendario-descripcion {
+  color: var(--color-text-light);
+  font-family: var(--font-elegant);
+  font-size: 1.2rem;
+  font-weight: 400;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* Botón de administración - estilo santuario discreto */
+.admin-access {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  z-index: 10;
+}
+
+.btn-admin {
+  background: rgba(196, 167, 109, 0.1);
+  color: var(--color-text-light);
+  border: 1px solid rgba(196, 167, 109, 0.3);
+  padding: 8px 15px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-family: var(--font-main);
+  transition: all 0.4s ease;
+  box-shadow: none;
+  backdrop-filter: blur(10px);
+  opacity: 0.6;
+}
+
+.btn-admin:hover {
+  background: rgba(196, 167, 109, 0.15);
+  color: var(--color-primary);
+  border-color: var(--color-primary-light);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-soft);
+  opacity: 1;
+}
+
+.btn-admin i {
+  margin-right: 6px;
+  font-size: 0.7rem;
+}
+
+/* Panel de administración - estilo santuario */
+.admin-panel {
+  background: var(--color-card-glass);
+  border: none;
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 40px;
+  box-shadow: var(--shadow-strong);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--color-primary-light);
+}
+
+.admin-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--gradient-primary);
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(196, 167, 109, 0.2);
+}
+
+.admin-header h3 {
+  color: var(--color-text);
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  font-family: var(--font-elegant);
+}
+
+.admin-header h3 i {
+  margin-right: 12px;
+  color: var(--color-primary);
+  font-size: 1.6rem;
+}
+
+.btn-close {
+  background: linear-gradient(135deg, var(--color-accent), #d35400);
+  color: var(--color-white);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-soft);
+}
+
+.btn-close:hover {
+  background: linear-gradient(135deg, #d35400, #c0392b);
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Formulario de eventos - estilo santuario */
+.admin-form {
+  margin-bottom: 40px;
+  background: var(--color-card);
+  padding: 25px;
+  border-radius: 15px;
+  border: 1px solid var(--color-primary-light);
+  box-shadow: var(--shadow-soft);
+}
+
+.admin-form h4 {
+  color: var(--color-text);
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  font-family: var(--font-elegant);
+}
+
+.admin-form h4::before {
+  content: '📝';
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--color-text);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: var(--font-main);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid var(--color-primary-light);
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: var(--color-white);
+  box-shadow: var(--shadow-soft);
+  font-family: var(--font-main);
+  color: var(--color-text);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(196, 167, 109, 0.15);
+  transform: translateY(-2px);
+}
+
+.btn-agregar {
+  background: var(--gradient-primary);
+  color: var(--color-white);
+  border: none;
+  padding: 15px 30px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: 100%;
+  font-family: var(--font-main);
+}
+
+.btn-agregar:hover {
+  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-secondary));
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-strong);
+}
+
+.btn-agregar i {
+  margin-right: 10px;
+  font-size: 1rem;
+}
+
+/* Lista de eventos en admin */
+.eventos-lista-admin {
+  border-top: 2px solid #e9ecef;
+  padding-top: 20px;
+}
+
+.eventos-lista-admin h4 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.evento-admin-item {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.evento-admin-info h5 {
+  margin: 0 0 5px 0;
+  color: #2c3e50;
+}
+
+.evento-admin-info p {
+  margin: 0;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.btn-eliminar {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+.btn-eliminar:hover {
+  background: #c82333;
+  transform: scale(1.05);
+}
+
+/* Calendario principal - diseño santuario */
+.calendario-wrapper {
+  background: var(--color-card-glass);
+  border: none;
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 40px;
+  box-shadow: var(--shadow-medium);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.calendario-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-primary);
+}
+
+#calendario-simple {
+  background: transparent;
+  min-height: 500px;
+  border-radius: 15px;
+  font-family: var(--font-main);
+}
+
+/* Estilos para FullCalendar - tema santuario */
+.fc {
+  font-family: var(--font-main);
+}
+
+.fc-header-toolbar {
+  background: var(--color-card);
+  padding: 20px 25px;
+  border-radius: 15px;
+  margin-bottom: 25px;
+  border: 1px solid var(--color-primary-light);
+  box-shadow: var(--shadow-soft);
+}
+
+.fc-toolbar-title {
+  font-size: 1.8rem !important;
+  font-weight: 600 !important;
+  color: var(--color-text) !important;
+  font-family: var(--font-elegant) !important;
+  text-shadow: 1px 1px 2px rgba(196, 167, 109, 0.2);
+}
+
+.fc-button {
+  background: var(--gradient-primary) !important;
+  border: none !important;
+  border-radius: 25px !important;
+  font-size: 0.85rem !important;
+  padding: 10px 18px !important;
+  margin: 0 8px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.5px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: var(--shadow-soft) !important;
+  font-family: var(--font-main) !important;
+  color: var(--color-white) !important;
+}
+
+.fc-button:hover {
+  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-secondary)) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: var(--shadow-medium) !important;
+}
+
+.fc-button:focus {
+  box-shadow: 0 0 0 3px rgba(196, 167, 109, 0.25) !important;
+}
+
+.fc-button-active {
+  background: var(--gradient-gold) !important;
+  box-shadow: 0 3px 10px rgba(255, 215, 0, 0.3) !important;
+  color: var(--color-text) !important;
+}
+
+.fc-button-active:hover {
+  background: linear-gradient(135deg, #e6c200, #cc9900) !important;
+}
+
+.fc-daygrid-day {
+  min-height: 80px;
+  border-color: rgba(196, 167, 109, 0.1) !important;
+  transition: background-color 0.2s ease;
+}
+
+.fc-daygrid-day:hover {
+  background-color: rgba(196, 167, 109, 0.05) !important;
+}
+
+.fc-daygrid-day-number {
+  font-weight: 500 !important;
+  color: var(--color-text) !important;
+  padding: 8px !important;
+  font-family: var(--font-main) !important;
+}
+
+.fc-event {
+  border-radius: 12px !important;
+  border: none !important;
+  padding: 4px 10px !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  margin: 2px 1px !important;
+  box-shadow: var(--shadow-soft) !important;
+  transition: all 0.2s ease !important;
+  font-family: var(--font-main) !important;
+}
+
+.fc-event:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: var(--shadow-medium) !important;
+}
+
+.fc-event-title {
+  font-weight: 600 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Colores para tipos de eventos - paleta santuario */
+.fc-event.misa {
+  background: var(--gradient-primary) !important;
+  color: var(--color-white) !important;
+}
+
+.fc-event.evento {
+  background: var(--gradient-gold) !important;
+  color: var(--color-text) !important;
+}
+
+.fc-event.festividad {
+  background: linear-gradient(135deg, var(--color-accent), #d35400) !important;
+  color: var(--color-white) !important;
+}
+
+.fc-event.confesion {
+  background: linear-gradient(135deg, var(--color-secondary), var(--color-primary-dark)) !important;
+  color: var(--color-white) !important;
+}
+
+/* Próximos eventos - estilo santuario */
+.proximos-eventos-simple {
+  background: var(--color-card-glass);
+  border: none;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: var(--shadow-medium);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.proximos-eventos-simple::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-primary);
+}
+
+.proximos-eventos-simple h3 {
+  color: var(--color-text);
+  margin-bottom: 25px;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-family: var(--font-elegant);
+}
+
+.proximos-eventos-simple h3 i {
+  margin-right: 12px;
+  color: var(--color-primary);
+  font-size: 1.4rem;
+}
+
+.evento-proximo {
+  background: var(--color-card);
+  border: none;
+  border-left: 5px solid var(--color-primary);
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 0 15px 15px 0;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.evento-proximo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(196, 167, 109, 0.02), rgba(170, 139, 86, 0.02));
+  z-index: 0;
+}
+
+.evento-proximo > * {
+  position: relative;
+  z-index: 1;
+}
+
+.evento-proximo:hover {
+  background: var(--color-card-glass);
+  transform: translateX(8px);
+  box-shadow: var(--shadow-medium);
+  border-left-color: var(--color-accent);
+}
+
+.evento-icono {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  background: var(--gradient-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 15px rgba(196, 167, 109, 0.3);
+}
+
+.evento-contenido {
+  flex: 1;
+}
+
+.evento-descripcion {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  font-style: italic;
+  margin-top: 4px;
+  line-height: 1.3;
+}
+
+.evento-importante {
+  border-left-color: #dc3545 !important;
+  background: linear-gradient(135deg, rgba(220, 53, 69, 0.05), rgba(196, 167, 109, 0.02));
+}
+
+.evento-importante .evento-icono {
+  background: linear-gradient(45deg, #dc3545, #c82333);
+  animation: pulse-importante 2s infinite;
+}
+
+@keyframes pulse-importante {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+  }
+  50% {
+    box-shadow: 0 6px 25px rgba(220, 53, 69, 0.5);
+  }
+}
+
+.evento-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: linear-gradient(45deg, #dc3545, #c82333);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
+}
+
+/* Estilos por tipo de evento */
+.evento-proximo[data-tipo="misa"] {
+  border-left: 4px solid #007bff;
+}
+
+.evento-proximo[data-tipo="misa"] .evento-icono {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+}
+
+.evento-proximo[data-tipo="festividad"] {
+  border-left: 4px solid #dc3545;
+}
+
+.evento-proximo[data-tipo="festividad"] .evento-icono {
+  background: linear-gradient(135deg, #dc3545, #b02a37);
+}
+
+.evento-proximo[data-tipo="confesion"] {
+  border-left: 4px solid #6f42c1;
+}
+
+.evento-proximo[data-tipo="confesion"] .evento-icono {
+  background: linear-gradient(135deg, #6f42c1, #5a2d91);
+}
+
+/* Efecto hover mejorado por tipo */
+.evento-proximo[data-tipo="misa"]:hover {
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.15);
+  border-left-color: #0056b3;
+}
+
+.evento-proximo[data-tipo="festividad"]:hover {
+  box-shadow: 0 8px 25px rgba(220, 53, 69, 0.15);
+  border-left-color: #b02a37;
+}
+
+.evento-proximo[data-tipo="confesion"]:hover {
+  box-shadow: 0 8px 25px rgba(111, 66, 193, 0.15);
+  border-left-color: #5a2d91;
+}
+
+/* Modal de acceso admin - estilo santuario */
+.modal-admin {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(62, 62, 62, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background: var(--color-card-glass);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: var(--shadow-strong);
+  min-width: 400px;
+  text-align: center;
+  border: 2px solid var(--color-primary-light);
+  backdrop-filter: blur(10px);
+}
+
+.modal-content h3 {
+  color: var(--color-text);
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  font-family: var(--font-elegant);
+  font-weight: 600;
+}
+
+.modal-content p {
+  color: var(--color-text-light);
+  margin-bottom: 20px;
+  font-family: var(--font-main);
+}
+
+#admin-password {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid var(--color-primary-light);
+  border-radius: 25px;
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: var(--font-main);
+  background: var(--color-white);
+  color: var(--color-text);
+}
+
+#admin-password:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(196, 167, 109, 0.15);
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.btn-secondary {
+  background: var(--color-text-light);
+  color: var(--color-white);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: var(--font-main);
+}
+
+.btn-secondary:hover {
+  background: var(--color-text);
+}
+
+.btn-primary {
+  background: var(--gradient-primary);
+  color: var(--color-white);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: var(--font-main);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-secondary));
+}
+
+/* =================================
+   MODAL PARA SANTOS - ESTILO SANTUARIO
+   ================================= */
+
+.modal-santo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.modal-santo.show {
+  opacity: 1;
+}
+
+.modal-santo-content {
+  background: var(--color-bg);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  border: 3px solid var(--color-primary);
+  position: relative;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+}
+
+.modal-santo.show .modal-santo-content {
+  transform: scale(1);
+}
+
+/* Header del modal */
+.modal-santo-header {
+  background: var(--gradient-primary);
+  color: white;
+  padding: 20px 25px;
+  border-radius: 17px 17px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.modal-santo-header h3 {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-santo-header i {
+  font-size: 1.8rem;
+  color: #FFD700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.modal-santo-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-santo-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
+}
+
+/* Cuerpo del modal */
+.modal-santo-body {
+  padding: 30px 25px;
+  background: var(--color-bg-alt);
+}
+
+.santo-imagen {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.santo-icon {
+  font-size: 4rem;
+  color: var(--color-primary);
+  background: var(--gradient-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(196, 167, 109, 0.3);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    filter: drop-shadow(0 0 10px rgba(196, 167, 109, 0.3));
+  }
+  to {
+    filter: drop-shadow(0 0 20px rgba(196, 167, 109, 0.6));
+  }
+}
+
+.santo-info > div {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: var(--color-bg);
+  border-radius: 12px;
+  border-left: 4px solid var(--color-primary);
+  box-shadow: var(--shadow-light);
+}
+
+.santo-fecha,
+.santo-tipo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-text);
+  font-size: 1.1rem;
+  color: var(--color-text);
+}
+
+.santo-fecha i,
+.santo-tipo i {
+  color: var(--color-primary);
+  font-size: 1.3rem;
+  width: 20px;
+  text-align: center;
+}
+
+.santo-descripcion p {
+  font-family: var(--font-elegant);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--color-text-light);
+  margin: 0;
+  font-style: italic;
+}
+
+.santo-reflexion {
+  background: var(--gradient-light) !important;
+  border-left-color: #FFD700 !important;
+}
+
+.santo-reflexion h4 {
+  font-family: var(--font-title);
+  color: var(--color-primary);
+  margin: 0 0 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.2rem;
+}
+
+.santo-reflexion p {
+  color: var(--color-text) !important;
+  font-style: normal !important;
+  font-weight: 500;
+}
+
+/* Footer del modal */
+.modal-santo-footer {
+  padding: 20px 25px;
+  background: var(--color-bg);
+  border-radius: 0 0 17px 17px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  border-top: 1px solid var(--color-border);
+}
+
+.btn-santo-whatsapp,
+.btn-santo-cerrar {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 25px;
+  font-family: var(--font-text);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 140px;
+  justify-content: center;
+}
+
+.btn-santo-whatsapp {
+  background: linear-gradient(45deg, #25D366, #128C7E);
+  color: white;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.btn-santo-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+}
+
+.btn-santo-cerrar {
+  background: var(--gradient-secondary);
+  color: var(--color-text);
+  border: 2px solid var(--color-border);
+}
+
+.btn-santo-cerrar:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+  background: var(--color-bg-alt);
+}
+
+/* Responsive mejorado */
+@media (max-width: 768px) {
+  .calendario-container {
+    padding: 20px 15px;
+    border-radius: 15px;
+  }
+  
+  .calendario-header h2 {
+    font-size: 2.2rem;
+  }
+  
+  .calendario-descripcion {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+  
+  .admin-access {
+    position: relative;
+    top: auto;
+    right: auto;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .btn-admin {
+    display: inline-block;
+  }
+  
+  .calendario-wrapper,
+  .proximos-eventos-simple,
+  .admin-panel {
+    padding: 20px;
+    border-radius: 15px;
+  }
+  
+  .fc-header-toolbar {
+    padding: 15px;
+    border-radius: 10px;
+  }
+  
+  .fc-toolbar-title {
+    font-size: 1.4rem !important;
+  }
+  
+  .fc-button {
+    font-size: 0.75rem !important;
+    padding: 8px 12px !important;
+    margin: 0 4px !important;
+  }
+  
+  .evento-proximo {
+    padding: 15px;
+  }
+  
+  .evento-proximo-titulo {
+    font-size: 1.1rem;
+  }
+  
+  .admin-form {
+    padding: 20px;
+    border-radius: 12px;
+  }
+  
+  .modal-content {
+    margin: 20px;
+    min-width: auto;
+    width: calc(100% - 40px);
+    padding: 25px;
+  }
+  
+  .modal-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .btn-secondary,
+  .btn-primary {
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .modal-santo-content {
+    width: 95%;
+    margin: 10px;
+  }
+  
+  .modal-santo-header {
+    padding: 15px 20px;
+  }
+  
+  .modal-santo-header h3 {
+    font-size: 1.3rem;
+  }
+  
+  .modal-santo-body {
+    padding: 20px;
+  }
+  
+  .santo-icon {
+    font-size: 3rem;
+  }
+  
+  .modal-santo-footer {
+    flex-direction: column;
+    padding: 15px 20px;
+  }
+  
+  .btn-santo-whatsapp,
+  .btn-santo-cerrar {
+    width: 100%;
+  }
+}
+
+/* Efectos adicionales y mejoras visuales */
+.calendario-container {
+  animation: slideInUp 0.6s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.calendario-wrapper,
+.proximos-eventos-simple {
+  animation: fadeInScale 0.5s ease-out;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Día actual destacado - estilo santuario */
+.fc-day-today {
+  background-color: rgba(196, 167, 109, 0.08) !important;
+}
+
+.fc-day-today .fc-daygrid-day-number {
+  background: var(--gradient-primary);
+  color: var(--color-white) !important;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  font-weight: 600 !important;
+  box-shadow: var(--shadow-soft);
+}
+
+/* Mejoras en el scrollbar - tema santuario */
+.admin-panel::-webkit-scrollbar,
+.proximos-eventos-simple::-webkit-scrollbar {
+  width: 6px;
+}
+
+.admin-panel::-webkit-scrollbar-track,
+.proximos-eventos-simple::-webkit-scrollbar-track {
+  background: var(--color-card);
+  border-radius: 3px;
+}
+
+.admin-panel::-webkit-scrollbar-thumb,
+.proximos-eventos-simple::-webkit-scrollbar-thumb {
+  background: var(--gradient-primary);
+  border-radius: 3px;
+}
+
+.admin-panel::-webkit-scrollbar-thumb:hover,
+.proximos-eventos-simple::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-secondary));
+}
+
+/* Elementos de lista de eventos admin - estilo santuario */
+.evento-admin-item {
+  background: var(--color-card);
+  border: 1px solid var(--color-primary-light);
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s ease;
+}
+
+.evento-admin-item:hover {
+  background: var(--color-card-glass);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+.evento-admin-info h5 {
+  margin: 0 0 5px 0;
+  color: var(--color-text);
+  font-family: var(--font-elegant);
+  font-weight: 600;
+}
+
+.evento-admin-info p {
+  margin: 0;
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+  font-family: var(--font-main);
+}
+
+.btn-eliminar {
+  background: linear-gradient(135deg, var(--color-accent), #d35400);
+  color: var(--color-white);
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+  font-family: var(--font-main);
+  font-weight: 500;
+}
+
+.btn-eliminar:hover {
+  background: linear-gradient(135deg, #d35400, #c0392b);
+  transform: scale(1.05);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Lista de eventos admin */
+.eventos-lista-admin {
+  border-top: 2px solid rgba(196, 167, 109, 0.2);
+  padding-top: 20px;
+}
+
+.eventos-lista-admin h4 {
+  color: var(--color-text);
+  margin-bottom: 15px;
+  font-family: var(--font-elegant);
+  font-weight: 600;
+}
+
+/* Animaciones suaves */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Indicador de más eventos */
+.mas-eventos-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: #6c757d;
+  font-style: italic;
+  transition: all 0.3s ease;
+}
+
+.mas-eventos-info:hover {
+  background: linear-gradient(135deg, #e9ecef, #dee2e6);
+  color: #495057;
+  transform: translateY(-1px);
+}
+
+.mas-eventos-info i {
+  color: #6c757d;
+}
+
+/* Versión compacta de eventos */
+.evento-proximo-compacto {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+  border-left: 3px solid #e9ecef;
+  position: relative;
+}
+
+.evento-proximo-compacto:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.evento-icono-compacto {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6c757d, #495057);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.evento-icono-compacto i {
+  color: white;
+  font-size: 12px;
+}
+
+.evento-contenido-compacto {
+  flex: 1;
+  min-width: 0;
+}
+
+.evento-titulo-compacto {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 2px;
+  line-height: 1.2;
+}
+
+.evento-hora-compacto {
+  font-size: 11px;
+  color: #6c757d;
+  line-height: 1;
+}
+
+.evento-badge-compacto {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  font-size: 10px;
+  opacity: 0.8;
+}
+
+/* Estilos compactos específicos por tipo */
+.evento-proximo-compacto[data-tipo="misa"] {
+  border-left-color: #007bff;
+}
+
+.evento-proximo-compacto[data-tipo="misa"] .evento-icono-compacto {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+}
+
+.evento-proximo-compacto[data-tipo="festividad"] {
+  border-left-color: #dc3545;
+}
+
+.evento-proximo-compacto[data-tipo="festividad"] .evento-icono-compacto {
+  background: linear-gradient(135deg, #dc3545, #b02a37);
+}
+
+.evento-proximo-compacto[data-tipo="confesion"] {
+  border-left-color: #6f42c1;
+}
+
+.evento-proximo-compacto[data-tipo="confesion"] .evento-icono-compacto {
+  background: linear-gradient(135deg, #6f42c1, #5a2d91);
+}
+
+.evento-proximo-compacto.evento-importante {
+  background: linear-gradient(135deg, #fff9e6, #ffffff);
+  border-left-width: 4px;
+}

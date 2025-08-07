@@ -5,8 +5,8 @@
 class GoogleCalendarAPI {
   constructor() {
     // CONFIGURACIÓN - Debes reemplazar estos valores
-    this.API_KEY = 'AIzaSyBNUwRynz7Hc8MGnHVYsa68VIaBFSPtb0Q'; // Reemplazar con tu API Key
-    this.CLIENT_ID = 'T382456115228-863441gkbllch0d6h9b3rmeumopfi7e2.apps.googleusercontent.com'; // Reemplazar con tu Client ID
+    this.API_KEY = 'TU_API_KEY_AQUI'; // Reemplazar con tu API Key real
+    this.CLIENT_ID = 'TU_CLIENT_ID_AQUI'; // Reemplazar con tu Client ID real
     this.CALENDAR_ID = 'primary'; // O tu Calendar ID específico
     
     this.DISCOVERY_DOC = 'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest';

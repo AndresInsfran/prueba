@@ -273,89 +273,289 @@
   to { transform: rotate(360deg); }
 }
 
-/* Responsividad */
+/* ===========================
+   ESTILOS PARA LECTURAS COMPLETAS
+   =========================== */
+
+/* Información litúrgica adicional */
+.tiempo-liturgico {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 0.95em;
+  color: #4A4A4A;
+}
+
+.color-liturgico {
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-left: 8px;
+}
+
+.color-liturgico.color-blanco {
+  background: #f8f9fa;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.color-liturgico.color-verde {
+  background: #28a745;
+  color: white;
+}
+
+.color-liturgico.color-morado {
+  background: #6f42c1;
+  color: white;
+}
+
+.color-liturgico.color-rojo {
+  background: #dc3545;
+  color: white;
+}
+
+.santo-dia {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 0.95em;
+  color: #6B4423;
+  font-weight: 500;
+}
+
+/* Contenedor de lecturas */
+.lecturas-container {
+  margin-bottom: 25px;
+}
+
+.lectura-seccion {
+  margin-bottom: 25px;
+  padding: 20px;
+  border-radius: 12px;
+  background: #f8f9fa;
+  border-left: 4px solid var(--primary-color, #8B4513);
+  transition: all 0.3s ease;
+}
+
+.lectura-seccion:hover {
+  background: #f0f2f5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(139, 69, 19, 0.1);
+}
+
+.lectura-seccion.lectura-primera {
+  border-left-color: #28a745;
+}
+
+.lectura-seccion.lectura-salmo {
+  border-left-color: #17a2b8;
+  background: linear-gradient(145deg, #e8f4f8 0%, #f8f9fa 100%);
+}
+
+.lectura-seccion.lectura-segunda {
+  border-left-color: #ffc107;
+}
+
+.lectura-seccion.lectura-evangelio {
+  border-left-color: #dc3545;
+  background: linear-gradient(145deg, #fff5f5 0%, #f8f9fa 100%);
+  border: 2px solid rgba(220, 53, 69, 0.2);
+}
+
+.lectura-header {
+  margin-bottom: 15px;
+}
+
+.lectura-header h4 {
+  margin: 0 0 8px 0;
+  font-family: var(--font-heading, 'Cinzel', serif);
+  font-size: 1.1em;
+  color: var(--primary-color, #8B4513);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lectura-cita {
+  font-size: 0.9em;
+  color: #666;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.lectura-texto {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #333;
+  position: relative;
+  padding: 0 10px;
+}
+
+.lectura-evangelio .lectura-texto {
+  font-size: 1.05em;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+/* Botón para alternar lecturas */
+.btn-evangelio-toggle {
+  background: linear-gradient(135deg, #17a2b8, #138496);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.9em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-evangelio-toggle:hover {
+  background: linear-gradient(135deg, #138496, #117a8b);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(23, 162, 184, 0.3);
+}
+
+/* Colores para header según tiempo litúrgico */
+.evangelio-header.color-blanco {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  color: #333;
+}
+
+.evangelio-header.color-verde {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+}
+
+.evangelio-header.color-morado {
+  background: linear-gradient(135deg, #6f42c1, #8e44ad);
+  color: white;
+}
+
+.evangelio-header.color-rojo {
+  background: linear-gradient(135deg, #dc3545, #e74c3c);
+  color: white;
+}
+
+/* Responsive para lecturas */
 @media (max-width: 768px) {
-  #evangelio {
-    padding: var(--spacing-lg, 3rem) var(--spacing-sm, 1rem);
-  }
-  
-  .evangelio-card {
-    padding: 20px;
-    margin: 15px auto;
-    max-width: 100%;
-  }
-  
-  .evangelio-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-  
-  .evangelio-cita {
-    font-size: 1.1rem;
-    flex-direction: column;
-    gap: 8px;
-  }
-  
-  .evangelio-texto {
-    font-size: 1rem;
+  .lectura-seccion {
     padding: 15px;
-    text-align: left;
+    margin-bottom: 20px;
   }
   
-  .comillas-apertura,
-  .comillas-cierre {
-    font-size: 2rem;
+  .lectura-header h4 {
+    font-size: 1em;
   }
   
-  .comillas-apertura {
-    top: -5px;
-    left: 5px;
-  }
-  
-  .comillas-cierre {
-    bottom: -20px;
-    right: 10px;
+  .lectura-texto {
+    font-size: 0.95em;
+    padding: 0 5px;
   }
   
   .evangelio-acciones {
     flex-direction: column;
-    align-items: stretch;
+    gap: 8px;
   }
   
-  .btn-evangelio-compartir,
-  .btn-evangelio-refresh {
-    justify-content: center;
-    width: 100%;
+  .btn-evangelio-toggle {
+    order: -1; /* Mostrar primero en móvil */
   }
 }
 
-@media (max-width: 480px) {
-  #evangelio {
-    padding: var(--spacing-md, 2rem) var(--spacing-xs, 0.5rem);
+/* Animaciones para lecturas */
+.lectura-seccion {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.lectura-seccion:nth-child(1) { animation-delay: 0.1s; }
+.lectura-seccion:nth-child(2) { animation-delay: 0.2s; }
+.lectura-seccion:nth-child(3) { animation-delay: 0.3s; }
+.lectura-seccion:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  .evangelio-card {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estados de carga mejorados */
+.evangelio-loading {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--primary-color, #8B4513);
+}
+
+.evangelio-loading i {
+  font-size: 2em;
+  margin-bottom: 15px;
+  color: var(--secondary-color, #DAA520);
+}
+
+.evangelio-loading p {
+  font-size: 1.1em;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Comentario reflexivo estilo Dominicos */
+.comentario-dominicos {
+  background: linear-gradient(145deg, #f0f8ff 0%, #e6f3ff 100%);
+  border: 1px solid #b3d9ff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+  border-left: 4px solid #2196f3;
+}
+
+.comentario-dominicos h4 {
+  margin: 0 0 12px 0;
+  font-family: var(--font-heading, 'Cinzel', serif);
+  font-size: 1.1em;
+  color: #1976d2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.comentario-dominicos p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #2c3e50;
+  font-style: italic;
+  text-align: justify;
+}
+
+.comentario-dominicos i {
+  color: #ffc107;
+}
+
+/* Responsive para comentario */
+@media (max-width: 768px) {
+  .comentario-dominicos {
     padding: 15px;
-    border-radius: 10px;
-    margin: 10px auto;
+    margin-top: 15px;
   }
   
-  .evangelio-fecha {
-    font-size: 1rem;
+  .comentario-dominicos h4 {
+    font-size: 1em;
   }
   
-  .evangelio-cita {
-    font-size: 1rem;
-    padding: 12px;
-  }
-  
-  .evangelio-texto {
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-  
-  .evangelio-reflexion {
-    padding: 15px;
+  .comentario-dominicos p {
+    font-size: 0.95em;
+    text-align: left;
   }
 }

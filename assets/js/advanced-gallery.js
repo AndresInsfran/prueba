@@ -300,72 +300,37 @@ window.AdvancedGallery = AdvancedGallery;
 // Funciones para los botones
 window.openGalleryModal = (type) => AdvancedGallery.openGalleryModal(type);
 
-// Funciones para el modal de historia
+// Funciones para el modal de historia - CORREGIDAS
 window.abrirModalHistoria = () => {
-  console.log('🔄 CLICK DETECTADO - Abriendo modal...');
+  console.log('🔄 Abriendo modal de historia...');
   
-  // Debug: verificar que el elemento existe
   const modal = document.getElementById('modal-historia');
-  console.log('Modal encontrado:', modal);
-  
   if (modal) {
-    console.log('Estado antes:', {
-      display: modal.style.display,
-      classList: modal.classList.toString()
-    });
-    
-    // Aplicar estilos directamente
     modal.style.display = 'flex';
-    modal.style.position = 'fixed';
-    modal.style.top = '0';
-    modal.style.left = '0';
-    modal.style.width = '100%';
-    modal.style.height = '100%';
-    modal.style.zIndex = '9999';
-    modal.style.backgroundColor = 'rgba(0, 0, 0, 0.85)';
     modal.classList.add('active');
-    
     document.body.style.overflow = 'hidden';
-    
-    console.log('Estado después:', {
-      display: modal.style.display,
-      classList: modal.classList.toString()
-    });
-    
-    console.log('✅ Modal debería estar visible ahora');
+    console.log('✅ Modal de historia abierto correctamente');
   } else {
-    console.error('❌ Modal no encontrado');
-    alert('Error: No se encontró el modal de historia');
-  }
-};
-
-// Función de test simple
-window.testModal = () => {
-  console.log('🧪 FUNCIÓN DE TEST');
-  alert('¡La función JavaScript funciona!');
-  
-  const modal = document.getElementById('modal-historia');
-  if (modal) {
-    alert('✅ Modal encontrado en el DOM');
-  } else {
-    alert('❌ Modal NO encontrado en el DOM');
+    console.error('❌ Modal de historia no encontrado');
   }
 };
 
 window.cerrarModalHistoria = () => {
+  console.log('🔄 Cerrando modal de historia...');
+  
   const modal = document.getElementById('modal-historia');
   if (modal) {
+    modal.style.display = 'none';
     modal.classList.remove('active');
-    setTimeout(() => {
-      modal.style.display = 'none';
-      document.body.style.overflow = '';
-    }, 300);
-    console.log('✅ Modal de historia cerrado');
+    document.body.style.overflow = '';
+    console.log('✅ Modal de historia cerrado correctamente');
   }
 };
 
 // Funciones para ver imágenes en tamaño completo
 window.abrirImagenCompleta = (imgElement) => {
+  console.log('🔄 Abriendo imagen completa...');
+  
   const modal = document.getElementById('modal-imagen-completa');
   const imagen = document.getElementById('imagen-completa');
   const caption = modal.querySelector('.modal-imagen-caption');
@@ -373,23 +338,25 @@ window.abrirImagenCompleta = (imgElement) => {
   if (modal && imagen && imgElement) {
     imagen.src = imgElement.src;
     imagen.alt = imgElement.alt;
-    caption.textContent = imgElement.alt;
+    if (caption) caption.textContent = imgElement.alt;
     
     modal.style.display = 'flex';
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
     console.log('✅ Imagen completa abierta:', imgElement.alt);
+  } else {
+    console.error('❌ Elementos del lightbox no encontrados');
   }
 };
 
 window.cerrarImagenCompleta = () => {
+  console.log('🔄 Cerrando imagen completa...');
+  
   const modal = document.getElementById('modal-imagen-completa');
   if (modal) {
+    modal.style.display = 'none';
     modal.classList.remove('active');
-    setTimeout(() => {
-      modal.style.display = 'none';
-      document.body.style.overflow = '';
-    }, 300);
+    document.body.style.overflow = '';
     console.log('✅ Imagen completa cerrada');
   }
 };
@@ -401,10 +368,10 @@ document.addEventListener('keydown', (e) => {
     const modalImagen = document.getElementById('modal-imagen-completa');
     
     if (modalHistoria && modalHistoria.classList.contains('active')) {
-      cerrarModalHistoria();
+      window.cerrarModalHistoria();
     }
     if (modalImagen && modalImagen.classList.contains('active')) {
-      cerrarImagenCompleta();
+      window.cerrarImagenCompleta();
     }
   }
 });

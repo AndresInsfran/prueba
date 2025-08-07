@@ -293,6 +293,36 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('🏛️ Santuario website initialized successfully');
 });
 
+// Asegurar carga correcta de imagen de portada
+document.addEventListener('DOMContentLoaded', function() {
+  const imagenPortada = document.querySelector('.img-portada');
+  
+  if (imagenPortada) {
+    // Verificar si la imagen se carga correctamente
+    imagenPortada.addEventListener('load', function() {
+      console.log('✅ Imagen de portada cargada correctamente');
+      imagenPortada.style.opacity = '1';
+    });
+    
+    imagenPortada.addEventListener('error', function() {
+      console.error('❌ Error al cargar imagen de portada');
+      // Fallback: usar imagen de fondo CSS
+      const hero = document.querySelector('.hero');
+      if (hero) {
+        hero.style.backgroundImage = 'url("assets/images/portada.jpg")';
+      }
+    });
+    
+    // Forzar recarga si no está visible después de 2 segundos
+    setTimeout(() => {
+      if (imagenPortada.naturalWidth === 0) {
+        console.log('🔄 Forzando recarga de imagen de portada');
+        imagenPortada.src = imagenPortada.src;
+      }
+    }, 2000);
+  }
+});
+
 // Legacy support comments
 // Código de carrusel removido para reimplementación
 // Código de lightbox removido para reimplementación

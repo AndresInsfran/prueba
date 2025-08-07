@@ -210,6 +210,38 @@
   font-size: 1.1rem;
 }
 
+/* Indicador para confesiones */
+.indicador-confesion {
+  margin-top: 12px;
+  padding: 8px 12px;
+  background: rgba(var(--color-primary-rgb), 0.1);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.2);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  font-style: italic;
+  transition: all 0.3s ease;
+}
+
+.indicador-confesion:hover {
+  background: rgba(var(--color-primary-rgb), 0.15);
+  border-color: rgba(var(--color-primary-rgb), 0.3);
+  transform: translateY(-1px);
+}
+
+.indicador-confesion i {
+  color: var(--color-primary);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.indicador-confesion span {
+  line-height: 1.4;
+}
+
 /* ===========================
    GRIDS & LAYOUTS
    =========================== */

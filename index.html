@@ -7,7 +7,14 @@
   
   <!-- Meta tags para SEO -->
   <meta name="description" content="Santuario Diocesano del Santísimo Sacramento y Perpetuo Socorro en Asunción, Paraguay. Horarios de misa, historia, galería y contacto. Un lugar de fe y devoción."/>
-  <meta name="keywords" content="santuario, paraguay, asunción, misa, católico, perpetuo socorro, santísimo sacramento, iglesia, fe, devoción"/>
+  <meta name="keywords" content="santuario, paraguay, asunción, misa, católico, perpetuo socorro, santísi        <div class="whatsapp-buttons">
+          <a class="btn-whatsapp glow-effect" href="https://wa.me/595982043889?text=Hola,%20me%20comunico%20desde%20la%20página%20web%20del%20Santuario" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> WhatsApp: 0982 043889
+          </a>
+          <a class="btn-whatsapp glow-effect" href="https://wa.me/595982044910?text=Hola,%20me%20comunico%20desde%20la%20página%20web%20del%20Santuario" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> WhatsApp: 0982 044910
+          </a>
+        </div>mento, iglesia, fe, devoción"/>
   <meta name="author" content="Santuario Diocesano"/>
   <meta name="robots" content="index, follow"/>
   
@@ -34,23 +41,41 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous"/>
+  
+  <!-- FullCalendar CSS -->
+  <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.css' rel='stylesheet' />
+  
   <link rel="stylesheet" href="assets/css/main.css"/>
+  <!-- Estilos específicos para header responsive -->
+  <link rel="stylesheet" href="assets/css/header-responsive.css"/>
   <!-- Estilos específicos para botones de galería -->
   <link rel="stylesheet" href="assets/css/gallery-buttons.css"/>
   <!-- Estilos específicos para evangelio del día -->
   <link rel="stylesheet" href="assets/css/evangelio.css"/>
+  <!-- Estilos específicos para botón flotante de WhatsApp -->
+  <link rel="stylesheet" href="assets/css/whatsapp-float.css"/>
   <!-- Estilos específicos para calendario -->
   <link rel="stylesheet" href="assets/css/calendario.css"/>
+  <!-- Estilos específicos para calendario simple -->
+  <link rel="stylesheet" href="assets/css/calendario-simple.css"/>
+  <!-- Estilos específicos para carrusel limpio -->
+  <link rel="stylesheet" href="assets/css/carousel-clean.css"/>
+  <!-- Estilos específicos para botón volver al inicio -->
+  <link rel="stylesheet" href="assets/css/btn-volver-inicio.css"/>
+  <!-- Estilos específicos para partículas -->
+  <link rel="stylesheet" href="assets/css/particles.css"/>
+  <!-- Estilos específicos para comentarios simples -->
+  <link rel="stylesheet" href="assets/css/comentarios-simple.css"/>
+  <!-- Estilos específicos para optimizaciones móviles -->
+  <link rel="stylesheet" href="assets/css/mobile-optimizations.css"/>
+  <!-- Estilos específicos para noticias -->
+  <link rel="stylesheet" href="assets/css/noticias.css"/>
   <!-- Estilos específicos para Google Calendar API -->
   <link rel="stylesheet" href="assets/css/google-calendar-api.css"/>
-  <!-- Optimización móvil responsive -->
-  <link rel="stylesheet" href="assets/css/mobile-responsive.css"/>
-  <!-- Optimización móvil específica para calendario -->
-  <link rel="stylesheet" href="assets/css/mobile-calendar.css"/>
-  <!-- Optimización móvil específica para galería -->
-  <link rel="stylesheet" href="assets/css/mobile-gallery.css"/>
-  <!-- Optimizaciones de performance móvil -->
-  <link rel="stylesheet" href="assets/css/mobile-performance.css"/>
+  <!-- Estilos específicos para lightbox corregido -->
+  <link rel="stylesheet" href="assets/css/lightbox-fixed.css"/>
+  <!-- Estilos adicionales y mejoras -->
+  <link rel="stylesheet" href="styles_new.css"/>
   
   <!-- Structured Data para Google -->
   <script type="application/ld+json">
@@ -64,7 +89,7 @@
       "addressLocality": "Asunción",
       "addressCountry": "Paraguay"
     },
-    "telephone": "+595982044910",
+    "telephone": ["+595982043889", "+595982044910"],
     "url": "https://santuariodiocesano.com",
     "sameAs": [
       "https://www.facebook.com/share/16YXw5izH7/",
@@ -82,33 +107,74 @@
     <div class="container">
       <div class="logo">
         <img src="assets/images/logo.png" alt="Logo del Santuario" class="logo-img">
-        <h1>Santuario Diocesano</h1>
+        <h1 title="Santuario Diocesano del Santísimo Sacramento y Perpetuo Socorro">Santuario Diocesano</h1>
       </div>
-      <nav class="nav-desktop">
-        <a href="#inicio">Inicio</a>
-        <a href="#nosotros">Nosotros</a>
-        <a href="#momentos-especiales">Momentos</a>
-        <a href="#galeria">Galería</a>
-        <a href="#calendario">Calendario</a>
-        <a href="#horarios">Horarios</a>
-        <a href="#multimedia">Videos</a>
-        <a href="#encuentranos">Ubicación</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
-      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-        <i class="fas fa-bars" id="menu-icon"></i>
+      
+      <!-- Botón hamburguesa para móviles -->
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
-    </div>
-    <div class="nav-mobile" id="mobile-nav">
-      <a href="#inicio" onclick="closeMobileMenu()">Inicio</a>
-      <a href="#nosotros" onclick="closeMobileMenu()">Nosotros</a>
-      <a href="#momentos-especiales" onclick="closeMobileMenu()">Momentos</a>
-      <a href="#galeria" onclick="closeMobileMenu()">Galería</a>
-      <a href="#calendario" onclick="closeMobileMenu()">Calendario</a>
-      <a href="#horarios" onclick="closeMobileMenu()">Horarios</a>
-      <a href="#multimedia" onclick="closeMobileMenu()">Videos</a>
-      <a href="#encuentranos" onclick="closeMobileMenu()">Ubicación</a>
-      <a href="#contacto" onclick="closeMobileMenu()">Contacto</a>
+      
+      <!-- Navegación desktop -->
+      <nav class="nav-desktop">
+        <a href="#inicio">
+          <i class="fas fa-home"></i>
+          <span>Inicio</span>
+        </a>
+        <a href="#nosotros">
+          <i class="fas fa-church"></i>
+          <span>Nosotros</span>
+        </a>
+        <a href="#calendario">
+          <i class="fas fa-calendar-alt"></i>
+          <span>Calendario</span>
+        </a>
+        <a href="#noticias">
+          <i class="fas fa-newspaper"></i>
+          <span>Noticias</span>
+        </a>
+       
+        <a href="#encuentranos">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Ubicación</span>
+        </a>
+        <a href="#contacto">
+          <i class="fas fa-phone"></i>
+          <span>Contacto</span>
+        </a>
+      </nav>
+      
+      <!-- Navegación móvil -->
+      <nav class="nav-mobile" id="nav-mobile">
+        <div class="nav-mobile-content">
+          <a href="#inicio" class="nav-mobile-link">
+            <i class="fas fa-home"></i>
+            <span>Inicio</span>
+          </a>
+          <a href="#nosotros" class="nav-mobile-link">
+            <i class="fas fa-church"></i>
+            <span>Nosotros</span>
+          </a>
+          <a href="#calendario" class="nav-mobile-link">
+            <i class="fas fa-calendar-alt"></i>
+            <span>Calendario</span>
+          </a>
+          <a href="#noticias" class="nav-mobile-link">
+            <i class="fas fa-newspaper"></i>
+            <span>Noticias</span>
+          </a>
+          <a href="#encuentranos" class="nav-mobile-link">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Ubicación</span>
+          </a>
+          <a href="#contacto" class="nav-mobile-link">
+            <i class="fas fa-phone"></i>
+            <span>Contacto</span>
+          </a>
+        </div>
+      </nav>
     </div>
   </header>
 
@@ -116,11 +182,15 @@
        HERO / PORTADA
        =========================== -->
   <section id="inicio" class="hero fade-in">
-    <img src="assets/images/portada.jpg" alt="Santuario" class="img-portada"/>
+    <img src="./assets/images/portada.jpg" alt="Santuario Diocesano" class="img-portada" loading="eager"/>
+    
+    <!-- Contenedor de partículas -->
+    <div class="particles-container" id="particles-container">
+      <!-- Las partículas se generarán dinámicamente con JavaScript -->
+    </div>
+    
     <div class="hero-content">
-      <h1>Bienvenidos </h1>
-      <p>Un lugar sagrado de fe y esperanza</p>
-      <a class="btn" href="#contacto">Contáctanos</a>
+      <!-- Portada limpia sin texto -->
     </div>
   </section>
 
@@ -130,14 +200,7 @@
   <section id="evangelio" class="section fade-in animated-fadein">
     <h2>Evangelio del Día</h2>
     <div id="evangelio-dia" class="evangelio-card">
-      <div class="evangelio-cita">Lucas 10, 1-12. 17-20</div>
-      <div class="evangelio-texto">
-        <em>"Descansará sobre ellos vuestra paz"</em>
-        <br><br>
-        La mies es abundante y los obreros pocos; rogad, pues, al dueño de la mies que envíe obreros a su mies.
-        <br><br>
-        ¡Poneos en camino! Mirad que os envío como corderos en medio de lobos. No llevéis bolsa, ni alforja, ni sandalias; y no saludéis a nadie por el camino.
-      </div>
+      <!-- El contenido se carga dinámicamente desde evangelio.js -->
     </div>
   </section>
 
@@ -151,8 +214,8 @@
         <h3><i class="fas fa-church"></i> Misas</h3>
         <ul>
           <li><strong>Lunes a Viernes:</strong> 06:15 y 18:00 hs</li>
-          <li><strong>Sábados:</strong> 17:00 y 18:00 hs</li>
-          <li><strong>Domingos:</strong> 08:30, 17:00 y 18:00 hs</li>
+          <li><strong>Sábados:</strong> 17:00 y 18:15 hs</li>
+          <li><strong>Domingos:</strong> 08:30, 17:00 y 18:15 hs</li>
         </ul>
       </div>
       <div class="horario-card animated-fadein">
@@ -162,13 +225,17 @@
           <li><strong>Lunes a Viernes:</strong> 15:30 a 17:30 hs</li>
         </ul>
         <div class="agendar-confesion">
-          <a href="https://wa.me/595982044910?text=Hola,%20me%20gustaría%20agendar%20una%20confesión" 
+          <a href="https://wa.me/595982043889?text=Hola,%20me%20gustaría%20agendar%20una%20confesión" 
              target="_blank" 
              rel="noopener" 
              class="btn-agendar">
             <i class="fab fa-whatsapp"></i>
             Agendar vía WhatsApp
           </a>
+          <div class="indicador-confesion">
+            <i class="fas fa-info-circle"></i>
+            <span>También puede agendarse en horarios a convenir</span>
+          </div>
         </div>
       </div>
     </div>
@@ -184,69 +251,12 @@
 Desde entonces, el santuario se convirtió en un importante centro de peregrinación, especialmente durante las festividades de junio, reuniendo a miles de fieles. Además de su labor religiosa, el padre Pezzini promovió obras de caridad y apoyo social. A lo largo de los años, el santuario ha recibido valiosas ofrendas en agradecimiento a los favores recibidos, consolidándose como un símbolo de fe y solidaridad en Paraguay.</p>
     
     <div class="historia-actions">
-      <button class="btn btn-historia" onclick="abrirModalSimple()">
+      <button class="btn btn-historia" onclick="abrirModalHistoria()">
         <i class="fas fa-book-open"></i>
         Más sobre nuestra historia
       </button>
     </div>
     
-    <script>
-    function abrirModalSimple() {
-      console.log('🔄 Función simple ejecutada');
-      const modal = document.getElementById('modal-historia');
-      if (modal) {
-        modal.style.display = 'flex';
-        modal.style.position = 'fixed';
-        modal.style.top = '0';
-        modal.style.left = '0';
-        modal.style.width = '100%';
-        modal.style.height = '100%';
-        modal.style.zIndex = '99999';
-        modal.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
-        document.body.style.overflow = 'hidden';
-        console.log('✅ Modal abierto con función simple');
-      } else {
-        console.error('❌ Modal no encontrado');
-        alert('Modal no encontrado');
-      }
-    }
-    
-    function cerrarModalSimple() {
-      const modal = document.getElementById('modal-historia');
-      if (modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = '';
-      }
-    }
-    
-    function abrirImagenSimple(img) {
-      const modalImg = document.getElementById('modal-imagen-completa');
-      const imagenCompleta = document.getElementById('imagen-completa');
-      const caption = document.querySelector('.modal-imagen-caption');
-      
-      if (modalImg && imagenCompleta) {
-        imagenCompleta.src = img.src;
-        imagenCompleta.alt = img.alt;
-        if (caption) caption.textContent = img.alt;
-        
-        modalImg.style.display = 'flex';
-        modalImg.style.position = 'fixed';
-        modalImg.style.top = '0';
-        modalImg.style.left = '0';
-        modalImg.style.width = '100%';
-        modalImg.style.height = '100%';
-        modalImg.style.zIndex = '99999';
-        modalImg.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
-      }
-    }
-    
-    function cerrarImagenSimple() {
-      const modalImg = document.getElementById('modal-imagen-completa');
-      if (modalImg) {
-        modalImg.style.display = 'none';
-      }
-    }
-    </script>
   </section>
 
   <!-- ===========================
@@ -254,46 +264,47 @@ Desde entonces, el santuario se convirtió en un importante centro de peregrinac
        =========================== -->
   <section id="momentos-especiales" class="carousel-section fade-in">
     <div class="carousel-container">
-      <h2 class="carousel-title">Momentos Especiales</h2>
-      <p class="carousel-description">Celebraciones únicas y memorables de nuestra comunidad</p>
+      <div class="carousel-header">
+        <h2>Momentos Especiales</h2>
+        <p>Celebraciones únicas y memorables de nuestra comunidad</p>
+      </div>
+      
       <div class="carousel-wrapper">
         <div class="carousel-track">
           <div class="carousel-slide active">
-            <img src="assets/images/galeria/galeria1.jpg" alt="Ceremonias especiales">
+            <img src="assets/images/momentos-especiales/ceremonias-especiales.jpg" alt="Ceremonias especiales">
             <div class="carousel-caption">Ceremonias especiales</div>
           </div>
           <div class="carousel-slide">
-            <img src="assets/images/galeria/galeria4.jpg" alt="Comunidad reunida">
+            <img src="assets/images/momentos-especiales/comunidad-reunida.jpg" alt="Comunidad reunida">
             <div class="carousel-caption">Comunidad reunida</div>
           </div>
           <div class="carousel-slide">
-            <img src="assets/images/historia/Historia1.jpg" alt="Historia del santuario">
-            <div class="carousel-caption">Nuestras raíces</div>
+            <img src="assets/images/momentos-especiales/celebraciones-liturgicas.jpg" alt="Celebraciones litúrgicas">
+            <div class="carousel-caption">Celebraciones litúrgicas</div>
           </div>
           <div class="carousel-slide">
-            <img src="assets/images/historia/Historia2.jpg" alt="Tradición y fe">
-            <div class="carousel-caption">Tradición y fe</div>
-          </div>
-          <div class="carousel-slide">
-            <img src="assets/images/galeria/galeria2.jpg" alt="Momentos de oración">
+            <img src="assets/images/momentos-especiales/momentos-oracion.jpg" alt="Momentos de oración">
             <div class="carousel-caption">Momentos de oración</div>
           </div>
+          <div class="carousel-slide">
+            <img src="assets/images/momentos-especiales/festividades-especiales.jpg" alt="Festividades especiales">
+            <div class="carousel-caption">Festividades especiales</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="assets/images/galeria/galeria5.jpg" alt="Historia del santuario">
+            <div class="carousel-caption">Nuestras raíces históricas</div>
+          </div>
         </div>
-        <button class="carousel-controls carousel-prev">
+        
+        <button class="carousel-prev" aria-label="Imagen anterior">
           <i class="fas fa-chevron-left"></i>
         </button>
-        <button class="carousel-controls carousel-next">
+        <button class="carousel-next" aria-label="Imagen siguiente">
           <i class="fas fa-chevron-right"></i>
         </button>
+        
         <div class="carousel-indicators"></div>
-      </div>
-      
-      <!-- Botón para ver todas las imágenes de momentos especiales -->
-      <div class="carousel-actions">
-        <button class="btn-secondary" onclick="openGalleryModal('carousel')">
-          <i class="fas fa-star"></i>
-          Ver todos los momentos especiales
-        </button>
       </div>
     </div>
   </section>
@@ -304,7 +315,8 @@ Desde entonces, el santuario se convirtió en un importante centro de peregrinac
   <section id="galeria" class="gallery-section fade-in">
     <div class="gallery-container">
       <h2 class="gallery-title">Nuestra Galería</h2>
-      <div class="gallery-grid">
+      
+      <div class="gallery-grid" id="gallery-grid">
         <div class="gallery-item">
           <div class="gallery-item-inner">
             <img src="assets/images/galeria/galeria1.jpg" alt="Interior del santuario">
@@ -313,6 +325,7 @@ Desde entonces, el santuario se convirtió en un importante centro de peregrinac
             </div>
           </div>
         </div>
+        
         <div class="gallery-item">
           <div class="gallery-item-inner">
             <img src="assets/images/galeria/galeria2.jpg" alt="Altar principal">
@@ -321,35 +334,30 @@ Desde entonces, el santuario se convirtió en un importante centro de peregrinac
             </div>
           </div>
         </div>
+        
         <div class="gallery-item">
           <div class="gallery-item-inner">
-            <img src="assets/images/galeria/galeria3.jpg" alt="Ceremonias especiales">
+            <img src="assets/images/galeria/galeria3.jpg" alt="Vista exterior">
             <div class="gallery-overlay">
-              <div class="gallery-caption">Ceremonias especiales</div>
+              <div class="gallery-caption">Vista exterior</div>
             </div>
           </div>
         </div>
+        
         <div class="gallery-item">
           <div class="gallery-item-inner">
-            <img src="assets/images/galeria/galeria4.jpg" alt="Comunidad reunida">
+            <img src="assets/images/galeria/galeria4.jpg" alt="Celebraciones">
             <div class="gallery-overlay">
-              <div class="gallery-caption">Comunidad reunida</div>
+              <div class="gallery-caption">Celebraciones</div>
             </div>
           </div>
         </div>
+        
         <div class="gallery-item">
           <div class="gallery-item-inner">
-            <img src="assets/images/galeria/galeria5.jpg" alt="Momentos de oración">
+            <img src="assets/images/galeria/galeria5.jpg" alt="Comunidad">
             <div class="gallery-overlay">
-              <div class="gallery-caption">Momentos de oración</div>
-            </div>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-item-inner">
-            <img src="assets/images/galeria/galeria6.jpg" alt="Festividades">
-            <div class="gallery-overlay">
-              <div class="gallery-caption">Festividades</div>
+              <div class="gallery-caption">Comunidad</div>
             </div>
           </div>
         </div>
@@ -366,91 +374,247 @@ Desde entonces, el santuario se convirtió en un importante centro de peregrinac
   </section>
 
   <!-- ===========================
-       CALENDARIO DE EVENTOS
+       CALENDARIO SIMPLE
        =========================== -->
   <section id="calendario" class="section fade-in">
-    <h2>Calendario de Eventos</h2>
+    <div class="calendario-header">
+      <h2>Calendario de Eventos</h2>
+      <p class="calendario-descripcion">Consulta nuestros eventos y celebraciones</p>
+    </div>
+    
     <div class="calendario-container">
-      <div class="calendario-descripcion">
-        <p>Consulta nuestros eventos, misas especiales y celebraciones litúrgicas</p>
-      </div>
-      
-      <!-- Calendario embebido de Google -->
-      <div class="calendario-wrapper">
-        <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FAsuncion&src=es.py%23holiday%40group.v.calendar.google.com&color=%23F09300&showTitle=0&showNav=1&showDate=1&showCalendars=1&showTz=0&showPrint=0&showTabs=1&mode=MONTH" 
-                style="border-width:0" 
-                width="800" 
-                height="600" 
-                frameborder="0" 
-                scrolling="no"
-                title="Calendario del Santuario">
-        </iframe>
-      </div>
-      
-      <!-- Sistema de calendario avanzado con Google Calendar API -->
-      <div class="calendario-controles">
-        <div class="calendario-opciones">
-          <button id="btn-calendario-simple" class="btn-calendario active">
-            <i class="fas fa-calendar-alt"></i>
-            Calendario Simple
-          </button>
-          <button id="btn-calendario-avanzado" class="btn-calendario">
-            <i class="fas fa-calendar-plus"></i>
-            Gestión Avanzada
+      <!-- Panel de administración (oculto por defecto) -->
+      <div id="admin-panel" class="admin-panel" style="display: none;">
+        <div class="admin-header">
+          <h3><i class="fas fa-cog"></i> Panel de Administración</h3>
+          <button id="cerrar-admin" class="btn-close">
+            <i class="fas fa-times"></i>
           </button>
         </div>
         
-        <!-- Panel de autenticación de Google -->
-        <div id="auth-panel" class="auth-panel" style="display: none;">
-          <div class="auth-content">
-            <h3><i class="fas fa-sign-in-alt"></i> Conectar con Google Calendar</h3>
-            <p>Para acceder a la gestión avanzada del calendario, necesitas autenticarte con tu cuenta de Google.</p>
-            <button id="authorize-btn" class="btn-auth">
-              <i class="fab fa-google"></i>
-              Conectar con Google
-            </button>
-            <button id="signout-btn" class="btn-auth-secondary" style="display: none;">
-              <i class="fas fa-sign-out-alt"></i>
-              Desconectar
-            </button>
-          </div>
-        </div>
-        
-        <!-- Panel de gestión avanzada -->
-        <div id="advanced-panel" class="advanced-panel" style="display: none;">
-          <div class="calendar-actions">
-            <button id="create-event-btn" class="btn-action">
-              <i class="fas fa-plus"></i>
-              Crear Evento
-            </button>
-            <button id="refresh-calendar-btn" class="btn-action">
-              <i class="fas fa-sync-alt"></i>
-              Actualizar
-            </button>
-          </div>
-          
-          <!-- Lista de eventos próximos -->
-          <div id="upcoming-events" class="upcoming-events">
-            <h4><i class="fas fa-clock"></i> Próximos Eventos</h4>
-            <div id="events-list" class="events-list">
-              <p class="loading-events">Cargando eventos...</p>
+        <div class="admin-form">
+          <h4>Agregar Evento</h4>
+          <form id="form-evento">
+            <div class="form-group">
+              <label>Título del Evento:</label>
+              <input type="text" id="evento-titulo" required>
             </div>
-          </div>
+            
+            <div class="form-group">
+              <label>Fecha:</label>
+              <input type="date" id="evento-fecha" required>
+            </div>
+            
+            <div class="form-group">
+              <label>Hora (opcional):</label>
+              <input type="time" id="evento-hora">
+            </div>
+            
+            <div class="form-group">
+              <label>Tipo:</label>
+              <select id="evento-tipo">
+                <option value="misa">Misa</option>
+                <option value="evento">Evento</option>
+                <option value="festividad">Festividad</option>
+                <option value="confesion">Confesión</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label>Descripción (opcional):</label>
+              <textarea id="evento-descripcion" rows="2"></textarea>
+            </div>
+            
+            <button type="submit" class="btn-agregar">
+              <i class="fas fa-plus"></i>
+              Agregar Evento
+            </button>
+          </form>
+        </div>
+        
+        <div class="eventos-lista-admin">
+          <h4>Eventos Personalizados</h4>
+          <div id="lista-eventos-admin"></div>
+        </div>
+      </div>
+      
+      <!-- Botón de acceso admin -->
+      <div class="admin-access">
+        <button id="btn-admin" class="btn-admin">
+          <i class="fas fa-key"></i>
+          Administrar
+        </button>
+      </div>
+      
+      <!-- Calendario principal simplificado -->
+      <div class="calendario-wrapper">
+        <div id="calendario-simple"></div>
+      </div>
+      
+      <!-- Lista de próximos eventos -->
+      <div class="proximos-eventos-simple">
+        <h3>
+          <i class="fas fa-calendar-day"></i>
+          Misas y Eventos de Hoy
+        </h3>
+        <div id="eventos-proximos"></div>
+      </div>
+    </div>
+    
+    <!-- Modal de acceso admin -->
+    <div id="modal-admin-access" class="modal-admin" style="display: none;">
+      <div class="modal-content">
+        <h3>Acceso de Administrador</h3>
+        <p>Ingresa la clave para acceder al panel de administración:</p>
+        <input type="password" id="admin-password" placeholder="Clave de administrador">
+        <div class="modal-buttons">
+          <button id="btn-cancelar" class="btn-secondary">Cancelar</button>
+          <button id="btn-acceder" class="btn-primary">Acceder</button>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ===========================
+       NOTICIAS CATÓLICAS
+       =========================== -->
+  <section id="noticias" class="section fade-in">
+    <div class="noticias-header">
+      <h2>Noticias de la Iglesia</h2>
+      <p class="noticias-descripcion">Mantente informado con las últimas noticias del Arzobispado y la Conferencia Episcopal Paraguaya</p>
+    </div>
+    
+    <div class="noticias-sources">
+      <div class="source-tab active" data-source="arzobispado">
+        <i class="fas fa-church"></i>
+        <span>Arzobispado de Asunción</span>
+      </div>
+      <div class="source-tab" data-source="episcopal">
+        <i class="fas fa-cross"></i>
+        <span>Conferencia Episcopal</span>
+      </div>
+    </div>
+    
+    <div class="noticias-container">
+      <!-- Loading indicator -->
+      <div id="noticias-loading" class="loading-indicator">
+        <div class="loading-spinner"></div>
+        <p>Cargando noticias...</p>
+      </div>
+      
+      <!-- Noticias del Arzobispado -->
+      <div id="noticias-arzobispado" class="noticias-grid active">
+        <!-- Las noticias se cargarán dinámicamente aquí -->
+      </div>
+      
+      <!-- Noticias de la Conferencia Episcopal -->
+      <div id="noticias-episcopal" class="noticias-grid">
+        <!-- Las noticias se cargarán dinámicamente aquí -->
+      </div>
+      
+      <!-- Error message -->
+      <div id="noticias-error" class="error-message" style="display: none;">
+        <i class="fas fa-exclamation-triangle"></i>
+        <h3>No se pudieron cargar las noticias</h3>
+        <p>Por el momento no podemos acceder a las noticias. Te invitamos a visitar directamente:</p>
+        <div class="error-links">
+          <a href="https://arzobispado.org.py/" target="_blank" class="btn-error">
+            <i class="fas fa-external-link-alt"></i>
+            Arzobispado de Asunción
+          </a>
+          <a href="https://episcopal.org.py/" target="_blank" class="btn-error">
+            <i class="fas fa-external-link-alt"></i>
+            Conferencia Episcopal
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="noticias-footer">
+      <p>
+        <i class="fas fa-info-circle"></i>
+        Para más noticias, visita los sitios oficiales del 
+        <a href="https://arzobispado.org.py/" target="_blank">Arzobispado de Asunción</a> 
+        y la <a href="https://episcopal.org.py/" target="_blank">Conferencia Episcopal Paraguaya</a>
+      </p>
+    </div>
+  </section>
 
   <!-- ===========================
-       MULTIMEDIA / VIDEOS
+       COMENTARIOS SIMPLES
        =========================== -->
-  <section id="multimedia" class="section fade-in">
-    <h2>Videos</h2>
-    <div class="video-grid">
-      <div class="card"><iframe src="https://www.youtube.com/embed/VIDEO_ID1" allowfullscreen class="video-thumb" title="Video 1"></iframe></div>
-      <div class="card"><iframe src="https://www.youtube.com/embed/VIDEO_ID2" allowfullscreen class="video-thumb" title="Video 2"></iframe></div>
-      <div class="card"><iframe src="https://www.youtube.com/embed/VIDEO_ID3" allowfullscreen class="video-thumb" title="Video 3"></iframe></div>
+  <section id="comentarios" class="comentarios-section fade-in">
+    <div class="comentarios-container">
+      <div class="comentarios-header">
+        <h2>Comparte tu Testimonio</h2>
+        <p>Queremos conocer tu experiencia en nuestro santuario</p>
+      </div>
+
+      <!-- Formulario simple -->
+      <div class="comentario-form-simple">
+        <form id="form-comentario-simple">
+          <div class="form-simple">
+            <input type="text" id="nombre-simple" placeholder="Tu nombre" required>
+            <textarea id="comentario-simple" placeholder="Escribe tu testimonio o comentario aquí..." rows="4" required></textarea>
+            <button type="submit" class="btn-enviar-simple">
+              <i class="fas fa-heart"></i>
+              Enviar Testimonio
+            </button>
+          </div>
+        </form>
+        
+        <div id="mensaje-simple" class="mensaje-simple" style="display: none;"></div>
+      </div>
+
+      <!-- Comentarios publicados -->
+      <div class="comentarios-lista">
+        <div class="comentarios-header-lista">
+          <h3>Testimonios de Nuestra Comunidad</h3>
+          <button id="btn-moderar" class="btn-moderar" title="Triple click para moderar">
+            <i class="fas fa-cog"></i>
+          </button>
+        </div>
+        
+        <div id="comentarios-simples" class="comentarios-simples">
+          <!-- Los comentarios se cargarán dinámicamente -->
+        </div>
+        
+        <!-- Botón para ver más comentarios -->
+        <div class="ver-mas-container">
+          <button id="btn-ver-mas" class="btn-ver-mas" style="display: none;">
+            <i class="fas fa-chevron-down"></i>
+            Ver más testimonios
+          </button>
+          <button id="btn-ver-menos" class="btn-ver-menos" style="display: none;">
+            <i class="fas fa-chevron-up"></i>
+            Ver menos
+          </button>
+        </div>
+      </div>
+
+      <!-- Panel de moderación (oculto) -->
+      <div id="panel-moderacion" class="panel-moderacion" style="display: none;">
+        <div class="moderacion-header">
+          <h3><i class="fas fa-shield-alt"></i> Panel de Moderación</h3>
+          <button id="cerrar-moderacion" class="btn-cerrar-mod">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        
+        <div class="comentarios-pendientes">
+          <h4>Estado del Sistema</h4>
+          <div id="lista-pendientes">
+            <p class="sin-pendientes">Los comentarios se publican automáticamente</p>
+          </div>
+        </div>
+        
+        <div class="comentarios-aprobados-admin">
+          <h4>Testimonios Publicados - Gestión</h4>
+          <div id="lista-aprobados-admin">
+            <!-- Lista de comentarios publicados para administrar -->
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -460,14 +624,21 @@ Desde entonces, el santuario se convirtió en un importante centro de peregrinac
   <section id="contacto" class="section fade-in">
     <h2>Contacto</h2>
     <div class="contacto-grid">
-      <a class="btn-whatsapp glow-effect" href="https://wa.me/595982044910" target="_blank" rel="noopener">
-        <i class="fab fa-whatsapp"></i> Escribinos por WhatsApp
-      </a>
+      <div class="contacto-whatsapp">
+        <div class="whatsapp-buttons">
+          <a class="btn-whatsapp glow-effect" href="https://wa.me/595982043889" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> WhatsApp: 0982 043889
+          </a>
+          <a class="btn-whatsapp glow-effect" href="https://wa.me/595982044910" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> WhatsApp: 0982 044910
+          </a>
+        </div>
+      </div>
       
       <div class="contacto-info">
         <div class="card glass-morphism">
-          <h3><i class="fas fa-phone icon-hover"></i> Teléfono</h3>
-          <p>+595 98 204 4910</p>
+          <h3><i class="fas fa-phone icon-hover"></i> Teléfonos</h3>
+          <p>+595 98 204 3889<br>+595 98 204 4910</p>
         </div>
         
         <div class="card glass-morphism">
@@ -527,14 +698,14 @@ Desde entonces, el santuario se convirtió en un importante centro de peregrinac
        MODAL DE HISTORIA
        =========================== -->
   <div id="modal-historia" class="modal-historia" style="display: none;">
-    <div class="modal-historia-overlay" onclick="cerrarModalSimple()"></div>
+    <div class="modal-historia-overlay" onclick="cerrarModalHistoria()"></div>
     <div class="modal-historia-content">
       <div class="modal-historia-header">
         <h2 class="modal-historia-titulo">
           <i class="fas fa-church"></i>
           Historia del Santuario
         </h2>
-        <button class="modal-historia-close" onclick="cerrarModalSimple()" aria-label="Cerrar modal">
+        <button class="modal-historia-close" onclick="cerrarModalHistoria()" aria-label="Cerrar modal">
           <i class="fas fa-times"></i>
         </button>
       </div>
@@ -552,7 +723,7 @@ Desde entonces, el santuario se convirtió en un importante centro de peregrinac
                   <p>El padre <strong>Domingo Pezzini</strong>, sacerdote italiano profundamente devoto de la Virgen del Perpetuo Socorro, impulsó la creación del santuario con el apoyo de la familia Ferraro y la comunidad. En 1917 se colocó la primera piedra y en 1918 se oficializó la fundación con el respaldo del Papa Benedicto XV.</p>
                 </div>
                 <div class="timeline-image">
-                  <img src="assets/images/historia/Historia1.jpg" alt="Inicios del santuario" onclick="abrirImagenSimple(this)">
+                  <img src="assets/images/historia/Historia 1.jpg" alt="Inicios del santuario" onclick="abrirImagenCompleta(this)">
                 </div>
               </div>
             </div>
@@ -568,7 +739,7 @@ Desde entonces, el santuario se convirtió en un importante centro de peregrinac
                   <p>Durante estas décadas, el santuario experimentó un crecimiento significativo. La construcción del templo principal se completó gradualmente, convirtiéndose en un <strong>importante centro de peregrinación</strong>, especialmente durante las festividades de junio que reunían a miles de fieles de todo el país.</p>
                 </div>
                 <div class="timeline-image">
-                  <img src="assets/images/historia/Historia2.jpg" alt="Construcción del templo" onclick="abrirImagenSimple(this)">
+                  <img src="assets/images/historia/Historia 2.jpg" alt="Construcción del templo" onclick="abrirImagenCompleta(this)">
                 </div>
               </div>
             </div>
@@ -584,7 +755,7 @@ Desde entonces, el santuario se convirtió en un importante centro de peregrinac
                   <p>El padre Pezzini no solo se dedicó a la labor religiosa, sino que también promovió <strong>obras de caridad y apoyo social</strong>. El santuario se convirtió en un punto de referencia para la comunidad, recibiendo valiosas ofrendas en agradecimiento a los favores recibidos.</p>
                 </div>
                 <div class="timeline-image">
-                  <img src="assets/images/historia/Historia3.jpg" alt="Obras sociales" onclick="abrirImagenSimple(this)">
+                  <img src="assets/images/historia/Historia 3.jpg" alt="Obras sociales" onclick="abrirImagenCompleta(this)">
                 </div>
               </div>
             </div>
@@ -600,7 +771,7 @@ Desde entonces, el santuario se convirtió en un importante centro de peregrinac
                   <p>Hoy el santuario continúa siendo una <strong>comunidad vibrante y comprometida</strong> con la evangelización, la adoración eucarística y la devoción a la Virgen del Perpetuo Socorro. Se ha consolidado como un símbolo de fe y solidaridad en Paraguay, manteniendo viva la tradición y el legado de sus fundadores.</p>
                 </div>
                 <div class="timeline-image">
-                  <img src="assets/images/galeria/galeria1.jpg" alt="Comunidad actual" onclick="abrirImagenSimple(this)">
+                  <img src="assets/images/galeria/galeria1.jpg" alt="Comunidad actual" onclick="abrirImagenCompleta(this)">
                 </div>
               </div>
             </div>
@@ -614,19 +785,19 @@ Desde entonces, el santuario se convirtió en un importante centro de peregrinac
             Galería Histórica
           </h3>
           <div class="historia-galeria-grid">
-            <div class="historia-imagen-item" onclick="abrirImagenSimple(this.querySelector('img'))">
+            <div class="historia-imagen-item" onclick="abrirImagenCompleta(this.querySelector('img'))">
               <img src="assets/images/galeria/galeria2.jpg" alt="Interior del santuario">
               <div class="historia-imagen-caption">Interior del santuario</div>
             </div>
-            <div class="historia-imagen-item" onclick="abrirImagenSimple(this.querySelector('img'))">
+            <div class="historia-imagen-item" onclick="abrirImagenCompleta(this.querySelector('img'))">
               <img src="assets/images/galeria/galeria3.jpg" alt="Altar principal">
               <div class="historia-imagen-caption">Altar principal</div>
             </div>
-            <div class="historia-imagen-item" onclick="abrirImagenSimple(this.querySelector('img'))">
+            <div class="historia-imagen-item" onclick="abrirImagenCompleta(this.querySelector('img'))">
               <img src="assets/images/galeria/galeria4.jpg" alt="Celebraciones">
               <div class="historia-imagen-caption">Celebraciones especiales</div>
             </div>
-            <div class="historia-imagen-item" onclick="abrirImagenSimple(this.querySelector('img'))">
+            <div class="historia-imagen-item" onclick="abrirImagenCompleta(this.querySelector('img'))">
               <img src="assets/images/galeria/galeria5.jpg" alt="Comunidad">
               <div class="historia-imagen-caption">Nuestra comunidad</div>
             </div>
@@ -667,20 +838,114 @@ Desde entonces, el santuario se convirtió en un importante centro de peregrinac
   <!-- Los modales de galería se crean dinámicamente desde JavaScript -->
 
   <!-- ===========================
+       BOTÓN FLOTANTE VOLVER AL INICIO
+       =========================== -->
+  <button id="btn-volver-inicio" class="btn-volver-inicio" aria-label="Volver al inicio">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- ===========================
+       BOTÓN FLOTANTE WHATSAPP
+       =========================== -->
+  <div class="whatsapp-float-container">
+    <button id="whatsapp-float-toggle" class="whatsapp-float-toggle" aria-label="Contactar por WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </button>
+    <div class="whatsapp-float-menu" id="whatsapp-float-menu">
+      <a href="https://wa.me/595982043889?text=Hola,%20me%20comunico%20desde%20la%20página%20web%20del%20Santuario" 
+         onclick="abrirWhatsApp('982043889'); return false;" 
+         target="_blank" rel="noopener" class="whatsapp-float-item">
+        <i class="fab fa-whatsapp"></i>
+        <span>0982 043889</span>
+      </a>
+      <a href="https://wa.me/595982044910?text=Hola,%20me%20comunico%20desde%20la%20página%20web%20del%20Santuario" 
+         onclick="abrirWhatsApp('982044910'); return false;" 
+         target="_blank" rel="noopener" class="whatsapp-float-item">
+        <i class="fab fa-whatsapp"></i>
+        <span>0982 044910</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ===========================
        SCRIPTS
        =========================== -->
-  <!-- <script src="assets/js/navigation.js"></script> -->
-  <!-- <script src="assets/js/animations.js"></script> -->
-  <!-- <script src="assets/js/modals.js"></script> -->
+  <!-- FullCalendar JavaScript -->
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js'></script>
+  
+  <!-- Script principal del sitio -->
+  <script src="script.js"></script>
+  <!-- Scripts específicos -->
   <script src="assets/js/gallery.js"></script>
-  <!-- <script src="assets/js/utils.js"></script> -->
-  <!-- <script src="assets/js/gallery-simplified.js"></script> -->
   <script src="assets/js/advanced-gallery.js"></script>
+  <script src="assets/js/carousel-clean.js"></script>
+  <script src="assets/js/btn-volver-inicio.js"></script>
+  <script src="assets/js/particles.js"></script>
+  <script src="assets/js/comentarios-simple.js"></script>
   <script src="assets/js/evangelio.js"></script>
-  <script src="assets/js/calendario.js"></script>
-  <script src="assets/js/google-calendar-api-fixed.js"></script>
-  <script src="assets/js/mobile-optimizer.js"></script>
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/calendario-simple.js"></script>
+  <script src="assets/js/noticias.js"></script>
+  <script src="assets/js/mobile-menu-responsive.js"></script>
+  <script src="assets/js/whatsapp-float.js"></script>
+  <!-- Script de debugging y verificación -->
+  <script src="assets/js/debug-helper.js"></script>
+  <!-- Script de validación final -->
+  <script src="assets/js/validacion-final.js"></script>
+
+  <!-- ===========================
+       MODAL PARA INFORMACIÓN DE SANTOS
+       =========================== -->
+  <div id="modal-santo-info" class="modal-santo" style="display: none;">
+    <div class="modal-santo-content">
+      <div class="modal-santo-header">
+        <h3 id="modal-santo-titulo">
+          <i class="fas fa-church"></i>
+          <span></span>
+        </h3>
+        <button class="modal-santo-close" onclick="cerrarModalSanto()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="modal-santo-body">
+        <div class="santo-imagen">
+          <i class="fas fa-pray santo-icon"></i>
+        </div>
+        
+        <div class="santo-info">
+          <div class="santo-fecha">
+            <i class="fas fa-calendar-alt"></i>
+            <span id="modal-santo-fecha"></span>
+          </div>
+          
+          <div class="santo-tipo">
+            <i class="fas fa-star"></i>
+            <span id="modal-santo-tipo"></span>
+          </div>
+          
+          <div class="santo-descripcion">
+            <p id="modal-santo-descripcion"></p>
+          </div>
+          
+          <div class="santo-reflexion" id="modal-santo-reflexion" style="display: none;">
+            <h4><i class="fas fa-lightbulb"></i> Reflexión</h4>
+            <p id="modal-santo-reflexion-texto"></p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="modal-santo-footer">
+        <button class="btn-santo-whatsapp" onclick="contactarWhatsAppSanto()">
+          <i class="fab fa-whatsapp"></i>
+          Consultar por WhatsApp
+        </button>
+        <button class="btn-santo-cerrar" onclick="cerrarModalSanto()">
+          <i class="fas fa-times"></i>
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>

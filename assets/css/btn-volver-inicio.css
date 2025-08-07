@@ -1,0 +1,165 @@
+/* ===========================
+   BOTÓN FLOTANTE VOLVER AL INICIO
+   =========================== */
+
+.btn-volver-inicio {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(145deg, var(--color-primary), var(--color-accent));
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  /* Mejorar la interacción táctil */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+/* Mejoras específicas para móviles */
+@media (max-width: 768px) {
+  .btn-volver-inicio {
+    width: 56px;
+    height: 56px;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    font-size: 1.4rem;
+    /* Área de toque más grande sin cambiar el tamaño visual */
+    padding: 8px;
+  }
+  
+  /* Asegurar que el área de toque sea de al menos 44px */
+  .btn-volver-inicio::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 44px;
+    height: 44px;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+}
+
+.btn-volver-inicio.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.btn-volver-inicio:hover {
+  background: linear-gradient(145deg, var(--color-accent), #c8860d);
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+}
+
+.btn-volver-inicio:active {
+  transform: translateY(-1px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Mejores estados táctiles para móviles */
+@media (max-width: 768px) {
+  .btn-volver-inicio:hover {
+    /* Desactivar hover en móviles */
+    transform: translateY(0) scale(1);
+    background: linear-gradient(145deg, var(--color-primary), var(--color-accent));
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn-volver-inicio:active {
+    transform: translateY(-1px) scale(1.05);
+    background: linear-gradient(145deg, var(--color-accent), #c8860d);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Estados de toque */
+  .btn-volver-inicio:focus {
+    outline: none;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2), 0 0 0 3px rgba(255, 255, 255, 0.3);
+  }
+}
+
+.btn-volver-inicio i {
+  transition: transform 0.3s ease;
+}
+
+.btn-volver-inicio:hover i {
+  transform: translateY(-2px);
+}
+
+/* Efecto de pulso para llamar la atención */
+.btn-volver-inicio::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: var(--color-accent);
+  z-index: -1;
+  opacity: 0;
+  transform: scale(1);
+  animation: pulse-effect 2s infinite;
+}
+
+@keyframes pulse-effect {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .btn-volver-inicio {
+    width: 55px;
+    height: 55px;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-volver-inicio {
+    width: 50px;
+    height: 50px;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 1.2rem;
+  }
+}
+
+/* Asegurar que no interfiera con otros elementos flotantes */
+.btn-volver-inicio {
+  pointer-events: auto;
+}
+
+.btn-volver-inicio.hidden {
+  pointer-events: none;
+}
