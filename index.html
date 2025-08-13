@@ -53,6 +53,8 @@
   <link rel="stylesheet" href="assets/css/calendario-simple.css"/>
   <!-- Estilos específicos para carrusel limpio -->
   <link rel="stylesheet" href="assets/css/carousel-clean.css"/>
+  <!-- Estilos específicos para carrusel de portada -->
+  <link rel="stylesheet" href="assets/css/hero-carousel.css"/>
   <!-- Estilos específicos para botón volver al inicio -->
   <link rel="stylesheet" href="assets/css/btn-volver-inicio.css"/>
   <!-- Estilos específicos para partículas -->
@@ -183,14 +185,32 @@
   </header>
 
   <!-- ===========================
-       HERO / PORTADA
+       HERO / PORTADA CON CARRUSEL
        =========================== -->
   <section id="inicio" class="hero fade-in">
-    <img src="./assets/images/portada.jpg" alt="Santuario Diocesano" class="img-portada" loading="eager"/>
-    
     <!-- Contenedor de partículas -->
     <div class="particles-container" id="particles-container">
       <!-- Las partículas se generarán dinámicamente con JavaScript -->
+    </div>
+    
+    <!-- Carrusel de la portada -->
+    <div class="hero-carousel-wrapper">
+      <div class="hero-carousel-track" id="hero-carousel-track">
+        <!-- Los slides se generan automáticamente desde hero-carousel-config.js -->
+      </div>
+      
+      <!-- Botones de navegación sutiles -->
+      <button class="hero-carousel-btn hero-carousel-prev" aria-label="Imagen anterior">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="hero-carousel-btn hero-carousel-next" aria-label="Imagen siguiente">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+      
+      <!-- Indicadores sutiles -->
+      <div class="hero-carousel-indicators" id="hero-carousel-indicators">
+        <!-- Los indicadores se generan automáticamente -->
+      </div>
     </div>
     
     <div class="hero-content">
@@ -866,6 +886,8 @@ Desde entonces, el santuario se convirtió en un importante centro de peregrinac
   <!-- Script principal del sitio -->
   <script src="script.js"></script>
   <!-- Scripts específicos -->
+  <script src="assets/js/hero-carousel.js"></script>
+  <script src="assets/js/hero-carousel-config.js"></script>
   <script src="assets/js/gallery.js"></script>
   <script src="assets/js/advanced-gallery.js"></script>
   <script src="assets/js/carousel-clean.js"></script>

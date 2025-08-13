@@ -13,8 +13,9 @@
 @import url('modals.css');
 
 /* ===========================
-   HERO SECTION
+   HERO SECTION - AHORA MANEJADO POR hero-carousel.css
    =========================== */
+/* 
 .hero {
   position: relative;
   height: 100vh;
@@ -95,6 +96,7 @@
   max-width: 600px;
   font-weight: 600;
 }
+*/
 
 /* ===========================
    FOOTER
