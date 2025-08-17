@@ -12,6 +12,8 @@
   border-radius: 20px;
   box-shadow: var(--shadow-strong);
   border: 2px solid var(--color-primary-light);
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 /* Header del calendario - tipografía santuario */
@@ -302,6 +304,8 @@
   position: relative;
   overflow: hidden;
   backdrop-filter: blur(10px);
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .calendario-wrapper::before {
@@ -945,17 +949,23 @@
 /* Responsive mejorado */
 @media (max-width: 768px) {
   .calendario-container {
-    padding: 20px 15px;
+    padding: 15px 10px;
     border-radius: 15px;
+    margin: 0 5px;
+  }
+  
+  .calendario-header {
+    margin-bottom: 25px;
   }
   
   .calendario-header h2 {
     font-size: 2.2rem;
+    margin-bottom: 10px;
   }
   
   .calendario-descripcion {
     font-size: 1rem;
-    padding: 0 10px;
+    padding: 0 15px;
   }
   
   /* Ocultar botón de administración en móviles */
@@ -967,57 +977,263 @@
     display: none;
   }
   
-  .calendario-wrapper,
-  .proximos-eventos-simple,
-  .admin-panel {
-    padding: 20px;
+  /* Ajustes del wrapper del calendario */
+  .calendario-wrapper {
+    padding: 15px;
+    margin-bottom: 20px;
     border-radius: 15px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* FullCalendar responsive mejorado */
+  #calendario-simple {
+    min-height: 400px;
+    font-size: 0.85rem;
   }
   
   .fc-header-toolbar {
-    padding: 15px;
+    padding: 12px 15px;
     border-radius: 10px;
+    margin-bottom: 15px;
+    flex-direction: column;
+    gap: 10px;
   }
   
   .fc-toolbar-title {
-    font-size: 1.4rem !important;
+    font-size: 1.3rem !important;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .fc-toolbar-chunk {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
   }
   
   .fc-button {
+    font-size: 0.7rem !important;
+    padding: 6px 10px !important;
+    margin: 0 2px !important;
+    min-width: 35px;
+  }
+  
+  .fc-button-group .fc-button {
+    border-radius: 6px !important;
+  }
+  
+  /* Días de la semana más compactos */
+  .fc-col-header-cell {
+    padding: 8px 2px !important;
     font-size: 0.75rem !important;
-    padding: 8px 12px !important;
-    margin: 0 4px !important;
+  }
+  
+  /* Celdas de días */
+  .fc-daygrid-day {
+    min-height: 45px !important;
+  }
+  
+  .fc-daygrid-day-number {
+    font-size: 0.8rem !important;
+    padding: 4px !important;
+  }
+  
+  /* Eventos dentro del calendario */
+  .fc-event {
+    font-size: 0.7rem !important;
+    padding: 1px 3px !important;
+    margin: 1px 0 !important;
+  }
+  
+  .fc-event-title {
+    font-weight: 500 !important;
+  }
+  
+  /* Lista de próximos eventos */
+  .proximos-eventos-simple {
+    padding: 15px;
+    border-radius: 15px;
+    margin-top: 0;
+  }
+  
+  .proximos-eventos-simple h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
   }
   
   .evento-proximo {
-    padding: 15px;
+    padding: 12px;
+    margin-bottom: 8px;
+    border-radius: 10px;
   }
   
   .evento-proximo-titulo {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
+  }
+  
+  .evento-proximo-fecha,
+  .evento-proximo-hora {
+    font-size: 0.8rem;
+  }
+  
+  /* Panel de administración móvil */
+  .admin-panel {
+    padding: 15px;
+    border-radius: 15px;
+    max-height: 80vh;
+    overflow-y: auto;
   }
   
   .admin-form {
+    padding: 15px;
+    border-radius: 12px;
+  }
+  
+  .admin-form .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .admin-form input,
+  .admin-form select,
+  .admin-form textarea {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+  
+  /* Modal responsive */
+  .modal-content {
+    margin: 15px;
+    min-width: auto;
+    width: calc(100% - 30px);
     padding: 20px;
     border-radius: 12px;
   }
   
-  .modal-content {
-    margin: 20px;
-    min-width: auto;
-    width: calc(100% - 40px);
-    padding: 25px;
-  }
-  
   .modal-buttons {
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
   }
   
   .btn-secondary,
   .btn-primary {
     width: 100%;
     margin-bottom: 0;
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Responsive para tablets */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .calendario-container {
+    padding: 25px 20px;
+    max-width: 95%;
+  }
+  
+  .calendario-wrapper {
+    padding: 25px;
+  }
+  
+  .fc-header-toolbar {
+    padding: 18px 20px;
+  }
+  
+  .fc-toolbar-title {
+    font-size: 1.6rem !important;
+  }
+  
+  .fc-button {
+    font-size: 0.8rem !important;
+    padding: 8px 14px !important;
+  }
+  
+  .proximos-eventos-simple {
+    padding: 20px;
+  }
+}
+
+/* Responsive para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .calendario-container {
+    padding: 10px 5px;
+    margin: 0;
+    border-radius: 12px;
+  }
+  
+  .calendario-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .calendario-descripcion {
+    font-size: 0.9rem;
+    padding: 0 10px;
+  }
+  
+  .calendario-wrapper {
+    padding: 10px;
+    border-radius: 12px;
+  }
+  
+  #calendario-simple {
+    min-height: 350px;
+    font-size: 0.8rem;
+  }
+  
+  .fc-header-toolbar {
+    padding: 10px;
+    gap: 8px;
+  }
+  
+  .fc-toolbar-title {
+    font-size: 1.1rem !important;
+  }
+  
+  .fc-button {
+    font-size: 0.65rem !important;
+    padding: 5px 8px !important;
+    min-width: 30px;
+  }
+  
+  .fc-col-header-cell {
+    padding: 6px 1px !important;
+    font-size: 0.7rem !important;
+  }
+  
+  .fc-daygrid-day {
+    min-height: 40px !important;
+  }
+  
+  .fc-daygrid-day-number {
+    font-size: 0.75rem !important;
+    padding: 3px !important;
+  }
+  
+  .fc-event {
+    font-size: 0.65rem !important;
+    padding: 1px 2px !important;
+  }
+  
+  .proximos-eventos-simple {
+    padding: 12px;
+  }
+  
+  .proximos-eventos-simple h3 {
+    font-size: 1rem;
+  }
+  
+  .evento-proximo {
+    padding: 10px;
+    margin-bottom: 6px;
+  }
+  
+  .evento-proximo-titulo {
+    font-size: 0.9rem;
+  }
+  
+  .evento-proximo-fecha,
+  .evento-proximo-hora {
+    font-size: 0.75rem;
   }
 }
 

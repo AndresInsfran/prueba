@@ -1,0 +1,181 @@
+/* ===========================
+   OPCIONES DE BOTONES SIMPLES PARA ENLACES DE INTERÉS
+   =========================== */
+
+/* OPCIÓN 1: BOTONES MINIMALISTAS */
+.enlaces-opcion1 .enlace-oficial {
+  display: block;
+  padding: 16px 24px;
+  margin-bottom: 12px;
+  background: #fff;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.enlaces-opcion1 .enlace-oficial:hover {
+  border-color: #2c5aa0;
+  background: #f8f9ff;
+  transform: translateY(-2px);
+}
+
+.enlaces-opcion1 .enlace-oficial h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #2c5aa0;
+}
+
+.enlaces-opcion1 .enlace-oficial p {
+  margin: 4px 0 0 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* OPCIÓN 2: BOTONES ESTILO TARJETA SIMPLE */
+.enlaces-opcion2 .enlace-oficial {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-radius: 12px;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.enlaces-opcion2 .enlace-oficial:hover {
+  box-shadow: 0 4px 16px rgba(44, 90, 160, 0.2);
+  transform: translateY(-3px);
+}
+
+.enlaces-opcion2 .enlace-icono {
+  margin-right: 16px;
+  font-size: 1.5rem;
+  color: #2c5aa0;
+}
+
+.enlaces-opcion2 .enlace-contenido h3 {
+  margin: 0 0 4px 0;
+  font-size: 1.1rem;
+  color: #2c5aa0;
+}
+
+.enlaces-opcion2 .enlace-contenido p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.enlaces-opcion2 .enlace-arrow {
+  margin-left: auto;
+  color: #2c5aa0;
+  opacity: 0.7;
+}
+
+/* OPCIÓN 3: BOTONES FLAT STYLE */
+.enlaces-opcion3 .enlace-oficial {
+  display: block;
+  padding: 18px 20px;
+  margin-bottom: 8px;
+  background: #2c5aa0;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  border-left: 4px solid #1e3d6f;
+}
+
+.enlaces-opcion3 .enlace-oficial:hover {
+  background: #1e3d6f;
+  border-left-color: #2c5aa0;
+  transform: translateX(4px);
+}
+
+.enlaces-opcion3 .enlace-oficial h3 {
+  margin: 0 0 4px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.enlaces-opcion3 .enlace-oficial p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* OPCIÓN 4: BOTONES OUTLINE SIMPLES */
+.enlaces-opcion4 .enlace-oficial {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  background: transparent;
+  border: 2px solid #2c5aa0;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #2c5aa0;
+  transition: all 0.3s ease;
+}
+
+.enlaces-opcion4 .enlace-oficial:hover {
+  background: #2c5aa0;
+  color: white;
+}
+
+.enlaces-opcion4 .enlace-oficial h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.enlaces-opcion4 .enlace-oficial p {
+  margin: 2px 0 0 0;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.enlaces-opcion4 .enlace-arrow {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.enlaces-opcion4 .enlace-oficial:hover .enlace-arrow {
+  transform: translateX(4px);
+}
+
+/* Estructura común para todas las opciones */
+.enlaces-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.enlaces-grid {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .enlaces-container {
+    padding: 0 16px;
+  }
+  
+  .enlaces-opcion1 .enlace-oficial,
+  .enlaces-opcion2 .enlace-oficial,
+  .enlaces-opcion3 .enlace-oficial,
+  .enlaces-opcion4 .enlace-oficial {
+    padding: 14px 16px;
+  }
+  
+  .enlaces-opcion2 .enlace-icono {
+    margin-right: 12px;
+    font-size: 1.3rem;
+  }
+}

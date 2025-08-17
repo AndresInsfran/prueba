@@ -67,6 +67,11 @@
   transition: opacity 0.5s ease-in-out;
 }
 
+/* Primera imagen distribuida (cover) - las demás mantienen contain */
+.hero-slide:first-child img {
+  object-fit: cover;
+}
+
 .hero-slide img.loaded,
 .hero-slide img[complete="true"] {
   opacity: 1;

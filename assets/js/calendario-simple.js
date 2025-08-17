@@ -10,45 +10,9 @@ const STORAGE_KEY = "santuario_eventos";
 let calendar;
 let eventosPersonalizados = []; // Empezar con lista vacía
 
-// Eventos predefinidos del santuario (configuración básica)
+// Eventos predefinidos del santuario (solo santos del día)
 const eventosPredefinidos = [
-  // Misas dominicales
-  {
-    title: "Misa Dominical",
-    startTime: "08:00",
-    daysOfWeek: [0], // Domingo
-    backgroundColor: "#007bff",
-    textColor: "#ffffff",
-    extendedProps: {
-      type: "misa",
-      description: "Misa dominical matutina"
-    }
-  },
-  {
-    title: "Misa Dominical",
-    startTime: "18:00",
-    daysOfWeek: [0], // Domingo
-    backgroundColor: "#007bff",
-    textColor: "#ffffff",
-    extendedProps: {
-      type: "misa",
-      description: "Misa dominical vespertina"
-    }
-  },
-  
-  // Confesiones
-  {
-    title: "Confesiones",
-    startTime: "15:30",
-    endTime: "17:30",
-    daysOfWeek: [6], // Sábado
-    backgroundColor: "#6f42c1",
-    textColor: "#ffffff",
-    extendedProps: {
-      type: "confesion",
-      description: "Horario de confesiones"
-    }
-  }
+  // Solo eventos especiales, no misas ni confesiones regulares
 ];
 
 // Inicialización cuando se carga la página
@@ -680,33 +644,34 @@ function generarEventosSantos() {
   const eventosSantos = [];
   const añoActual = new Date().getFullYear();
   
-  // Santos de agosto (mes actual)
+  // Santos de agosto (mes actual) - Nombres completos y correctos
   const santosAgosto = {
-    '8-1': 'San Alfonso María de Ligorio',
-    '8-2': 'San Eusebio de Vercelli',
-    '8-4': 'San Juan María Vianney',
-    '8-5': 'Dedicación de la Basílica de Santa María',
-    '8-6': 'Transfiguración del Señor',
-    '8-7': 'San Cayetano de Thiene - San Sixto II, papa',
-    '8-8': 'Santo Domingo de Guzmán',
-    '8-9': 'Santa Teresa Benedicta de la Cruz',
+    '8-1': 'San Alfonso María de Ligorio, obispo y doctor',
+    '8-2': 'San Eusebio de Vercelli, obispo - San Pedro Julián Eymard',
+    '8-4': 'San Juan María Vianney, presbítero (Cura de Ars)',
+    '8-5': 'Dedicación de la Basílica de Santa María la Mayor',
+    '8-6': 'La Transfiguración del Señor',
+    '8-7': 'San Cayetano de Thiene, presbítero - San Sixto II, papa y mártir',
+    '8-8': 'Santo Domingo de Guzmán, presbítero y fundador',
+    '8-9': 'Santa Teresa Benedicta de la Cruz (Edith Stein), mártir',
     '8-10': 'San Lorenzo, diácono y mártir',
-    '8-11': 'Santa Clara de Asís',
-    '8-13': 'San Hipólito, mártir - Santos Ponciano e Hipólito',
-    '8-14': 'San Maximiliano María Kolbe',
-    '8-15': 'Nuestra Señora de la Asunción',
-    '8-16': 'San Roque - San Esteban de Hungría',
-    '8-19': 'San Juan Eudes',
-    '8-20': 'San Bernardo de Claraval',
+    '8-11': 'Santa Clara de Asís, virgen',
+    '8-13': 'Santos Ponciano, papa, e Hipólito, presbítero, mártires',
+    '8-14': 'San Maximiliano María Kolbe, presbítero y mártir',
+    '8-15': 'La Asunción de la Santísima Virgen María',
+    '8-16': 'San Roque, confesor - San Esteban de Hungría, rey',
+    '8-19': 'San Juan Eudes, presbítero',
+    '8-20': 'San Bernardo de Claraval, abad y doctor',
     '8-21': 'San Pío X, papa',
-    '8-22': 'Virgen María Reina',
-    '8-23': 'Santa Rosa de Lima',
-    '8-24': 'San Bartolomé Apóstol',
-    '8-25': 'San Luis de Francia',
-    '8-27': 'Santa Mónica',
-    '8-28': 'San Agustín de Hipona',
-    '8-29': 'Martirio de San Juan Bautista',
-    '8-31': 'San Ramón Nonato'
+    '8-22': 'La Santísima Virgen María Reina',
+    '8-23': 'Santa Rosa de Lima, virgen',
+    '8-24': 'San Bartolomé, apóstol',
+    '8-25': 'San Luis IX, rey de Francia - San José de Calasanz',
+    '8-27': 'Santa Mónica, madre de San Agustín',
+    '8-28': 'San Agustín de Hipona, obispo y doctor',
+    '8-29': 'El martirio de San Juan Bautista',
+    '8-30': 'Santos Félix y Adaucto, mártires',
+    '8-31': 'San Ramón Nonato, confesor'
   };
   
   // Agregar eventos para cada santo
