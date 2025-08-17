@@ -1,0 +1,63 @@
+REPORTE DE CAMBIOS REALIZADOS
+==============================
+Fecha: 17 de Agosto de 2025
+
+📋 CAMBIOS SOLICITADOS Y COMPLETADOS:
+
+1. ✅ CALENDARIO - ELIMINACIÓN DE HORARIOS:
+   • Removidos los eventos predefinidos de misas y confesiones
+   • El calendario ahora solo muestra santos del día y eventos especiales
+   • Archivo modificado: assets/js/calendario-simple.js
+
+2. ✅ CALENDARIO - VERIFICACIÓN Y CORRECCIÓN DE SANTOS:
+   • Actualizados todos los nombres de santos con nombres completos y correctos
+   • Ejemplos de correcciones realizadas:
+     - "San Alfonso María de Ligorio" → "San Alfonso María de Ligorio, obispo y doctor"
+     - "Transfiguración del Señor" → "La Transfiguración del Señor"
+     - "San Agustín de Hipona" → "San Agustín de Hipona, obispo y doctor"
+     - "Martirio de San Juan Bautista" → "El martirio de San Juan Bautista"
+   • Agregados santos faltantes (San José de Calasanz, Santos Félix y Adaucto)
+
+3. ✅ SECCIÓN DE NOTICIAS - CAMBIO DE TÍTULO:
+   • Cambio de "Noticias de la Iglesia" → "Enlaces de Interés"
+   • Actualizada la descripción: "Accede a los sitios oficiales de la Iglesia Católica"
+
+4. ✅ SECCIÓN DE NOTICIAS - ELIMINACIÓN DE TARJETAS:
+   • Removidas todas las tarjetas/paneles de noticias dinámicas
+   • Deshabilitado el JavaScript de noticias (assets/js/noticias.js)
+
+5. ✅ BOTONES DE ENLACES DIRECTOS:
+   • Convertidos los tabs en botones de enlace directo
+   • Cada botón abre directamente el sitio oficial correspondiente
+   • Agregado el botón de la Santa Sede
+
+6. ✅ ORDEN DE BOTONES SEGÚN ESPECIFICACIÓN:
+   1. Arzobispado de Asunción (https://arzobispado.org.py/)
+   2. Conferencia Episcopal Paraguaya (https://episcopal.org.py/)
+   3. Santa Sede (https://www.vatican.va/content/vatican/es.html)
+
+📁 ARCHIVOS MODIFICADOS:
+• index.html - Estructura HTML actualizada
+• assets/js/calendario-simple.js - Eventos de misas removidos, santos corregidos
+• assets/css/noticias-new.css - Nuevos estilos para enlaces (archivo creado)
+
+📁 ARCHIVOS CREADOS:
+• assets/css/noticias-new.css - Estilos específicos para los enlaces de interés
+
+🎨 CARACTERÍSTICAS DE LOS NUEVOS ENLACES:
+• Diseño elegante con iconos representativos
+• Efectos hover animados
+• Responsive design para todos los dispositivos
+• Enlaces externos seguros (target="_blank" rel="noopener")
+• Iconos específicos: iglesia, cruz, paloma (Santa Sede)
+
+🔧 AJUSTES TÉCNICOS:
+• Navegación actualizada (ícono de periódico → ícono de enlace)
+• Comentado el script de noticias para evitar conflictos
+• CSS optimizado para mejor rendimiento
+
+✅ ESTADO: TODOS LOS CAMBIOS COMPLETADOS EXITOSAMENTE
+
+Los cambios han sido implementados según las especificaciones exactas proporcionadas. 
+El sitio mantiene su funcionalidad completa y ahora presenta una sección de enlaces 
+de interés limpia y directa a los sitios oficiales de la Iglesia Católica.

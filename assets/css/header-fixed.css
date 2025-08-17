@@ -1,5 +1,5 @@
 /* ===========================
-   HEADER COMPLETAMENTE RESPONSIVE
+   HEADER CONSOLIDADO Y CORREGIDO
    =========================== */
 
 /* Variables específicas para el header */
@@ -7,11 +7,12 @@
   --header-height: 80px;
   --header-height-mobile: 70px;
   --logo-size-desktop: 50px;
-  --logo-size-tablet: 45px;
   --logo-size-mobile: 40px;
 }
 
-/* Header base */
+/* ===========================
+   HEADER BASE - DESKTOP Y MÓVIL
+   =========================== */
 .header {
   background: rgba(253, 251, 245, 0.95);
   backdrop-filter: blur(10px);
@@ -30,7 +31,7 @@
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
 }
 
-/* Container responsivo */
+/* Container del header */
 .header .container {
   display: flex;
   justify-content: space-between;
@@ -44,41 +45,43 @@
 }
 
 /* ===========================
-   LOGO RESPONSIVE - MANTIENE ESTILO ORIGINAL
+   LOGO
    =========================== */
 .logo {
   display: flex;
   align-items: center;
   gap: 1rem;
   flex: 1;
-  /* Removemos max-width y min-width para permitir flexibilidad completa */
 }
 
 .logo-img {
   height: var(--logo-size-desktop);
-  width: auto; /* Mantiene proporción original */
+  width: auto;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 2px 10px rgba(196, 167, 109, 0.3);
   flex-shrink: 0;
-  /* Removidos los efectos de hover y transiciones */
+  transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.05);
 }
 
 .logo h1 {
-  font-family: var(--font-title, 'Cinzel Decorative', cursive);
-  color: var(--color-secondary, #AA8B56); /* Color sólido sin gradiente */
-  font-size: clamp(1.2rem, 2.5vw, 2.2rem); /* Tamaño adaptativo según dispositivo */
+  font-family: 'Cinzel Decorative', cursive;
+  color: #AA8B56;
+  font-size: clamp(1.2rem, 2.5vw, 2.2rem);
   font-weight: 700;
   margin: 0;
-  white-space: normal; /* Permite que el texto se ajuste en múltiples líneas */
+  white-space: normal;
   line-height: 1.2;
   cursor: default;
-  word-wrap: break-word; /* Permite dividir palabras largas si es necesario */
-  /* Removidos todos los efectos de hover y transiciones */
+  word-wrap: break-word;
 }
 
 /* ===========================
-   NAVEGACIÓN DESKTOP CON ICONOS
+   NAVEGACIÓN DESKTOP
    =========================== */
 .nav-desktop {
   display: flex;
@@ -141,11 +144,11 @@
 }
 
 /* ===========================
-   BOTÓN MENÚ MÓVIL - MEJORADO
+   BOTÓN MENÚ MÓVIL
    =========================== */
 .menu-toggle {
   display: none;
-  background: var(--gradient-primary, linear-gradient(135deg, #C4A76D, #AA8B56));
+  background: linear-gradient(135deg, #C4A76D, #AA8B56);
   border: none;
   border-radius: 8px;
   padding: 0.7rem;
@@ -157,17 +160,15 @@
   width: 45px;
   height: 45px;
   z-index: 1001;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .menu-toggle:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 15px rgba(196, 167, 109, 0.5);
-  background: var(--gradient-primary, linear-gradient(135deg, #D2691E, #8B4513));
-}
-
-.menu-toggle:focus {
-  outline: 2px solid var(--color-primary, #C4A76D);
-  outline-offset: 2px;
+  background: linear-gradient(135deg, #D2691E, #8B4513);
 }
 
 .menu-toggle span {
@@ -175,7 +176,7 @@
   width: 22px;
   height: 2px;
   background: white;
-  margin: 4px auto;
+  margin: 4px 0;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   border-radius: 1px;
   transform-origin: center;
@@ -194,21 +195,20 @@
   transform: rotate(-45deg) translate(7px, -6px);
 }
 
-/* Estado activo del botón */
 .menu-toggle.active {
-  background: var(--gradient-primary, linear-gradient(135deg, #AA8B56, #C4A76D));
+  background: linear-gradient(135deg, #AA8B56, #C4A76D);
   transform: scale(1.02);
 }
 
 /* ===========================
-   NAVEGACIÓN MÓVIL - FONDO OSCURO MEJORADO
+   NAVEGACIÓN MÓVIL
    =========================== */
 .nav-mobile {
   position: absolute;
   top: 100%;
   left: 0;
   width: 100%;
-  background: linear-gradient(135deg, rgba(44, 62, 80, 0.95), rgba(52, 73, 94, 0.95));
+  background: linear-gradient(135deg, rgba(44, 62, 80, 0.97), rgba(52, 73, 94, 0.97));
   backdrop-filter: blur(20px);
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -237,6 +237,25 @@
   display: flex;
   flex-direction: column;
   padding: 1.5rem 0;
+}
+
+.nav-mobile-header {
+  padding: 0 1.5rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 1rem;
+}
+
+.nav-mobile-title {
+  color: #ffd700;
+  font-size: 1.1rem;
+  margin: 0 0 0.25rem 0;
+  font-weight: 600;
+}
+
+.nav-mobile-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  margin: 0;
 }
 
 .nav-mobile-link {
@@ -269,7 +288,6 @@
 .nav-mobile.active .nav-mobile-link:nth-child(5) { transition-delay: 0.3s; }
 .nav-mobile.active .nav-mobile-link:nth-child(6) { transition-delay: 0.35s; }
 .nav-mobile.active .nav-mobile-link:nth-child(7) { transition-delay: 0.4s; }
-.nav-mobile.active .nav-mobile-link:nth-child(8) { transition-delay: 0.45s; }
 
 .nav-mobile-link::before {
   content: '';
@@ -312,7 +330,7 @@
   color: rgba(44, 62, 80, 0.9);
 }
 
-/* Overlay para cerrar el menú - MEJORADO */
+/* Overlay para cerrar el menú */
 .nav-mobile-overlay {
   position: fixed;
   top: 0;
@@ -332,7 +350,7 @@
   visibility: visible;
 }
 
-/* Estado del header cuando el menú está abierto - MEJORADO */
+/* Estado del header cuando el menú está abierto */
 .header.menu-open {
   position: fixed;
   width: 100%;
@@ -344,7 +362,7 @@
    RESPONSIVE BREAKPOINTS
    =========================== */
 
-/* Tablets grandes y pantallas medianas (1024px - 1200px) */
+/* Tablets y pantallas medianas */
 @media (max-width: 1200px) {
   .header .container {
     padding: 0.8rem 1.5rem;
@@ -359,33 +377,11 @@
     font-size: 0.95rem;
     gap: 0.4rem;
   }
-  
-  .nav-desktop a i {
-    font-size: 0.9rem;
-  }
 }
 
-/* Tablets (768px - 1024px) */
 @media (max-width: 1024px) {
   :root {
     --header-height: 75px;
-  }
-  
-  .header .container {
-    padding: 0.7rem 1rem;
-  }
-  
-  .logo {
-    gap: 0.8rem;
-  }
-  
-  .logo-img {
-    height: var(--logo-size-tablet);
-    width: auto;
-  }
-  
-  .logo h1 {
-    font-size: clamp(1.1rem, 2.2vw, 1.8rem); /* Tamaño adaptativo para tablets */
   }
   
   .nav-desktop a {
@@ -393,13 +389,9 @@
     font-size: 0.9rem;
     gap: 0.3rem;
   }
-  
-  .nav-desktop a i {
-    font-size: 0.85rem;
-  }
 }
 
-/* Tablets pequeñas y móviles grandes (640px - 768px) */
+/* Móviles - Ocultar navegación desktop, mostrar hamburguesa */
 @media (max-width: 768px) {
   :root {
     --header-height: var(--header-height-mobile);
@@ -411,8 +403,6 @@
   
   .menu-toggle {
     display: flex;
-    align-items: center;
-    justify-content: center;
   }
   
   .header .container {
@@ -420,127 +410,32 @@
     min-height: var(--header-height-mobile);
   }
   
-  .logo {
-    gap: 0.8rem;
-  }
-  
   .logo-img {
     height: var(--logo-size-mobile);
-    width: auto;
   }
   
   .logo h1 {
-    font-size: clamp(1rem, 2vw, 1.6rem); /* Tamaño adaptativo para móviles */
-  }
-  
-  /* Ajustes específicos para el menú móvil */
-  .nav-mobile {
-    max-height: 400px;
-  }
-  
-  .nav-mobile.active {
-    max-height: 400px;
-  }
-  
-  .nav-mobile-link {
-    padding: 1rem 1.5rem;
-    font-size: 1rem;
+    font-size: clamp(1rem, 2vw, 1.6rem);
   }
 }
 
-/* Móviles medianos (480px - 640px) */
-@media (max-width: 640px) {
-  .header .container {
-    padding: 0.5rem 0.8rem;
-  }
-  
-  .logo {
-    gap: 0.7rem;
-  }
-  
-  .logo h1 {
-    font-size: clamp(0.9rem, 1.8vw, 1.4rem); /* Tamaño adaptativo para móviles medianos */
-  }
-  
-  .menu-toggle {
-    width: 42px;
-    height: 42px;
-  }
-  
-  .menu-toggle span {
-    width: 20px;
-  }
-}
-
-/* Móviles pequeños (320px - 480px) */
 @media (max-width: 480px) {
   .header .container {
     padding: 0.4rem 0.6rem;
   }
   
-  .logo {
-    gap: 0.5rem;
-  }
-  
-  .logo-img {
-    height: 35px;
-    width: auto;
-  }
-  
   .logo h1 {
-    font-size: clamp(0.8rem, 1.6vw, 1.2rem); /* Tamaño adaptativo para móviles pequeños */
-    line-height: 1.1;
+    font-size: clamp(0.8rem, 1.6vw, 1.2rem);
   }
   
   .menu-toggle {
     width: 40px;
     height: 40px;
-    padding: 0.6rem;
-  }
-  
-  .menu-toggle span {
-    width: 18px;
-    height: 1.5px;
-    margin: 3px auto;
   }
   
   .nav-mobile-link {
     padding: 0.8rem 1rem;
     font-size: 0.95rem;
-  }
-  
-  .nav-mobile-link i {
-    font-size: 1.1rem;
-  }
-}
-
-/* Móviles muy pequeños (menos de 320px) */
-@media (max-width: 320px) {
-  .header .container {
-    padding: 0.3rem 0.5rem;
-  }
-  
-  .logo {
-    gap: 0.4rem;
-  }
-  
-  .logo-img {
-    height: 32px;
-    width: auto;
-  }
-  
-  .logo h1 {
-    font-size: clamp(0.7rem, 1.4vw, 1rem); /* Tamaño adaptativo para móviles muy pequeños */
-  }
-  
-  .menu-toggle {
-    width: 38px;
-    height: 38px;
-  }
-  
-  .nav-mobile-link {
-    padding: 0.7rem 0.8rem;
-    font-size: 0.9rem;
   }
 }
 
@@ -549,12 +444,8 @@
    =========================== */
 @media (prefers-reduced-motion: reduce) {
   .header,
-  .logo-img,
-  .logo h1,
   .nav-desktop a,
-  .nav-desktop a::before,
   .menu-toggle,
-  .menu-toggle span,
   .nav-mobile,
   .nav-mobile-link {
     transition: none;
@@ -576,27 +467,5 @@
   .nav-mobile-link {
     color: #000;
     border-bottom: 1px solid #ccc;
-  }
-}
-
-/* ===========================
-   ESTADOS DE HOVER MEJORADOS
-   =========================== */
-@media (hover: hover) {
-  .nav-desktop a:hover {
-    background: linear-gradient(135deg, #8B4513, #D2691E);
-  }
-  
-  .menu-toggle:hover {
-    background: linear-gradient(135deg, #D2691E, #8B4513);
-  }
-}
-
-/* Sin hover para dispositivos táctiles */
-@media (hover: none) {
-  .nav-desktop a:hover,
-  .menu-toggle:hover,
-  .nav-mobile-link:hover {
-    transform: none;
   }
 }

@@ -5,7 +5,7 @@
 /* Import all component stylesheets */
 @import url('variables.css');
 @import url('base.css');
-@import url('header.css');
+/* @import url('header.css'); */ /* Comentado para evitar conflictos */
 @import url('buttons.css');
 @import url('components.css');
 @import url('animations.css');

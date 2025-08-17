@@ -59,18 +59,20 @@
     display: none;
   }
 
-  /* Menú móvil ultra-compacto */
+  /* Menú móvil con fondo oscuro mejorado */
   .nav-mobile {
     position: fixed;
     top: 0;
     left: -100%;
-    width: 200px;
+    width: 250px;
     height: 100vh;
-    background: var(--color-cream);
+    background: linear-gradient(135deg, rgba(44, 62, 80, 0.96), rgba(52, 73, 94, 0.96));
+    backdrop-filter: blur(20px);
     z-index: 1000;
     transition: left 0.3s ease;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3);
     overflow-y: auto;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .nav-mobile.active {
@@ -99,49 +101,56 @@
     margin: 0;
   }
 
-  /* Enlaces ultra-compactos */
+  /* Enlaces con mejor contraste */
   .nav-mobile-link {
     display: flex;
     align-items: center;
-    padding: 8px 10px;
+    padding: 12px 15px;
     text-decoration: none;
-    color: var(--color-text);
-    border-radius: 4px;
-    margin-bottom: 1px;
+    color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    margin: 2px 8px;
     transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .nav-mobile-link:hover {
-    background: var(--color-primary-light);
-    color: var(--color-primary);
-    transform: translateX(2px);
+    background: linear-gradient(135deg, #b8860b, #daa520);
+    color: white;
+    transform: translateX(5px);
+    border-bottom-color: #ffd700;
   }
 
   .nav-mobile-link i {
-    margin-right: 8px;
-    width: 14px;
+    margin-right: 10px;
+    width: 18px;
     text-align: center;
-    color: var(--color-primary);
-    font-size: 13px;
+    color: #ffd700;
+    font-size: 14px;
   }
 
   .nav-mobile-link span {
     font-weight: 500;
-    font-size: 12px;
+    font-size: 13px;
   }
 
-  /* Overlay para cerrar el menú */
+  .nav-mobile-link:hover i {
+    color: white;
+  }
+
+  /* Overlay mejorado para cerrar el menú */
   .nav-mobile-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
     z-index: 999;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
+    backdrop-filter: blur(3px);
   }
 
   .nav-mobile-overlay.active {

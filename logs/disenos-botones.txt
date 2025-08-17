@@ -1,0 +1,87 @@
+DISEÑOS DE BOTONES DISPONIBLES
+==============================
+Fecha: 17 de Agosto de 2025
+
+🎨 OPCIONES DE DISEÑO CREADAS:
+
+1. 🌟 DISEÑO PREMIUM (enlaces-premium.css) - ACTUALMENTE ACTIVO
+   ════════════════════════════════════════════════════════════
+   • Efectos glassmorphism con transparencias
+   • Animaciones doradas brillantes 
+   • Borders animados con degradados
+   • Iconos 3D con sombras premium
+   • Efectos de hover sofisticados
+   • Partículas doradas deslizantes
+   • Backdrop blur avanzado
+   
+   Características técnicas:
+   - Transiciones suaves de 0.5s
+   - Transformaciones 3D
+   - Animaciones CSS keyframes
+   - Box-shadows multicapa
+   - Gradientes complejos
+
+2. 🎯 DISEÑO MINIMALISTA (enlaces-minimal.css)
+   ═══════════════════════════════════════════
+   • Estilo limpio y profesional
+   • Bordes dorados sutiles
+   • Efectos de hover minimalistas
+   • Iconos circulares simples
+   • Transiciones suaves
+   • Sombras sutiles
+   
+   Características técnicas:
+   - Colores neutros predominantes
+   - Efectos de desplazamiento horizontal
+   - Bordes izquierdos destacados
+   - Tipografía elegante
+
+3. 📦 DISEÑO ORIGINAL (noticias-new.css)
+   ════════════════════════════════════════
+   • Tarjetas modernas con bordes redondeados
+   • Efectos de brillo estándar
+   • Iconos con gradientes
+   • Sombras moderadas
+   • Grid responsive
+   
+   Características técnicas:
+   - Diseño de tarjetas clásico
+   - Efectos hover estándar
+   - Responsive grid layout
+
+🔧 CÓMO CAMBIAR DISEÑOS:
+
+Opción 1 - Usando el script automático:
+cd "c:\Users\Andres\Desktop\prueba\tools"
+.\cambiar-diseno.ps1 -Diseno premium
+.\cambiar-diseno.ps1 -Diseno minimal  
+.\cambiar-diseno.ps1 -Diseno original
+
+Opción 2 - Manual (editar index.html línea ~65):
+<!-- Cambiar esta línea: -->
+<link rel="stylesheet" href="assets/css/enlaces-premium.css"/>
+
+<!-- Por una de estas opciones: -->
+<link rel="stylesheet" href="assets/css/enlaces-minimal.css"/>
+<link rel="stylesheet" href="assets/css/noticias-new.css"/>
+
+🎨 RECOMENDACIONES DE USO:
+
+• PREMIUM: Para sitios que buscan impacto visual máximo
+• MINIMAL: Para sitios profesionales y corporativos  
+• ORIGINAL: Para un balance entre moderno y funcional
+
+📱 RESPONSIVE DESIGN:
+Todos los diseños incluyen:
+• Adaptación automática a móviles
+• Breakpoints en 768px y 480px
+• Optimización de tamaños para pantallas pequeñas
+• Mantienen funcionalidad en todos los dispositivos
+
+🔍 ESTADO ACTUAL:
+✅ Diseño activo: PREMIUM
+✅ Todos los archivos CSS creados
+✅ Script de cambio automático listo
+✅ Responsive design verificado
+
+Para cambiar el diseño, usa el script en tools/cambiar-diseno.ps1

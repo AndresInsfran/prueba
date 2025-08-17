@@ -1,0 +1,75 @@
+MEJORAS DEL MENÚ MÓVIL - FONDO OSCURO
+========================================
+Fecha: 17 de Agosto de 2025
+
+🎨 CAMBIOS REALIZADOS:
+
+1. ✅ FONDO DEL MENÚ MÓVIL:
+   • Cambiado de color claro a fondo oscuro elegante
+   • Gradiente: rgba(44, 62, 80, 0.97) → rgba(52, 73, 94, 0.97)
+   • Backdrop blur mejorado a 20px
+   • Border sutil con transparencia blanca
+
+2. ✅ TEXTO Y ENLACES:
+   • Color de texto: blanco/rgba(255, 255, 255, 0.95)
+   • Mejor contraste para legibilidad
+   • Text-shadow para mayor definición
+   • Separadores sutiles entre enlaces
+
+3. ✅ ICONOS:
+   • Color dorado (#ffd700) para los iconos
+   • Mantiene la identidad visual del sitio
+   • Cambian a blanco en hover
+
+4. ✅ EFECTOS HOVER:
+   • Fondo dorado en hover: linear-gradient(#b8860b, #daa520)
+   • Animaciones suaves y profesionales
+   • Bordes dorados en hover
+   • Transformación translateX para feedback visual
+
+5. ✅ OVERLAY:
+   • Fondo más oscuro: rgba(0, 0, 0, 0.7)
+   • Backdrop blur mejorado a 5px
+   • Mejor separación visual
+
+📁 ARCHIVOS MODIFICADOS:
+• assets/css/header-responsive.css - Estilos principales del menú
+• assets/css/mobile-menu-simple.css - Estilos del menú lateral
+• assets/css/menu-mobile-oscuro.css - Estilos forzados (NUEVO)
+• index.html - Agregada referencia al nuevo CSS
+
+🎯 CARACTERÍSTICAS TÉCNICAS:
+
+ANTES:
+- Fondo claro (crema/blanco)
+- Texto oscuro difícil de leer
+- Poco contraste
+- Overlay suave
+
+DESPUÉS:
+- Fondo oscuro elegante con gradiente
+- Texto blanco con excelente contraste
+- Iconos dorados para identidad visual
+- Efectos hover profesionales
+- Overlay más definido
+
+📱 RESPONSIVE:
+• Todos los cambios se aplican solo en móviles (max-width: 768px)
+• No afecta el diseño desktop
+• Mantiene funcionalidad completa
+• Optimizado para touch devices
+
+🔧 COMPATIBILIDAD:
+• CSS con !important para forzar estilos
+• Fallbacks para navegadores antiguos
+• Transiciones suaves
+• Efectos de blur para modernidad
+
+✅ RESULTADO FINAL:
+Menú móvil con excelente visibilidad, fondo oscuro elegante,
+texto blanco legible e iconos dorados que mantienen la 
+identidad visual del santuario.
+
+🌐 Para verificar los cambios:
+Abre el sitio en modo móvil o redimensiona la ventana del navegador
+para activar el menú hamburguesa.

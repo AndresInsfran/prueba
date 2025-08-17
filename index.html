@@ -39,8 +39,8 @@
   <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.css' rel='stylesheet' />
   
   <link rel="stylesheet" href="assets/css/main.css"/>
-  <!-- Estilos específicos para header responsive -->
-  <link rel="stylesheet" href="assets/css/header-responsive.css"/>
+  <!-- Estilos específicos para header consolidado -->
+  <link rel="stylesheet" href="assets/css/header-fixed.css"/>
   <!-- Estilos específicos para botones de galería -->
   <link rel="stylesheet" href="assets/css/gallery-buttons.css"/>
   <!-- Estilos específicos para evangelio del día -->
@@ -62,10 +62,12 @@
   <!-- Estilos específicos para comentarios simples -->
   <link rel="stylesheet" href="assets/css/comentarios-simple.css"/>
   <!-- Estilos específicos para optimizaciones móviles -->
-  <link rel="stylesheet" href="assets/css/mobile-optimizations.css"/>
-  <link rel="stylesheet" href="assets/css/mobile-menu-simple.css"/>
-  <!-- Estilos específicos para noticias -->
-  <link rel="stylesheet" href="assets/css/noticias.css"/>
+  <!-- <link rel="stylesheet" href="assets/css/mobile-optimizations.css"/> -->
+  <!-- <link rel="stylesheet" href="assets/css/mobile-menu-simple.css"/> -->
+  <!-- Estilos específicos para menú móvil oscuro -->
+  <!-- <link rel="stylesheet" href="assets/css/menu-mobile-oscuro.css"/> -->
+  <!-- Estilos específicos para enlaces de interés -->
+  <link rel="stylesheet" href="assets/css/enlaces-tarjeta-simple.css"/>
   <!-- Estilos específicos para Google Calendar API -->
   <link rel="stylesheet" href="assets/css/google-calendar-api.css"/>
   <!-- Estilos específicos para lightbox corregido -->
@@ -132,8 +134,8 @@
           <span>Calendario</span>
         </a>
         <a href="#noticias">
-          <i class="fas fa-newspaper"></i>
-          <span>Noticias</span>
+          <i class="fas fa-link"></i>
+          <span>Enlaces</span>
         </a>
        
         <a href="#encuentranos">
@@ -151,10 +153,6 @@
         <div class="nav-mobile-content">
           <!-- Header del menú móvil -->
           <div class="nav-mobile-header">
-            <h3 class="nav-mobile-title">Santuario Diocesano</h3>
-            <p class="nav-mobile-subtitle">Navegación</p>
-          </div>
-          
           <a href="#inicio" class="nav-mobile-link">
             <i class="fas fa-home"></i>
             <span>Inicio</span>
@@ -168,8 +166,8 @@
             <span>Calendario</span>
           </a>
           <a href="#noticias" class="nav-mobile-link">
-            <i class="fas fa-newspaper"></i>
-            <span>Noticias</span>
+            <i class="fas fa-link"></i>
+            <span>Enlaces</span>
           </a>
           <a href="#encuentranos" class="nav-mobile-link">
             <i class="fas fa-map-marker-alt"></i>
@@ -492,67 +490,55 @@ Desde entonces, el santuario se convirtió en un importante centro de peregrinac
   </section>
 
   <!-- ===========================
-       NOTICIAS CATÓLICAS
+       ENLACES DE INTERÉS
        =========================== -->
   <section id="noticias" class="section fade-in">
     <div class="noticias-header">
-      <h2>Noticias de la Iglesia</h2>
-      <p class="noticias-descripcion">Mantente informado con las últimas noticias del Arzobispado y la Conferencia Episcopal Paraguaya</p>
+      <h2>Enlaces de Interés</h2>
+      <p class="noticias-descripcion">Accede a los sitios oficiales de la Iglesia Católica</p>
     </div>
     
-    <div class="noticias-sources">
-      <div class="source-tab active" data-source="arzobispado">
-        <i class="fas fa-church"></i>
-        <span>Arzobispado de Asunción</span>
-      </div>
-      <div class="source-tab" data-source="episcopal">
-        <i class="fas fa-cross"></i>
-        <span>Conferencia Episcopal</span>
-      </div>
-    </div>
-    
-    <div class="noticias-container">
-      <!-- Loading indicator -->
-      <div id="noticias-loading" class="loading-indicator">
-        <div class="loading-spinner"></div>
-        <p>Cargando noticias...</p>
-      </div>
-      
-      <!-- Noticias del Arzobispado -->
-      <div id="noticias-arzobispado" class="noticias-grid active">
-        <!-- Las noticias se cargarán dinámicamente aquí -->
-      </div>
-      
-      <!-- Noticias de la Conferencia Episcopal -->
-      <div id="noticias-episcopal" class="noticias-grid">
-        <!-- Las noticias se cargarán dinámicamente aquí -->
-      </div>
-      
-      <!-- Error message -->
-      <div id="noticias-error" class="error-message" style="display: none;">
-        <i class="fas fa-exclamation-triangle"></i>
-        <h3>No se pudieron cargar las noticias</h3>
-        <p>Por el momento no podemos acceder a las noticias. Te invitamos a visitar directamente:</p>
-        <div class="error-links">
-          <a href="https://arzobispado.org.py/" target="_blank" class="btn-error">
+    <div class="enlaces-container">
+      <div class="enlaces-grid">
+        <a href="https://arzobispado.org.py/" target="_blank" rel="noopener" class="enlace-oficial">
+          <div class="enlace-icono">
+            <i class="fas fa-church"></i>
+          </div>
+          <div class="enlace-contenido">
+            <h3>Arzobispado de Asunción</h3>
+            <p>Sitio oficial del Arzobispado de Asunción, Paraguay</p>
+          </div>
+          <div class="enlace-arrow">
             <i class="fas fa-external-link-alt"></i>
-            Arzobispado de Asunción
-          </a>
-          <a href="https://episcopal.org.py/" target="_blank" class="btn-error">
+          </div>
+        </a>
+        
+        <a href="https://episcopal.org.py/" target="_blank" rel="noopener" class="enlace-oficial">
+          <div class="enlace-icono">
+            <i class="fas fa-cross"></i>
+          </div>
+          <div class="enlace-contenido">
+            <h3>Conferencia Episcopal Paraguaya</h3>
+            <p>Sitio oficial de la Conferencia Episcopal del Paraguay</p>
+          </div>
+          <div class="enlace-arrow">
             <i class="fas fa-external-link-alt"></i>
-            Conferencia Episcopal
-          </a>
-        </div>
+          </div>
+        </a>
+        
+        <a href="https://www.vatican.va/content/vatican/es.html" target="_blank" rel="noopener" class="enlace-oficial">
+          <div class="enlace-icono">
+            <i class="fas fa-dove"></i>
+          </div>
+          <div class="enlace-contenido">
+            <h3>Santa Sede</h3>
+            <p>Sitio oficial del Vaticano y la Santa Sede</p>
+          </div>
+          <div class="enlace-arrow">
+            <i class="fas fa-external-link-alt"></i>
+          </div>
+        </a>
       </div>
-    </div>
-    
-    <div class="noticias-footer">
-      <p>
-        <i class="fas fa-info-circle"></i>
-        Para más noticias, visita los sitios oficiales del 
-        <a href="https://arzobispado.org.py/" target="_blank">Arzobispado de Asunción</a> 
-        y la <a href="https://episcopal.org.py/" target="_blank">Conferencia Episcopal Paraguaya</a>
-      </p>
     </div>
   </section>
 
@@ -733,7 +719,7 @@ Desde entonces, el santuario se convirtió en un importante centro de peregrinac
                   <p>El padre <strong>Domingo Pezzini</strong>, sacerdote italiano profundamente devoto de la Virgen del Perpetuo Socorro, impulsó la creación del santuario con el apoyo de la familia Ferraro y la comunidad. En 1917 se colocó la primera piedra y en 1918 se oficializó la fundación con el respaldo del Papa Benedicto XV.</p>
                 </div>
                 <div class="timeline-image">
-                  <img src="assets/images/historia/Historia 1.jpg" alt="Inicios del santuario" onclick="abrirImagenCompleta(this)">
+                  <img src="assets/images/historia/Historia 1.png" alt="Inicios del santuario" onclick="abrirImagenCompleta(this)">
                 </div>
               </div>
             </div>
@@ -749,7 +735,7 @@ Desde entonces, el santuario se convirtió en un importante centro de peregrinac
                   <p>Durante estas décadas, el santuario experimentó un crecimiento significativo. La construcción del templo principal se completó gradualmente, convirtiéndose en un <strong>importante centro de peregrinación</strong>, especialmente durante las festividades de junio que reunían a miles de fieles de todo el país.</p>
                 </div>
                 <div class="timeline-image">
-                  <img src="assets/images/historia/Historia 2.jpg" alt="Construcción del templo" onclick="abrirImagenCompleta(this)">
+                  <img src="assets/images/historia/Historia 2.png" alt="Construcción del templo" onclick="abrirImagenCompleta(this)">
                 </div>
               </div>
             </div>
@@ -765,7 +751,7 @@ Desde entonces, el santuario se convirtió en un importante centro de peregrinac
                   <p>El padre Pezzini no solo se dedicó a la labor religiosa, sino que también promovió <strong>obras de caridad y apoyo social</strong>. El santuario se convirtió en un punto de referencia para la comunidad, recibiendo valiosas ofrendas en agradecimiento a los favores recibidos.</p>
                 </div>
                 <div class="timeline-image">
-                  <img src="assets/images/historia/Historia 3.jpg" alt="Obras sociales" onclick="abrirImagenCompleta(this)">
+                  <img src="assets/images/historia/Historia 3.png" alt="Obras sociales" onclick="abrirImagenCompleta(this)">
                 </div>
               </div>
             </div>
@@ -896,7 +882,7 @@ Desde entonces, el santuario se convirtió en un importante centro de peregrinac
   <script src="assets/js/comentarios-simple.js"></script>
   <script src="assets/js/evangelio.js"></script>
   <script src="assets/js/calendario-simple.js"></script>
-  <script src="assets/js/noticias.js"></script>
+  <!-- <script src="assets/js/noticias.js"></script> -->
   <script src="assets/js/mobile-menu-nuevo.js"></script>
   <script src="assets/js/whatsapp-float.js"></script>
   <!-- Script de debugging y verificación -->
